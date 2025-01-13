@@ -54,7 +54,7 @@ const About1 = ({
           </div>
           <div className={styles.btns} style={btnsStyle}>
             <div className={styles.btnDiscover}>
-              <a href="/conatct" className={styles.noUnderline} style={{ color: "white" }}>
+              <a href="/contact" className={styles.noUnderline} style={{ color: "white" }}>
               <div className={styles.discoverMore}>{discoverMore}</div>
               </a>
             </div>
