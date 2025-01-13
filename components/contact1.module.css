@@ -1,0 +1,219 @@
+.loremIpsumDolor,
+.mediumLengthHero {
+  align-self: stretch;
+  position: relative;
+}
+.loremIpsumDolor {
+  line-height: 150%;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.mediumLengthHero {
+  margin: 0;
+  font-size: var(--h2-48-size);
+  line-height: 120%;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text-primary);
+}
+.heading {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  font-size: var(--p3-16-size);
+  color: var(--color-gray-100);
+}
+.firstName {
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  min-width: 76px;
+}
+.formFields,
+.name {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.name {
+  flex: 1;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--color-gray-500);
+  box-sizing: border-box;
+  overflow: hidden;
+  align-items: center;
+  padding: var(--padding-smi) var(--padding-base);
+  min-width: 193px;
+}
+.name input {
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+.name5 textarea {
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.formFields {
+  align-self: stretch;
+  align-items: flex-start;
+  gap: var(--gap-base);
+}
+.email,
+.serviceMode {
+  position: relative;
+  line-height: 150%;
+}
+.serviceMode {
+  flex: 1;
+  display: inline-block;
+  max-width: calc(100% - 32px);
+}
+.icon {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.name4,
+.name5 {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--color-gray-500);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.name4 {
+  align-items: center;
+  padding: var(--padding-smi) var(--padding-smi) var(--padding-smi)
+    var(--padding-base);
+  gap: var(--gap-xs);
+  max-width: 100%;
+  color: var(--text-primary);
+}
+.name5 {
+  height: 100px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  padding: var(--padding-base);
+}
+.submitNow {
+  flex: 1;
+  position: relative;
+  line-height: 150%;
+  cursor: pointer;
+}
+.btnSubmit {
+  flex: 1;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-gray-100);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xs) var(--padding-4xl);
+}
+.btns,
+.form {
+  display: flex;
+  justify-content: flex-start;
+}
+.btns {
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  font-size: var(--p3-16-size);
+  color: var(--color-white);
+}
+.form {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5xl);
+  min-width: 610px;
+  max-width: 100%;
+}
+.placeholderImageIcon {
+  height: 640px;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-5xl);
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  min-width: 417px;
+}
+.contact,
+.content {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.content {
+  flex-direction: row;
+  gap: var(--gap-41xl);
+}
+.contact {
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  padding: var(--padding-41xl) var(--padding-45xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--p4-14-size);
+  color: var(--color-gray-400);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 1200px) {
+  .form {
+    flex: 1;
+  }
+  .content {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .mediumLengthHero {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+  .form {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .formFields {
+    flex-wrap: wrap;
+  }
+  .placeholderImageIcon {
+    min-width: 100%;
+  }
+  .content {
+    gap: var(--gap-11xl);
+  }
+  .contact {
+    gap: var(--gap-base);
+    padding: var(--padding-20xl) var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .mediumLengthHero {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+}

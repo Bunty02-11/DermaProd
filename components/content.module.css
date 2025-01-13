@@ -1,0 +1,46 @@
+.doctor1Icon {
+  height: 80px;
+  width: 80px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.mediumLengthSection {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+  font-weight: 500;
+}
+.loremIpsumDolor {
+  position: relative;
+  font-size: var(--p3-16-size);
+  line-height: 150%;
+}
+.content,
+.content1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  min-width: 171px;
+}
+.content {
+  flex-direction: row;
+  min-width: 233px;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--p1-20-size);
+  color: var(--color-white);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 450px) {
+  .mediumLengthSection {
+    font-size: var(--p3-16-size);
+    line-height: 24px;
+  }
+  .content {
+    flex-wrap: wrap;
+  }
+}

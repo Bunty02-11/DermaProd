@@ -1,0 +1,121 @@
+.carousel-inner {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.carousel-item {
+  height: 100vh; /* Ensure the height is fixed to 100% of the viewport */
+}
+
+.carousel-item img {
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+  width: 100%; /* Ensures the image takes the full width */
+  height: 100%; /* Ensures the image fills the height of the container */
+}
+.image {
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Keeps the background image centered */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0; /* Removes any default margin */
+  padding: 100px; /* Removes any default padding */
+  overflow: hidden; /* Ensures no overflow outside the container */
+}
+/* Add this class to remove underline from links */
+.noUnderline {
+  text-decoration: none;
+}
+.text {
+  /* width: 100%; */
+  /* height: 100%; */
+  background-position: center;
+  /* background-size: cover;  */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: #000000; /* Text color */
+  position: relative; /* So the content can be positioned properly */
+}
+
+.content {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  z-index: 1; /* Ensures the content stays above the background */
+}
+
+.text1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.loremIpsumDolor {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.mediumLengthHero {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 100%;
+}
+
+.filter {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.loremIpsumDolor1 {
+  position: relative;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.btnBook {
+  padding: 12px 30px;
+  background-color: var(--color-gray-100);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bookAppointment {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .mediumLengthHero {
+    font-size: 2rem; /* Smaller font size on mobile */
+  }
+
+  .filter {
+    max-width: 100%;
+  }
+
+  .content {
+    padding: 0 10px;
+  }
+
+  .btns {
+    justify-content: center;
+  }
+}

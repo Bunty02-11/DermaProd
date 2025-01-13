@@ -1,0 +1,35 @@
+.navMob {
+  display: none;
+}
+
+.navLInk {
+  font-size: 20px;
+}
+.navLInk > * {
+  border: 0 !important;
+  outline: 0;
+}
+.navLInk .dropdown-menu {
+  border: 0 !important;
+}
+
+.navLInkt > * {
+  border: 0 !important;
+}
+.navLInkt .dropdown-menu {
+  border: 0 !important;
+}
+
+.subNav {
+  font-size: 18px;
+}
+@media screen and (max-width: 480px) {
+  .navMob {
+    top: 0;
+    display: block;
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    z-index: 555555;
+  }
+}

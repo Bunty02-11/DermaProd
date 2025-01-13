@@ -1,0 +1,19 @@
+.placeholder {
+  flex: 1;
+  position: relative;
+  line-height: 150%;
+}
+.textInput {
+  flex: 1;
+  border-radius: var(--br-xs);
+  border: 1px solid var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs);
+  text-align: left;
+  font-size: var(--p4-14-size);
+  color: var(--color-white);
+  font-family: var(--h2-48);
+}

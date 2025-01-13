@@ -1,0 +1,63 @@
+.placeholderImageIcon {
+  width: 258px;
+  height: 260px;
+  position: relative;
+  border-radius: var(--br-base);
+  object-fit: cover;
+}
+.name {
+  position: relative;
+  line-height: 140%;
+  font-weight: 500;
+}
+.jobTitle,
+.name,
+.title {
+  align-self: stretch;
+}
+.jobTitle {
+  position: relative;
+  font-size: var(--p4-14-size);
+  line-height: 150%;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.text {
+  position: relative;
+  font-size: var(--p3-16-size);
+  line-height: 150%;
+  font-family: var(--text-medium-normal);
+  text-align: left;
+  display: none;
+}
+.card,
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.content {
+  align-self: stretch;
+  align-items: center;
+  gap: var(--gap-base);
+}
+.card {
+  align-items: flex-start;
+  padding: var(--padding-base);
+  gap: var(--gap-5xl);
+  text-align: center;
+  font-size: var(--p1-20-size);
+  color: var(--text-primary);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 450px) {
+  .name {
+    font-size: var(--p3-16-size);
+    line-height: 22px;
+  }
+}

@@ -1,0 +1,244 @@
+.maskGroupIcon {
+  height: 48px;
+  width: 270px;
+  position: relative;
+  object-fit: cover;
+}
+.concerns,
+.quickLinks {
+  position: relative;
+  line-height: 150%;
+}
+.quickLinks {
+  align-self: stretch;
+  font-weight: 600;
+}
+.concerns {
+  flex: 1;
+}
+.footerLinks,
+.link {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.link {
+  flex-direction: row;
+  padding: var(--padding-5xs) 0;
+}
+.footerLinks {
+  flex-direction: column;
+  font-size: var(--p4-14-size);
+}
+.column,
+.link4 {
+  width: 100px;
+  justify-content: flex-start;
+}
+.column {
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--gap-base);
+}
+.link4 {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: var(--padding-5xs) 0;
+  box-sizing: border-box;
+}
+.faqs {
+  height: 21px;
+  width: 100px;
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.column2 {
+  width: 160px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.links {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.joinOurNewsletter {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--p4-14-size);
+  line-height: 150%;
+  color: #fff;
+}
+.form,
+.subscribeParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.form {
+  flex-direction: row;
+}
+.bySubscribingYou {
+  font-family: var(--h2-48);
+}
+.span {
+  font-family: var(--text-medium-normal);
+}
+.privacyPolicy {
+  text-decoration: underline;
+}
+.bySubscribingYouContainer {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+  color: #fff;
+}
+.actions {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-base);
+  font-size: var(--p5-12-size);
+  color: var(--text-primary);
+}
+.actions,
+.content,
+.newslatter {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.newslatter {
+  width: 500px;
+  flex-direction: column;
+  gap: var(--gap-5xl);
+}
+.content {
+  align-self: stretch;
+  height: 248px;
+  flex-direction: row;
+  gap: var(--gap-41xl);
+}
+.divider {
+  align-self: stretch;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-white);
+  box-sizing: border-box;
+  height: 1px;
+}
+.designedManaged {
+  position: relative;
+  line-height: 150%;
+}
+.credits1,
+.footerLinks3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+}
+.credits1 {
+  align-items: center;
+}
+.symbolsvgIcon,
+.symbolsvgIcon1 {
+  height: 24px;
+  width: 21px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.symbolsvgIcon1 {
+  height: 16.9px;
+  width: 24px;
+}
+.path14Icon {
+  height: 18px;
+  width: 18px;
+  position: relative;
+}
+.fb {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-10xs);
+}
+.vectorIcon {
+  width: 18.7px;
+  height: 16px;
+  position: relative;
+}
+.social,
+.x {
+  display: flex;
+  justify-content: flex-start;
+}
+.x {
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-9xs);
+}
+.social {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-base);
+}
+.credits,
+.footer,
+.row {
+  display: flex;
+  align-items: flex-start;
+}
+.row {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.credits,
+.footer {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.credits {
+  align-self: stretch;
+  gap: var(--gap-5xl);
+}
+.footer {
+  width: 100%;
+  background-color: var(--color-gray-100);
+  overflow: hidden;
+  padding: var(--padding-41xl) var(--padding-61xl);
+  box-sizing: border-box;
+  gap: var(--gap-41xl);
+  text-align: left;
+  font-size: var(--p3-16-size);
+  color: var(--color-white);
+  font-family: var(--h2-48);
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    display: none;
+  }
+}

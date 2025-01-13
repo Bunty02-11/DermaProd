@@ -1,0 +1,55 @@
+.exploreIcon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: var(--br-31xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.perfumes {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  line-height: 140%;
+  font-weight: 600;
+  font-family: inherit;
+}
+.perfumes1 {
+  position: relative;
+  font-size: var(--p3-16-size);
+  line-height: 150%;
+}
+.exploreItems,
+.perfumeCards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.perfumeCards {
+  align-self: stretch;
+  gap: var(--gap-base);
+}
+.exploreItems {
+  flex: 1;
+  border-radius: var(--br-base);
+  border: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: var(--padding-19xl) var(--padding-4xl);
+  gap: var(--gap-5xl);
+  min-width: 274px;
+  max-width: 302px;
+  text-align: left;
+  font-size: var(--h5-24-size);
+  color: var(--text-primary);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 450px) {
+  .perfumes {
+    font-size: var(--font-size-lgi);
+    line-height: 27px;
+  }
+}

@@ -1,0 +1,86 @@
+.loremIpsumDolor,
+.mediumLengthHero {
+  align-self: stretch;
+  position: relative;
+}
+.loremIpsumDolor {
+  line-height: 150%;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.mediumLengthHero {
+  font-size: var(--h2-48-size);
+  line-height: 120%;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.content,
+.heading,
+.row,
+.services {
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.heading {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-base);
+}
+.content,
+.row,
+.services {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gap-21xl);
+  max-width: 100%;
+}
+.content,
+.services {
+  flex-direction: column;
+  align-items: center;
+}
+.services {
+  background-color: var(--color-white);
+  overflow: hidden;
+  padding: var(--padding-41xl) var(--padding-61xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--p3-16-size);
+  color: var(--color-gray-100);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 1200px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  .services {
+    padding-top: var(--padding-20xl);
+    padding-bottom: var(--padding-20xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .mediumLengthHero {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .content,
+  .row,
+  .services {
+    gap: var(--gap-xl);
+  }
+  .services {
+    padding: var(--padding-6xl) var(--padding-21xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .mediumLengthHero {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+}

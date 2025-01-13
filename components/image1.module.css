@@ -1,0 +1,96 @@
+.placeholderImageIcon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-base);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.image1 {
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.perfumes,
+.perfumes1 {
+  align-self: stretch;
+  position: relative;
+}
+.perfumes {
+  margin: 0;
+  font-size: inherit;
+  line-height: 140%;
+  font-weight: 600;
+  font-family: inherit;
+}
+.perfumes1 {
+  line-height: 150%;
+  font-weight: 500;
+}
+.categoryList,
+.categoryName {
+  align-self: stretch;
+  flex-direction: column;
+}
+.categoryList {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  font-size: var(--p1-20-size);
+}
+.categoryName {
+  gap: var(--gap-5xl);
+}
+.cat,
+.categoryName,
+.image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cat {
+  flex: 1;
+  border-radius: var(--br-base);
+  border: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-direction: column;
+  padding: var(--padding-19xl) var(--padding-4xl);
+  min-width: 205px;
+}
+.image {
+  align-self: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--gap-21xl);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--h5-24-size);
+  color: var(--text-primary);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 800px) {
+  .image {
+    gap: var(--gap-xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .image1 {
+    gap: var(--gap-xl);
+  }
+  .perfumes {
+    font-size: var(--font-size-lgi);
+    line-height: 27px;
+  }
+  .perfumes1 {
+    font-size: var(--p3-16-size);
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,259 @@
+.logo1Icon {
+  height: 48px;
+  width: 270px;
+  position: relative;
+  object-fit: cover;
+}
+.concerns,
+.iconamoonarrowUp2Light {
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+.concerns {
+  width: 79px;
+  line-height: 150%;
+  display: inline-block;
+}
+.iconamoonarrowUp2Light {
+  width: 24px;
+  overflow: hidden;
+  object-fit: contain;
+}
+.menuItems {
+  height: 36px;
+  width: 126px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-xs);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.services {
+  height: 24px;
+  width: 68px;
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.menuItems1 {
+  height: 36px;
+  width: 115px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-xs);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.company {
+  height: 24px;
+  width: 81px;
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.menu,
+.menuItems3 {
+  height: 36px;
+  width: 128px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-xs);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.menu {
+  width: 614px;
+  padding: 0 var(--padding-46xl);
+}
+.iconsChild,
+.searchIcon {
+  height: 44px;
+  width: 44px;
+  position: relative;
+}
+.iconsChild {
+  height: 25px;
+  width: 1px;
+  border-right: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+}
+.en,
+.iconamoonarrowUp2Light4 {
+  position: relative;
+  flex-shrink: 0;
+}
+.en {
+  height: 24px;
+  width: 21px;
+  line-height: 150%;
+  display: inline-block;
+}
+.iconamoonarrowUp2Light4 {
+  height: 18px;
+  width: 18px;
+  overflow: hidden;
+  object-fit: contain;
+}
+.icons,
+.language {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.language {
+  height: 36px;
+  width: 66px;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-xs);
+  box-sizing: border-box;
+  gap: var(--gap-9xs);
+}
+.icons {
+  height: 44px;
+  width: 126px;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.bookAnAppointment {
+  height: 24px;
+  width: 175px;
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.btnBook,
+.content,
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+.btnBook {
+  height: 48px;
+  width: 222px;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xs) var(--padding-5xl);
+  box-sizing: border-box;
+  color: var(--color-gray-100);
+}
+.content,
+.nav {
+  justify-content: flex-start;
+}
+.content {
+  height: 48px;
+  width: 1280px;
+  align-items: center;
+  gap: var(--gap-base);
+}
+.nav {
+  width: 100%;
+  height: 80px;
+  background-color: var(--color-gray-100);
+  align-items: flex-start;
+  padding: var(--padding-base) var(--padding-61xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--p3-16-size);
+  color: var(--color-white);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 450px) {
+  .menu {
+    display: none;
+  }
+  .content {
+    width: 666px;
+  }
+}
+.dropdown {
+  position: absolute;
+  top: 100%; /* Align directly below the menu item */
+  left: 0; /* Align with the left edge of the menu item */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px 0;
+  z-index: 1000;
+  min-width: 150px; /* Ensure a minimum width for consistency */
+}
+
+.menuItems,
+.menuItems1,
+.menuItems3 {
+  position: relative; /* Needed for dropdown alignment */
+}
+
+.dropdown div {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--color-gray-100);
+  text-align: left;
+}
+
+.dropdown div:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hover styles for menu items to improve UX */
+.menuItems:hover,
+.menuItems1:hover,
+.menuItems3:hover {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; /* Align it below the parent */
+  left: 0; /* Default left alignment */
+  z-index: 10;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownItemWithSubmenu {
+  position: relative; /* Parent needs position to anchor submenu */
+}
+
+.submenu {
+  position: absolute;
+  top: 0; /* Align submenu to the top of the parent */
+  left: 100%; /* Position submenu to the right */
+  z-index: 20;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none; /* Hide initially */
+}
+
+.dropdownItemWithSubmenu:hover .submenu {
+  display: block; /* Show submenu on hover */
+}
+
+.submenuItem {
+  padding: 8px 16px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  cursor: pointer;
+}
+
+.submenuItem.active {
+  background-color: #f0f0f0; /* Highlight color */
+  font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+  .nav {
+    display: none;
+  }
+}
