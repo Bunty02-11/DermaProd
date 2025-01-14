@@ -6,7 +6,7 @@ import styles from "./frame-component6.module.css";
 const FrameComponent6 = ({ className = "" }) => {
   return (
     <section className={[styles.visionContainerParent, className].join(" ")}>
-      <div className={styles.visionContainer}>
+      <div className={styles.visionContainer} >
         <div className={styles.visionContent}>
           <Image
             className={styles.imgIcon}

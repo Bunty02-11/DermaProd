@@ -264,7 +264,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
         </div>
       </section>
-      <section className={styles.hero1} style={{ marginTop: "80px" }}>
+      <section className={styles.hero1}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>services</div>

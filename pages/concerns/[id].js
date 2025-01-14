@@ -145,7 +145,7 @@ const ConcernsDetails = ({ concern }) => {
         <div className={styles.sectionTitle}>
           <div className={styles.subheading}>SUPPORT</div>
           <div className={styles.content}>
-            <h1 className={styles.heading}>Frequently Asked Questions</h1>
+            <h3 className={styles.heading}>Frequently Asked Questions</h3>
             <div
               className={styles.text}
             >{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. `}</div>

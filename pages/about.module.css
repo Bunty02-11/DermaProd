@@ -248,10 +248,6 @@
   .choose {
     padding-bottom: 20px;
   }
-  .imgIcon {
-    display: none !important;
-    opacity: 0;
-  }
   .mediumLengthHero {
     font-size: var(--font-size-10xl);
     line-height: 35px;

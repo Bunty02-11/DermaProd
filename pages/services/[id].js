@@ -96,7 +96,7 @@ const ServicesDetails = ({ serviceData }) => {
         <div className={styles.sectionTitle}>
           <div className={styles.subheading}>SUPPORT</div>
           <div className={styles.content}>
-            <h1 className={styles.heading}>Frequently Asked Questions</h1>
+            <h3 className={styles.heading}>Frequently Asked Questions</h3>
           </div>
         </div>
         <FaqsListing faqsList={serviceData?.faqs} />

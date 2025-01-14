@@ -12,6 +12,18 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
   const handleNavigation = (path) => {
     router.push(path); // Navigate to the given path
   };
+  const handleInstagram = () => {
+    window.open('https://www.instagram.com/dermatech_polyclinic/', '_blank', 'noopener,noreferrer');
+  };
+  const handleTiktok = () => {
+    window.open('https://www.tiktok.com/@dermatech_polyclinic?lang=en', '_blank', 'noopener,noreferrer');
+  };
+  const handleFacebook = () => {
+    window.open('https://www.facebook.com/DermatechPolyclinic', '_blank', 'noopener,noreferrer');
+  };
+  const handleYoutube = () => {
+    window.open('https://www.youtube.com/@DermaTech_Polyclinic', '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <>
@@ -179,7 +191,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                       </div>
                     </div>
                   </div>
-                  <div className={styles.social}>
+                  <div className={styles.social} onClick={handleTiktok}>
                     <Image
                       className={styles.symbolsvgIcon}
                       loading="lazy"
@@ -188,15 +200,17 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                       alt=""
                       src={symbolsvg}
                     />
-                    <Image
-                      className={styles.symbolsvgIcon1}
-                      loading="lazy"
-                      width={24}
-                      height={17}
-                      alt=""
-                      src={symbolsvg1}
-                    />
-                    <div className={styles.fb}>
+                    <div className={styles.fb} onClick={handleYoutube}>
+                      <Image
+                        className={styles.symbolsvgIcon1}
+                        loading="lazy"
+                        width={24}
+                        height={17}
+                        alt=""
+                        src={symbolsvg1}
+                      />
+                    </div>
+                    <div className={styles.fb} onClick={handleFacebook}>
                       <Image
                         className={styles.path14Icon}
                         loading="lazy"
@@ -206,7 +220,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                         src="/path14-1.svg"
                       />
                     </div>
-                    <div className={styles.fb}>
+                    {/* <div className={styles.fb}>
                       <Image
                         className={styles.path14Icon}
                         loading="lazy"
@@ -225,8 +239,8 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                         alt=""
                         src="/vector-7.svg"
                       />
-                    </div>
-                    <div className={styles.fb}>
+                    </div> */}
+                    <div className={styles.fb} onClick={handleInstagram}>
                       <Image
                         className={styles.path14Icon}
                         loading="lazy"

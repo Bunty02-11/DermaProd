@@ -120,6 +120,14 @@ const OwnerContainer = ({ className = "", testimonial }) => {
               By integrating advanced technology with a commitment to personalized care, our leadership drives the clinic's mission to set new standards in aesthetic excellence.
             </div>
           </div>
+          <Image
+            className={styles.imgIcon}
+            loading="lazy"
+            width={630}
+            height={445}
+            alt=""
+            src="/img-2@2x.png"
+          />
         </div>
         <div className={styles.logoParent}>
           <div className={styles.logo}>
@@ -171,25 +179,61 @@ const OwnerContainer = ({ className = "", testimonial }) => {
           {/* <FrameComponent placeholderImage="/placeholder-image-7@2x.png" content={testimonial} /> */}
         </div>
 
-        <div className={styles.faqParent}>
-          <div className="container-fluid mt-4" style={{ alignContent: "center", justifyContent: "center", paddingLeft: "80px", paddingRight: "0px", marginBottom: "80px" }}>
+        <div
+          className={styles.faqParent}
+        >
+          <div
+            className={styles.subheading}
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              marginLeft: "5%",
+              marginBottom: "10px",
+              fontSize: "18px",
+            }}
+          >
+            SUPPORT
+          </div>
+          <div
+            className={styles.content13}
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              marginLeft: "5%",
+              marginBottom: "20px",
+              fontSize: "36px",
+            }}
+          >
+            <h3
+              className={styles.heading1}
+              style={{
+                fontSize: "1.5rem",
+                lineHeight: "1.2",
+                margin: 0,
+                fontSize: "36px"
+              }}
+            >
+              Frequently Asked Questions
+            </h3>
+          </div>
+          <div
+            className="container-fluid mt-4"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              paddingLeft: "5%",
+              paddingRight: "5%",
+              marginBottom: "40px",
+            }}
+          >
             <StaticFaqsLisiting1 staticFaqs={[]} />
           </div>
-          {/* <div className={styles.faq}>
-            <div className={styles.sectionTitle}>
-              <div className={styles.subheading}>SUPPORT</div>
-              <div className={styles.content1}>
-                <h1 className={styles.meetTheOwner}>
-                  Frequently Asked Questions
-                </h1>
-                <div
-                  className={styles.text}
-                >{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. `}</div>
-              </div> */}
-          {/* <FaqsList faqsList={[, 2, 3, 4, 5, 6, 7, 8]} itt={"abboutDDkk"} /> */}
-          {/* </div> */}
-          {/* </div> */}
         </div>
+
       </div>
     </div>
   );

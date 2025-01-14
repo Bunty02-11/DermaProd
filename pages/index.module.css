@@ -216,6 +216,7 @@
   padding: 0 var(--padding-61xl) var(--padding-101xl);
   text-align: center;
   color: var(--color-gray-100);
+  margin-top: 80px;
 }
 .shape211Icon {
   width: 655px;
@@ -649,6 +650,7 @@
   .hero1 {
     padding-bottom: var(--padding-59xl);
     box-sizing: border-box;
+    margin-top: 350px;
   }
   .perfumes {
     font-size: var(--font-size-19xl);
@@ -676,6 +678,7 @@
     padding-right: var(--padding-21xl);
     box-sizing: border-box;
     padding: 0;
+    
   }
   .row1 {
     gap: var(--gap-base);
@@ -700,6 +703,7 @@
   }
   .hero1 {
     padding-bottom: var(--padding-32xl);
+    margin-top: 200px;
   }
   .row4 {
     gap: var(--gap-base);

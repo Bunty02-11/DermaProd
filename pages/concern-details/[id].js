@@ -65,11 +65,11 @@ const ConcernsDetails = ({ concernDetails }) => {
       accItem?.parentElement?.previousElementSibling;
     const siblingContainerAccItem = accItem?.hasAttribute("data-acc-original")
       ? accItem?.nextElementSibling ||
-        nextOuterSibling?.querySelector("[data-acc-item]") ||
-        nextOuterSibling
+      nextOuterSibling?.querySelector("[data-acc-item]") ||
+      nextOuterSibling
       : accItem?.previousElementSibling ||
-        prevOuterSibling?.querySelector("[data-acc-item]") ||
-        prevOuterSibling;
+      prevOuterSibling?.querySelector("[data-acc-item]") ||
+      prevOuterSibling;
     const siblingAccItem =
       siblingContainerAccItem?.querySelector("[data-acc-item]") ||
       siblingContainerAccItem;
@@ -130,23 +130,20 @@ const ConcernsDetails = ({ concernDetails }) => {
         <div className={styles.loremIpsumDolor}>
           HOME - {concernDetails?.category?.Name || "Category"}
         </div>
-        <h1 className={styles.mediumLengthHero}>
+        <h3 className={styles.mediumLengthHero}>
           {concernDetails?.Name || "Special Title"}
-        </h1>
+        </h3>
       </section>
       <ContentDetailsComp concernDetails={concernDetails} />
       <Contact1
-        placeholderImage={
-          concernDetails?.section_img4?.url
-            ? serverurl + concernDetails?.section_img4?.url
-            : "/placeholder-image3@2x.png"
+        placeholderImage={"/placeholder-image3@2x.png"
         }
       />
       <section className={styles.faq}>
         <div className={styles.sectionTitle}>
           <div className={styles.subheading}>SUPPORT</div>
           <div className={styles.content}>
-            <h1 className={styles.heading}>Frequently Asked Questions</h1>
+            <h3 className={styles.heading}>Frequently Asked Questions</h3>
           </div>
         </div>
         <FaqsListing faqsList={concernDetails?.faqs} />
