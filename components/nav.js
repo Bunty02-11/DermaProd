@@ -188,23 +188,28 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                           {category.Name || "Unknown Category"}
                         </div>
                         <div className={styles.submenu}>
-                          {servicesByCategory[category.id]?.map((service) => (
-                            <div
-                              key={service.id}
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                setActiveItem(service.id);
-                                handleNavigation(
-                                  `/services/${service.documentId}`
-                                );
-                              }}
-                              className={`${styles.submenuItem} ${
-                                activeItem === service.id ? styles.active : ""
-                              }`}
-                            >
-                              {service.Name || "Unknown Service"}
+                          {servicesByCategory[category.id]?.length > 0 ? (
+                            servicesByCategory[category.id].map((service) => (
+                              <div
+                                key={service.id}
+                                onClick={(event) => {
+                                  const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
+                                  event.stopPropagation();
+                                  setActiveItem(service.id);
+                                  handleNavigation(
+                                    `/services/${formattedName}/${service.documentId}`
+                                  );
+                                }}
+                                className={`${styles.submenuItem} ${activeItem === service.id ? styles.active : ""}`}
+                              >
+                                {service.Name || "Unknown Service"}
+                              </div>
+                            ))
+                          ) : (
+                            <div className={styles.noSubcategory}>
+                              No subcategory available
                             </div>
-                          ))}
+                          )}
                         </div>
                       </div>
                     ))
@@ -216,6 +221,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               </div>
             )}
           </div>
+
           {/* Special Dropdown */}
           <div
             className={styles.menuItems}
@@ -254,17 +260,17 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                                 <div
                                   key={subCategory.id}
                                   onClick={(event) => {
+                                    const formattedName = subCategory.Name.replace(/\s+/g, "-").toLowerCase();
                                     event.stopPropagation();
                                     setActiveItem(subCategory.id);
                                     handleNavigation(
-                                      `/specials/${subCategory.documentId}`
+                                      `/specials/${formattedName}/${subCategory.documentId}`
                                     );
                                   }}
-                                  className={`${styles.submenuItem} ${
-                                    activeItem === subCategory.id
-                                      ? styles.active
-                                      : ""
-                                  }`}
+                                  className={`${styles.submenuItem} ${activeItem === subCategory.id
+                                    ? styles.active
+                                    : ""
+                                    }`}
                                 >
                                   {subCategory.Name}
                                 </div>

@@ -141,22 +141,6 @@ const ConcernsDetails = ({ concern }) => {
           Nothing Found
         </div>
       )}
-      <section className={styles.faq}>
-        <div className={styles.sectionTitle}>
-          <div className={styles.subheading}>SUPPORT</div>
-          <div className={styles.content}>
-            <h3 className={styles.heading}>Frequently Asked Questions</h3>
-            <div
-              className={styles.text}
-            >{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. `}</div>
-          </div>
-        </div>
-        {/* <FaqsList faqsList={[1, 2, 3, 4, 5, 6, 7, 8]} /> */}
-
-        {/* <div style={{ flex: "100%", width: "100%" }}>
-          <AccordionList faqsList={[]}/>
-        </div> */}
-      </section>
 
       <Footer
         maskGroup="/mask-group@2x.png"

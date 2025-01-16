@@ -138,10 +138,11 @@ function navBarMobile(props) {
                               className={s.navLInk2}
                               key={service.id}
                               onClick={(event) => {
+                                const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
                                 event.stopPropagation();
                                 setActiveItem(service.id);
                                 handleNavigation(
-                                  `/services/${service.documentId}`
+                                  `/services/${formattedName}/${service.documentId}`
                                 );
                               }}
                             >
@@ -184,10 +185,11 @@ function navBarMobile(props) {
                               className={s.navLInk2}
                               key={service.id}
                               onClick={(event) => {
+                                const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
                                 event.stopPropagation();
                                 setActiveItem(service.id);
                                 handleNavigation(
-                                  `/specials/${service.documentId}`
+                                  `/specials/${formattedName}/${service.documentId}`
                                 );
                               }}
                             >

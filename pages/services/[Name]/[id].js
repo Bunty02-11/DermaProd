@@ -1,15 +1,15 @@
 import { useCallback } from "react";
 import Image from "next/image";
-import FrameComponent1 from "../../components/frame-component1";
-import ServicesDescriptionItems from "../../components/ServicesDetails/index";
-import Contact1 from "../../components/contact1";
-import AccordionItem from "../../components/accordion-item";
-import Footer from "../../components/footer";
-import ServicesDescriptionItems1 from "../../components/ServicesDetails1";
-import FaqsListing from "../../components/FaqsListing/index";
+import FrameComponent1 from "../../../components/frame-component1";
+import ServicesDescriptionItems from "../../../components/ServicesDetails/index";
+import Contact1 from "../../../components/contact1";
+import AccordionItem from "../../../components/accordion-item";
+import Footer from "../../../components/footer";
+import ServicesDescriptionItems1 from "../../../components/ServicesDetails1";
+import FaqsListing from "../../../components/FaqsListing/index";
 import styles from "./services-details.module.css";
-import Services2 from "../../components/serviceDetailSection/services";
-import FooterContainer from "../../components/footer-container";
+import Services2 from "../../../components/serviceDetailSection/services";
+import FooterContainer from "../../../components/footer-container";
 
 export async function getStaticPaths() {
   const response = await fetch(
@@ -18,7 +18,11 @@ export async function getStaticPaths() {
   const concern = await response.json();
 
   const paths = concern?.data.map((concern) => ({
-    params: { id: concern.documentId.toString() }, // Ensure the id is a string
+    params: {
+      category: concern.category.Name.replace(/\s+/g, "-").toLowerCase(),
+      Name: concern.Name.replace(/\s+/g, "-").toLowerCase(),
+      id: concern.documentId.toString()
+    }, // Ensure the id is a string
   }));
   return {
     paths, // The list of dynamic paths to pre-render
@@ -26,7 +30,7 @@ export async function getStaticPaths() {
   };
 }
 export const getStaticProps = async (context) => {
-  const { id } = context.params;
+  const { id, Name, category } = context.params;
 
   try {
     const res = await fetch(
@@ -49,7 +53,7 @@ export const getStaticProps = async (context) => {
   }
 };
 const ServicesDetails = ({ serviceData }) => {
-  console.log("🚀 ~ ServicesDetails ~ serviceData:", serviceData);
+  // console.log("🚀 ~ ServicesDetails ~ serviceData:", serviceData);
   const onAccordionHeaderClick = useCallback((event) => {
     // Accordion toggle logic
   }, []);

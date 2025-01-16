@@ -1,22 +1,26 @@
 import { useCallback } from "react";
-import FrameComponent1 from "../../components/frame-component1";
-import ContentDetailsComp from "../../components/ConcernDetailsSection";
-import Contact1 from "../../components/contact1";
-import AccordionItem from "../../components/accordion-item";
-import Footer from "../../components/footer";
+import FrameComponent1 from "../../../components/frame-component1";
+import ContentDetailsComp from "../../../components/ConcernDetailsSection/index";
+import Contact1 from "../../../components/contact1";
+import AccordionItem from "../../../components/accordion-item";
+import Footer from "../../../components/footer";
 import styles from "./concerns-details.module.css";
-import { serverurl } from "../../base";
-import FaqsListing from "../../components/FaqsListing/index";
-import FooterContainer from "../../components/footer-container";
+import { serverurl } from "../../../base";
+import FaqsListing from "../../../components/FaqsListing/index";
+import FooterContainer from "../../../components/footer-container";
 
 export async function getStaticPaths() {
   const response = await fetch(
     `https://grateful-authority-34f01c9d0d.strapiapp.com/api/Concerns?populate=*&pagination[limit]=1000`
   );
   const concern = await response.json();
-
+  console.log(concern, "--concern");
   const paths = concern?.data.map((concern) => ({
-    params: { id: concern.documentId.toString() }, // Ensure the id is a string
+    params: {
+      Name: concern.Name.replace(/\s+/g, "-").toLowerCase(),
+      id: concern.documentId.toString()
+    },
+
   }));
   return {
     paths, // The list of dynamic paths to pre-render
@@ -25,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { id } = context.params;
+  const { id, Name } = context.params;
 
   try {
     const response = await fetch(

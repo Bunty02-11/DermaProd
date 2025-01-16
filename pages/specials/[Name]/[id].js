@@ -1,15 +1,15 @@
 import { useCallback } from "react";
 import Image from "next/image";
-import FrameComponent1 from "../../components/frame-component1";
-import SpecialDescriptuonItems from "../../components/SpecialDetails/index";
-import Contact1 from "../../components/contact1";
-import AccordionItem from "../../components/accordion-item";
-import Footer from "../../components/footer";
+import FrameComponent1 from "../../../components/frame-component1";
+import SpecialDescriptuonItems from "../../../components/SpecialDetails/index";
+import Contact1 from "../../../components/contact1";
+import AccordionItem from "../../../components/accordion-item";
+import Footer from "../../../components/footer";
 import styles from "./special-detail.module.css";
-import SpecialDescriptuonItems1 from "../../components/SpecialDetails1/index";
-import FaqsListing from "../../components/FaqsListing/index";
-import Special from "../../components/specialDetailsSection/Special";
-import FooterContainer from "../../components/footer-container";
+import SpecialDescriptuonItems1 from "../../../components/SpecialDetails1/index";
+import FaqsListing from "../../../components/FaqsListing/index";
+import Special from "../../../components/specialDetailsSection/Special";
+import FooterContainer from "../../../components/footer-container";
 
 export async function getStaticPaths() {
   const response = await fetch(
@@ -18,7 +18,10 @@ export async function getStaticPaths() {
   const concern = await response.json();
 
   const paths = concern?.data.map((concern) => ({
-    params: { id: concern.documentId.toString() }, // Ensure the id is a string
+    params: {
+      Name: concern.Name.replace(/\s+/g, "-").toLowerCase(),
+      id: concern.documentId.toString()
+    }, // Ensure the id is a string
   }));
   return {
     paths, // The list of dynamic paths to pre-render
@@ -32,7 +35,7 @@ export const getStaticProps = async (context) => {
       notFound: true, // Return 404 if id is missing
     };
   }
-  const { id } = context.params;
+  const { id, Name } = context.params;
 
   try {
     const res = await fetch(
