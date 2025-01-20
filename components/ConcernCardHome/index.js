@@ -36,7 +36,8 @@ const Card = ({ className = "", placeholderImage, details }) => {
           <button
             className={styles.btnLearn}
             onClick={() => {
-              handleNavigation(`/concern-details/${details?.documentId}`);
+              const formattedName = details.Name.replace(/\s+/g, "-").toLowerCase();
+              handleNavigation(`/concern-details/${formattedName}/${details?.documentId}`);
             }}
           >
             Learn More

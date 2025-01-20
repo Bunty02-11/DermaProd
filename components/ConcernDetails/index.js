@@ -8,10 +8,10 @@ const Services1 = (props) => {
     <section className={[styles.services, className].join(" ")}>
       <div className={styles.heading}>
         <div className={styles.loremIpsumDolor}>CONCERNS</div>
-        <h1 className={styles.mediumLengthHero}>
+        <h3 className={styles.mediumLengthHero}>
           {" "}
           {content?.[0]?.category?.Name}
-        </h1>
+        </h3>
       </div>
       <div className={styles.content}>
         <div className={styles.row}>

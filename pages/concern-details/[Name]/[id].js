@@ -1,22 +1,26 @@
 import { useCallback } from "react";
-import FrameComponent1 from "../../components/frame-component1";
-import ContentDetailsComp from "../../components/ConcernDetailsSection";
-import Contact1 from "../../components/contact1";
-import AccordionItem from "../../components/accordion-item";
-import Footer from "../../components/footer";
+import FrameComponent1 from "../../../components/frame-component1";
+import ContentDetailsComp from "../../../components/ConcernDetailsSection/index";
+import Contact1 from "../../../components/contact1";
+import AccordionItem from "../../../components/accordion-item";
+import Footer from "../../../components/footer";
 import styles from "./concerns-details.module.css";
-import { serverurl } from "../../base";
-import FaqsListing from "../../components/FaqsListing/index";
-import FooterContainer from "../../components/footer-container";
+import { serverurl } from "../../../base";
+import FaqsListing from "../../../components/FaqsListing/index";
+import FooterContainer from "../../../components/footer-container";
 
 export async function getStaticPaths() {
   const response = await fetch(
     `https://grateful-authority-34f01c9d0d.strapiapp.com/api/Concerns?populate=*&pagination[limit]=1000`
   );
   const concern = await response.json();
-
+  console.log(concern, "--concern");
   const paths = concern?.data.map((concern) => ({
-    params: { id: concern.documentId.toString() }, // Ensure the id is a string
+    params: {
+      Name: concern.Name.replace(/\s+/g, "-").toLowerCase(),
+      id: concern.documentId.toString()
+    },
+
   }));
   return {
     paths, // The list of dynamic paths to pre-render
@@ -25,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { id } = context.params;
+  const { id, Name } = context.params;
 
   try {
     const response = await fetch(
@@ -65,11 +69,11 @@ const ConcernsDetails = ({ concernDetails }) => {
       accItem?.parentElement?.previousElementSibling;
     const siblingContainerAccItem = accItem?.hasAttribute("data-acc-original")
       ? accItem?.nextElementSibling ||
-        nextOuterSibling?.querySelector("[data-acc-item]") ||
-        nextOuterSibling
+      nextOuterSibling?.querySelector("[data-acc-item]") ||
+      nextOuterSibling
       : accItem?.previousElementSibling ||
-        prevOuterSibling?.querySelector("[data-acc-item]") ||
-        prevOuterSibling;
+      prevOuterSibling?.querySelector("[data-acc-item]") ||
+      prevOuterSibling;
     const siblingAccItem =
       siblingContainerAccItem?.querySelector("[data-acc-item]") ||
       siblingContainerAccItem;
@@ -130,23 +134,20 @@ const ConcernsDetails = ({ concernDetails }) => {
         <div className={styles.loremIpsumDolor}>
           HOME - {concernDetails?.category?.Name || "Category"}
         </div>
-        <h1 className={styles.mediumLengthHero}>
+        <h3 className={styles.mediumLengthHero}>
           {concernDetails?.Name || "Special Title"}
-        </h1>
+        </h3>
       </section>
       <ContentDetailsComp concernDetails={concernDetails} />
       <Contact1
-        placeholderImage={
-          concernDetails?.section_img4?.url
-            ? serverurl + concernDetails?.section_img4?.url
-            : "/placeholder-image3@2x.png"
+        placeholderImage={"/placeholder-image3@2x.png"
         }
       />
       <section className={styles.faq}>
         <div className={styles.sectionTitle}>
           <div className={styles.subheading}>SUPPORT</div>
           <div className={styles.content}>
-            <h1 className={styles.heading}>Frequently Asked Questions</h1>
+            <h3 className={styles.heading}>Frequently Asked Questions</h3>
           </div>
         </div>
         <FaqsListing faqsList={concernDetails?.faqs} />

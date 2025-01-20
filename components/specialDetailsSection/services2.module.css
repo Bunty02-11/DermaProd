@@ -4,14 +4,14 @@
   position: relative;
 }
 .loremIpsumDolor {
-  line-height: 150%;
+  line-height: 1.5;
   text-transform: uppercase;
   font-weight: 500;
 }
 .mediumLengthHero {
   margin: 0;
-  font-size: var(--h2-48-size);
-  line-height: 120%;
+  font-size: clamp(1.5rem, 2.5vw, var(--h2-48-size));
+  line-height: 1.2;
   font-weight: 600;
   font-family: inherit;
   color: var(--text-primary);
@@ -41,10 +41,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  gap: var(--gap-base);
 }
 .text {
   position: relative;
-  line-height: 150%;
+  line-height: 1.5;
 }
 .description {
   align-self: stretch;
@@ -59,14 +60,14 @@
   align-self: stretch;
   position: relative;
   font-size: inherit;
-  line-height: 140%;
+  line-height: 1.4;
   font-weight: 600;
   font-family: inherit;
 }
 .text2 {
   position: relative;
-  font-size: var(--p3-16-size);
-  line-height: 150%;
+  font-size: clamp(0.9rem, 1.2vw, var(--p3-16-size));
+  line-height: 1.5;
 }
 .loremLipsumParent {
   flex: 1;
@@ -75,18 +76,17 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-base);
-  min-width: 481px;
+  min-width: 100%;
   max-width: 100%;
 }
 .imgIcon {
-  width: 500px;
+  width: 100%;
   position: relative;
   border-radius: var(--br-5xl);
   max-height: 100%;
   overflow: hidden;
   flex-shrink: 0;
   object-fit: cover;
-  max-width: 100%;
 }
 .serviceContent,
 .services {
@@ -106,11 +106,13 @@
   padding: var(--padding-41xl) var(--padding-61xl);
   box-sizing: border-box;
   text-align: left;
-  font-size: var(--p3-16-size);
+  font-size: clamp(1rem, 1.5vw, var(--p3-16-size));
   color: var(--text-primary);
   font-family: var(--h2-48);
 }
-@media screen and (max-width: 1200px) {
+
+/* Media Queries */
+@media (max-width: 1200px) {
   .imgIcon {
     flex: 1;
   }
@@ -120,21 +122,19 @@
   .services {
     padding-top: var(--padding-20xl);
     padding-bottom: var(--padding-20xl);
-    box-sizing: border-box;
   }
 }
-@media screen and (max-width: 1050px) {
+@media (max-width: 1050px) {
   .mediumLengthHero {
-    font-size: var(--font-size-19xl);
-    line-height: 46px;
+    font-size: clamp(1.5rem, 4vw, var(--font-size-19xl));
+    line-height: 1.2;
   }
   .services {
     padding-top: var(--padding-6xl);
     padding-bottom: var(--padding-6xl);
-    box-sizing: border-box;
   }
 }
-@media screen and (max-width: 750px) {
+@media (max-width: 800px) {
   .image {
     gap: var(--gap-xl);
   }
@@ -147,16 +147,15 @@
   }
   .services {
     padding: var(--padding-xl) var(--padding-21xl);
-    box-sizing: border-box;
   }
 }
-@media screen and (max-width: 450px) {
+@media (max-width: 450px) {
   .mediumLengthHero {
-    font-size: var(--font-size-10xl);
-    line-height: 35px;
+    font-size: clamp(1rem, 3vw, var(--font-size-10xl));
+    line-height: 1.2;
   }
   .loremLipsum {
-    font-size: var(--font-size-lgi);
-    line-height: 27px;
+    font-size: clamp(0.9rem, 2vw, var(--font-size-lgi));
+    line-height: 1.4;
   }
 }

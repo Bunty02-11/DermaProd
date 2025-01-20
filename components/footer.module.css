@@ -242,3 +242,13 @@
     display: none;
   }
 }
+@media screen and (max-width: 750px) {
+  .footer {
+    display: none;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .footer {
+    display: none;
+  }
+}

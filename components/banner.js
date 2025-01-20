@@ -14,12 +14,12 @@ const HeroCarousel = () => {
           <div className={styles.content}>
             <div className={styles.text1}>
               <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>DermaTech Polyclinic</div>
-              <h1 className={styles.mediumLengthHero} style={{ width: "500px" }}>
+              <h1 className={styles.mediumLengthHero}>
                 {`Get Advanced Skin Care Treatments in Dubai`}
               </h1>
             </div>
             <div className={styles.filter}>
-              <div className={styles.loremIpsumDolor1} style={{ width: "500px" }}>
+              <div className={styles.loremIpsumDolor1}>
                 Discover cutting-edge skincare solutions at Derma Tech personalized treatments to rejuvenate,
                 protect, and enhance your skin for a radiant, youthful glow.
               </div>
@@ -45,12 +45,12 @@ const HeroCarousel = () => {
           <div className={styles.content}>
             <div className={styles.text1}>
               <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>FACIALS</div>
-              <h1 className={styles.mediumLengthHero} style={{ width: "500px" }} >
+              <h1 className={styles.mediumLengthHero} >
                 {`Transformative Skin Treatments in Dubai`}
               </h1>
             </div>
             <div className={styles.filter}>
-              <div className={styles.loremIpsumDolor1} style={{ width: "500px" }}>
+              <div className={styles.loremIpsumDolor1}>
                 Enhance your skin with advanced, personalized treatments at Derma Tech. Address acne, pigmentation,
                 and aging with expert care in a luxurious setting.
               </div>
@@ -74,12 +74,12 @@ const HeroCarousel = () => {
           <div className={styles.content}>
             <div className={styles.text1}>
               <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>WEIGHT LOSS</div>
-              <h1 className={styles.mediumLengthHero} style={{ width: "500px" }}>
+              <h1 className={styles.mediumLengthHero}>
                 {`Effective Weight Loss & Fat Freezing Solutions`}
               </h1>
             </div>
             <div className={styles.filter}>
-              <div className={styles.loremIpsumDolor1} style={{ width: "500px" }}>
+              <div className={styles.loremIpsumDolor1}>
                 Achieve a sculpted look with Derma Tech's Fat Freezing in Dubai and experience advanced,
                 personalized body contouring treatments for effective fat reduction.
               </div>

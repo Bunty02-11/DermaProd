@@ -60,7 +60,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
         <div className={styles.form}>
           <div className={styles.heading}>
             <div className={styles.loremIpsumDolor}>CONTACT</div>
-            <h1 className={styles.mediumLengthHero}>Request A Consultation</h1>
+            <h3 className={styles.mediumLengthHero}>Request A Consultation</h3>
           </div>
           <div className={styles.formFields}>
             <div className={styles.name}>

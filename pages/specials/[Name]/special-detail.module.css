@@ -61,6 +61,7 @@
   text-align: center;
   color: var(--color-gray-100);
   text-align: left;
+  font-size: 48px;
 }
 .placeholderImageIcon {
   align-self: stretch;
@@ -334,6 +335,9 @@
   .faq {
     padding: var(--padding-20xl) var(--padding-21xl);
   }
+  .heading{
+    font-size: 36px;
+  }
 }
 @media screen and (max-width: 450px) {
   .mediumLengthHero,
@@ -348,5 +352,8 @@
   .heading1 {
     font-size: var(--font-size-10xl);
     line-height: 35px;
+  }
+  .heading{
+    font-size: 24px;
   }
 }

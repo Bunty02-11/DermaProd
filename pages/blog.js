@@ -3,12 +3,13 @@ import BlogCard from "../components/BlogListingCard";
 import Footer from "../components/footer";
 import styles from "./blog.module.css";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
     const response = await fetch(
       `https://grateful-authority-34f01c9d0d.strapiapp.com/api/blogs?populate=*`
     );
     const blogList = await response.json();
+    console.log("BlogList", blogList);
 
     return {
       props: {
@@ -16,6 +17,7 @@ export async function getStaticProps() {
       },
     };
   } catch (error) {
+    console.error("Error fetching blogs:", error);
     return {
       props: {
         blogList: [],
@@ -44,7 +46,7 @@ const Blog = ({ blogList }) => {
           <div className="row g-3 gy-5">
             {blogList?.length ? (
               blogList?.map((blog) => (
-                <div className="col col-12 col-md-4">
+                <div className="col col-12 col-md-4" key={blog.id}>
                   <BlogCard
                     documentId={blog.documentId}
                     Banner={blog.banner?.url ? blog.banner.url : null}

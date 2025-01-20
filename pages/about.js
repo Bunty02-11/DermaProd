@@ -109,14 +109,6 @@ const About = () => {
       />
       <section className={styles.ownerContainerParent}>
         <OwnerContainer />
-        <Image
-          className={styles.imgIcon}
-          loading="lazy"
-          width={630}
-          height={445}
-          alt=""
-          src="/img-2@2x.png"
-        />
       </section>
       <Footer
         maskGroup="/mask-group@2x.png"

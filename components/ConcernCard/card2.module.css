@@ -1,12 +1,10 @@
 .placeholderImageIcon {
   align-self: stretch;
   height: 260px;
-  position: relative;
+  width: 100%; /* Ensure it spans the full width of the card */
   border-radius: var(--br-base) var(--br-base) 0 0;
-  max-width: 100%;
   overflow: hidden;
-  flex-shrink: 0;
-  object-fit: cover;
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
 }
 .cardIntro,
 .heading {
