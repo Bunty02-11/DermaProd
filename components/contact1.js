@@ -2,6 +2,8 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./contact1.module.css";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact1 = ({ className = "", placeholderImage }) => {
   const [formData, setFormData] = useState({
@@ -11,24 +13,18 @@ const Contact1 = ({ className = "", placeholderImage }) => {
     Number: "",
     message: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   const handleSubmit = async () => {
-    if (!formData?.Name) {
-      return;
-    }
-    if (!formData?.last_Name) {
-      return;
-    }
-    if (!formData?.email) {
-      return;
-    }
-    if (!formData?.Number) {
-      return;
-    }
-    if (!formData?.message) {
+    const { Name, last_Name, email, Number, message } = formData;
+
+    if (!Name || !last_Name || !email || !Number || !message) {
+      toast.error("Please fill in all fields.");
       return;
     }
 
@@ -39,23 +35,35 @@ const Contact1 = ({ className = "", placeholderImage }) => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json", // Specify the type of data being sent
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ data: formData }),
         }
       );
-      console.log("🚀 ~ handleSubmit ~ response:", response);
-      alert("Form Submitted");
-      toas;
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form.");
+      }
+
+      toast.success("Form submitted successfully!");
+      setFormData({
+        Name: "",
+        last_Name: "",
+        email: "",
+        Number: "",
+        message: "",
+      });
     } catch (err) {
-      console.log("ERR", err);
-      alert("Faild, Try again later!");
+      console.error("ERR", err);
+      toast.error("Submission failed. Please try again later.");
     } finally {
       setIsLoading(false);
     }
   };
+
   return (
     <div className={[styles.contact, className].join(" ")}>
+      <ToastContainer />
       <div className={styles.content}>
         <div className={styles.form}>
           <div className={styles.heading}>
@@ -69,6 +77,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="text"
                 name="Name"
                 placeholder="First Name"
+                value={formData.Name}
                 onChange={handleChange}
               />
             </div>
@@ -78,6 +87,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="text"
                 name="last_Name"
                 placeholder="Last Name"
+                value={formData.last_Name}
                 onChange={handleChange}
               />
             </div>
@@ -89,6 +99,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="email"
                 name="email"
                 placeholder="Email"
+                value={formData.email}
                 onChange={handleChange}
               />
             </div>
@@ -98,6 +109,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="number"
                 name="Number"
                 placeholder="Phone"
+                value={formData.Number}
                 onChange={handleChange}
               />
             </div>
@@ -107,14 +119,18 @@ const Contact1 = ({ className = "", placeholderImage }) => {
               type="text"
               name="message"
               placeholder="Message"
+              value={formData.message}
               onChange={handleChange}
               rows={3}
             />
           </div>
           <div className={styles.btns}>
             <div className={styles.btnSubmit}>
-              <div className={styles.submitNow} onClick={() => handleSubmit()}>
-                Submit Now
+              <div
+                className={styles.submitNow}
+                onClick={handleSubmit}
+              >
+                {isLoading ? "Submitting..." : "Submit Now"}
               </div>
             </div>
           </div>
@@ -125,7 +141,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
           width={642}
           height={640}
           alt=""
-          src={"/1.jpg"}
+          src={placeholderImage}
         />
       </div>
     </div>
@@ -138,3 +154,4 @@ Contact1.propTypes = {
 };
 
 export default Contact1;
+ 
