@@ -37,7 +37,7 @@ const Services1 = (props) => {
   async function getBlogDetails() {
     try {
       const response = await fetch(
-        `https://grateful-authority-34f01c9d0d.strapiapp.com/api/blogs?populate=*`
+        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs?populate=*`
       );
       const BlodDetails = await response.json();
       if (!BlodDetails || !BlodDetails.data) {

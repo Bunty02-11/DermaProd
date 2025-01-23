@@ -1,51 +1,50 @@
 import { useCallback } from "react";
 import Image from "next/image";
-import FrameComponent1 from "../../../components/frame-component1";
-import SpecialDescriptuonItems from "../../../components/SpecialDetails/index";
-import Contact1 from "../../../components/contact1";
-import AccordionItem from "../../../components/accordion-item";
-import Footer from "../../../components/footer";
+import FrameComponent1 from "../../components/frame-component1";
+import SpecialDescriptuonItems from "../../components/SpecialDetails/index";
+import Contact1 from "../../components/contact1";
+import AccordionItem from "../../components/accordion-item";
+import Footer from "../../components/footer";
 import styles from "./special-detail.module.css";
-import SpecialDescriptuonItems1 from "../../../components/SpecialDetails1/index";
-import FaqsListing from "../../../components/FaqsListing/index";
-import Special from "../../../components/specialDetailsSection/Special";
-import FooterContainer from "../../../components/footer-container";
+import SpecialDescriptuonItems1 from "../../components/SpecialDetails1/index";
+import FaqsListing from "../../components/FaqsListing/index";
+import Special from "../../components/specialDetailsSection/Special";
+import FooterContainer from "../../components/footer-container";
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
   const response = await fetch(
-    `https://grateful-authority-34f01c9d0d.strapiapp.com/api/Special-Promotions?populate=*`
+    `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?populate=*`
   );
   const concern = await response.json();
 
   const paths = concern?.data.map((concern) => ({
     params: {
-      Name: concern.Name.replace(/\s+/g, "-").toLowerCase(),
-      id: concern.documentId.toString()
-    }, // Ensure the id is a string
+      slug: concern?.attributes?.slug || "",
+    },
   }));
+
   return {
-    paths, // The list of dynamic paths to pre-render
-    fallback: false, // Set to 'false' if you want to show 404 for non-existent paths
+    paths,
+    fallback: "blocking", // Dynamically generate pages for new paths
   };
 }
 
-export const getStaticProps = async (context) => {
-  if (!context.params || !context.params.id) {
+export const getServerSideProps = async (context) => {
+  if (!context.params || !context.params.slug) {
     return {
-      notFound: true, // Return 404 if id is missing
+      notFound: true,
     };
   }
-  const { id, Name } = context.params;
+  const { slug } = context.params;
 
   try {
     const res = await fetch(
-      `https://grateful-authority-34f01c9d0d.strapiapp.com/api/Special-Promotions/${id}/?populate=*`
+      `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?filters[slug][$eq]=${slug}&populate=*`
     );
     const data = await res.json();
-    console.log(data, "--data");
     return {
       props: {
-        specialData: data?.data || null,
+        specialData: data?.data[0] || null, // Assume the first matching item
       },
     };
   } catch (error) {
@@ -67,7 +66,11 @@ const ServicesDetails = ({ specialData }) => {
   return (
     <div className={styles.servicesDetails}>
       <FooterContainer />
-      <section className={styles.banner}>
+      <section className={styles.banner}
+        style={{
+          backgroundImage: `url(${specialData?.Main_banner?.url || "/placeholder-image3@2x.png"})`,
+        }}
+      >
         <div className={styles.loremIpsumDolor}>
           HOME - {specialData?.category?.Name || "Category"}
         </div>

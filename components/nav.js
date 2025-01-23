@@ -45,7 +45,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
   const fetchServicesByCategory = async (categoryId) => {
     try {
       const response = await fetch(
-        `https://grateful-authority-34f01c9d0d.strapiapp.com/api/services?filters[category][id][$eq]=${categoryId}`
+        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?filters[category][id][$eq]=${categoryId}`
       );
       const data = await response.json();
       setServicesByCategory((prev) => ({
@@ -60,7 +60,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
   const fetchSpecialByCategory = async (categoryId) => {
     try {
       const response = await fetch(
-        `https://grateful-authority-34f01c9d0d.strapiapp.com/api/Special-Promotions?filters[category][id][$eq]=${categoryId}`
+        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?filters[category][id][$eq]=${categoryId}`
       );
       const data = await response.json();
       setSpecialByCategory((prev) => ({
@@ -76,7 +76,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
     const fetchData = async (endpoint, setState) => {
       try {
         const response = await fetch(
-          `https://grateful-authority-34f01c9d0d.strapiapp.com/api/${endpoint}?populate=*&pagination[limit]=1000`
+          `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/${endpoint}?populate=*&pagination[limit]=1000`
         );
         const data = await response.json();
         setState(data.data || []);
@@ -193,11 +193,10 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                               <div
                                 key={service.id}
                                 onClick={(event) => {
-                                  const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
                                   event.stopPropagation();
                                   setActiveItem(service.id);
                                   handleNavigation(
-                                    `/services/${formattedName}/${service.documentId}`
+                                    `/services/${service.slug}`
                                   );
                                 }}
                                 className={`${styles.submenuItem} ${activeItem === service.id ? styles.active : ""}`}
@@ -260,11 +259,10 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                                 <div
                                   key={subCategory.id}
                                   onClick={(event) => {
-                                    const formattedName = subCategory.Name.replace(/\s+/g, "-").toLowerCase();
                                     event.stopPropagation();
                                     setActiveItem(subCategory.id);
                                     handleNavigation(
-                                      `/specials/${formattedName}/${subCategory.documentId}`
+                                      `/specials/${subCategory.slug}`
                                     );
                                   }}
                                   className={`${styles.submenuItem} ${activeItem === subCategory.id

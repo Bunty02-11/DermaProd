@@ -1,1 +1,1 @@
-export const serverurl = "https://grateful-authority-34f01c9d0d.strapiapp.com";
+export const serverurl = "https://romantic-acoustics-22fbc9f32c.strapiapp.com";

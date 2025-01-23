@@ -7,9 +7,9 @@ import moment from "moment";
 import FooterContainer from "../../components/footer-container";
 import styles from "./blog-details.module.css";
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
   const response = await fetch(
-    `https://grateful-authority-34f01c9d0d.strapiapp.com/api/blogs?populate=*`
+    `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs?populate=*`
   );
   const concern = await response.json();
 
@@ -23,13 +23,12 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const { id } = context.params;
-  // console.log("🚀 ~ getStaticProps ~ id:", id);
 
   try {
     const response = await fetch(
-      `https://grateful-authority-34f01c9d0d.strapiapp.com/api/blogs/${id}?populate=*`
+      `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs/${id}?populate=*`
     );
     const blogData = await response.json();
     if (!blogData || !blogData.data) {
@@ -76,23 +75,23 @@ const BlogDetails = ({ blogData }) => {
                 {moment(blogDetails?.blog_date).format("DD MMMM YYYY")}
               </div>
             </div>
-            <h1 className={styles.mediumLengthHero1}>
-              {blogDetails?.blog_name}
-            </h1>
+            <p className={styles.text}>
+              {blogDetails?.blog_info?.introduction}
+            </p>
           </div>
           <div className={styles.description}>
             <div className={styles.text}>
               <div>
                 <h3>{blogDetails?.blog_info?.sections?.[0]?.title}</h3>
-                <p>{blogDetails?.blog_info?.sections?.[0]?.content}</p>
+                <p>{blogDetails?.blog_info?.sections?.[0]?.body}</p>
               </div>
               <div>
                 <h3>{blogDetails?.blog_info?.sections?.[1]?.title}</h3>
-                <p>{blogDetails?.blog_info?.sections?.[1]?.content}</p>
+                <p>{blogDetails?.blog_info?.sections?.[1]?.body}</p>
               </div>
               <div>
                 <h3>{blogDetails?.blog_info?.sections?.[2]?.title}</h3>
-                <p>{blogDetails?.blog_info?.sections?.[2]?.content}</p>
+                <p>{blogDetails?.blog_info?.sections?.[2]?.body}</p>
               </div>
             </div>
           </div>
@@ -103,7 +102,7 @@ const BlogDetails = ({ blogData }) => {
           {...blogDetails}
         />
 
-        <Comment1 />
+        {/* <Comment1 /> */}
       </main>
       <Footer
         maskGroup="/mask-group@2x.png"

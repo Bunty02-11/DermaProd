@@ -23,18 +23,18 @@ import styles from "./index.module.css";
 import FaqsList from "../components/FaqsListing";
 import StaticFaqsLisiting from "../components/staticfaqs/staticfaqlist";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const API_BASE_URL =
     process.env.API_BASE_URL ||
-    "https://grateful-authority-34f01c9d0d.strapiapp.com";
+    "https://romantic-acoustics-22fbc9f32c.strapiapp.com";
 
   try {
-    const [concernsRes, servicesRes, promotionsRes, discountRes, testimonial] =
+    const [concernsRes, servicesRes, promotionsRes, discountRes, testimonialRes] =
       await Promise.all([
         fetch(`${API_BASE_URL}/api/concerns?populate=*`),
         fetch(`${API_BASE_URL}/api/services?populate=*`),
-        fetch(`${API_BASE_URL}/api/Special-Promotions?populate=*`),
         fetch(`${API_BASE_URL}/api/Promotions?populate=*`),
+        fetch(`${API_BASE_URL}/api/Discounts?populate=*`),
         fetch(`${API_BASE_URL}/api/testimonials?populate=*`),
       ]);
 
@@ -49,9 +49,8 @@ export async function getStaticProps(context) {
       servicesRes.json(),
       promotionsRes.json(),
       discountRes.json(),
-      testimonial.json(),
+      testimonialRes.json(),
     ]);
-    console.log(discountData, "discountData");
 
     if (
       !concernsData.data ||
@@ -68,7 +67,7 @@ export async function getStaticProps(context) {
         concerns: concernsData.data,
         services: servicesData.data,
         promotions: promotionsData.data,
-        discounts: discountData.data, // Make sure discounts are correctly passed here
+        discounts: discountData.data,
         testimonial: testimonialData.data,
       },
     };
@@ -83,74 +82,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
   // console.log("🚀 ~ Home ~ concern:", concern);
   // console.log("🚀 ~ Home ~ discount:", discounts);
   const onAccordionHeaderClick = useCallback((event) => {
-    const element = event.target;
-
-    const accItem = element.closest("[data-acc-item]") || element;
-    const accContent = accItem.querySelector("[data-acc-content]");
-    const isOpen = accItem.hasAttribute("data-acc-open");
-    const nextOuterSibling =
-      accItem?.nextElementSibling || accItem?.parentElement?.nextElementSibling;
-    const prevOuterSibling =
-      accItem?.previousElementSibling ||
-      accItem?.parentElement?.previousElementSibling;
-    const siblingContainerAccItem = accItem?.hasAttribute("data-acc-original")
-      ? accItem?.nextElementSibling ||
-      nextOuterSibling?.querySelector("[data-acc-item]") ||
-      nextOuterSibling
-      : accItem?.previousElementSibling ||
-      prevOuterSibling?.querySelector("[data-acc-item]") ||
-      prevOuterSibling;
-    const siblingAccItem =
-      siblingContainerAccItem?.querySelector("[data-acc-item]") ||
-      siblingContainerAccItem;
-
-    if (!siblingAccItem) return;
-    const originalDisplay = "flex";
-    const siblingDisplay = "flex";
-
-    const openStyleObject = {
-      "grid-template-rows": "1fr",
-    };
-    const closeStyleObject = {
-      "padding-top": "0px",
-      "padding-bottom": "0px",
-      "margin-bottom": "0px",
-      "margin-top": "0px",
-      "grid-template-rows": "0fr",
-    };
-
-    function applyStyles(element, styleObject) {
-      Object.assign(element.style, styleObject);
-    }
-
-    function removeStyles(element, styleObject) {
-      Object.keys(styleObject).forEach((key) => {
-        element?.style.removeProperty(key);
-      });
-    }
-
-    if (isOpen) {
-      removeStyles(accContent, openStyleObject);
-      applyStyles(accContent, closeStyleObject);
-
-      setTimeout(() => {
-        if (accItem) {
-          accItem.style.display = "none";
-          siblingAccItem.style.display = siblingDisplay;
-        }
-      }, 100);
-    } else {
-      if (accItem) {
-        accItem.style.display = "none";
-        siblingAccItem.style.display = originalDisplay;
-      }
-      const siblingAccContent =
-        siblingAccItem?.querySelector("[data-acc-content]");
-      setTimeout(() => {
-        removeStyles(siblingAccContent, closeStyleObject);
-        applyStyles(siblingAccContent, openStyleObject);
-      }, 1);
-    }
+    event.preventDefault();
   }, []);
 
   return (

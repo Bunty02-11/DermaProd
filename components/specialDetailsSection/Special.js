@@ -17,7 +17,7 @@ const Services2 = ({ className = "", specialDetails }) => {
         <div className={styles.loremIpsumDolor}>
           {specialDetails?.category?.Name}
         </div>
-        <h1 className={styles.mediumLengthHero}>{specialDetails?.meta_description}</h1>
+        <h1 className={styles.mediumLengthHero}>{specialDetails?.heading}</h1>
       </div>
 
       {/* Banner Image */}
