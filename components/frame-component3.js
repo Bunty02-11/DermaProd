@@ -52,13 +52,13 @@ const FrameComponent3 = ({ className = "", content }) => {
             <div className={styles.main}>
               <div className={styles.aed}>{currentContent.Amount || "N/A"} Aed</div>
               <div className={styles.yoremIpsumDolor}>
-                {currentContent.content || "No description available"}
+                {currentContent.title || "No title available"}
               </div>
             </div>
             <div className={styles.benefits}>
               <div className={styles.benefits1}>Benefits:</div>
               <div className={styles.yoremIpsumDolor}>
-                {currentContent.benefits?.length > 0 ? (
+                {currentContent.benifits?.length > 0 ? (
                   <ul className={styles.yoremIpsumDolorSitAmetCo}>
                     {currentContent.benefits.map((benefit, index) => (
                       <li key={index} className={styles.yoremIpsumDolor1}>

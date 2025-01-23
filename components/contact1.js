@@ -31,7 +31,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://grateful-authority-34f01c9d0d.strapiapp.com/api/contacts",
+        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/contacts",
         {
           method: "POST",
           headers: {

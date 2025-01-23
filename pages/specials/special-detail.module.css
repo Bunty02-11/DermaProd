@@ -25,7 +25,7 @@
     var(--padding-61xl);
   box-sizing: border-box;
   gap: var(--gap-base);
-  background-image: url(/banner1@3x.png);
+  /* background-image: url(/banner1@3x.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -60,7 +60,8 @@
   gap: var(--gap-base);
   text-align: center;
   color: var(--color-gray-100);
-  text-align: left !important;
+  text-align: left;
+  font-size: 48px;
 }
 .placeholderImageIcon {
   align-self: stretch;
@@ -157,7 +158,6 @@
   line-height: 120%;
   font-weight: 600;
   font-family: inherit;
-  text-align: left;
 }
 .text3 {
   position: relative;
@@ -335,6 +335,9 @@
   .faq {
     padding: var(--padding-20xl) var(--padding-21xl);
   }
+  .heading{
+    font-size: 36px;
+  }
 }
 @media screen and (max-width: 450px) {
   .mediumLengthHero,
@@ -349,5 +352,8 @@
   .heading1 {
     font-size: var(--font-size-10xl);
     line-height: 35px;
+  }
+  .heading{
+    font-size: 24px;
   }
 }

@@ -28,7 +28,7 @@ function navBarMobile(props) {
   const fetchServicesByCategory = async (categoryId) => {
     try {
       const response = await fetch(
-        `https://grateful-authority-34f01c9d0d.strapiapp.com/api/services?filters[category][id][$eq]=${categoryId}`
+        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?filters[category][id][$eq]=${categoryId}`
       );
       const data = await response.json();
       setServicesByCategory((prev) => ({
@@ -43,7 +43,7 @@ function navBarMobile(props) {
   const fetchSpecialByCategory = async (categoryId) => {
     try {
       const response = await fetch(
-        `https://grateful-authority-34f01c9d0d.strapiapp.com/api/Special-Promotions?filters[category][id][$eq]=${categoryId}`
+        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/Special-Promotions?filters[category][id][$eq]=${categoryId}`
       );
       const data = await response.json();
       setSpecialByCategory((prev) => ({
@@ -59,7 +59,7 @@ function navBarMobile(props) {
     const fetchData = async (endpoint, setState) => {
       try {
         const response = await fetch(
-          `https://grateful-authority-34f01c9d0d.strapiapp.com/api/${endpoint}`
+          `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/${endpoint}`
         );
         const data = await response.json();
         setState(data.data || []);

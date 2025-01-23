@@ -10,8 +10,6 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
     router.push(path);
   };
 
-  console.log(details?.Name, "--details");
-
   return (
     <div className={[styles.card, className].join(" ")}>
       <Image
@@ -40,10 +38,8 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
           <button
             className={styles.btnLearn}
             onClick={() => {
-              const formattedName = details?.Name.replace(/\s+/g, "-").toLowerCase();
-              {console.log(formattedName, "--formattedName");}
               handleNavigation(
-                `/concern-details/${formattedName}/${details?.documentId}`
+                `/concern-details/${details?.slug}`
               );
             }}
           >

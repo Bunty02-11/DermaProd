@@ -1,50 +1,53 @@
 import { useCallback } from "react";
 import Image from "next/image";
-import FrameComponent1 from "../../../components/frame-component1";
-import ServicesDescriptionItems from "../../../components/ServicesDetails/index";
-import Contact1 from "../../../components/contact1";
-import AccordionItem from "../../../components/accordion-item";
-import Footer from "../../../components/footer";
-import ServicesDescriptionItems1 from "../../../components/ServicesDetails1";
-import FaqsListing from "../../../components/FaqsListing/index";
+import FrameComponent1 from "../../components/frame-component1";
+import ServicesDescriptionItems from "../../components/ServicesDetails/index";
+import Contact1 from "../../components/contact1";
+import AccordionItem from "../../components/accordion-item";
+import Footer from "../../components/footer";
+import ServicesDescriptionItems1 from "../../components/ServicesDetails1";
+import FaqsListing from "../../components/FaqsListing/index";
 import styles from "./services-details.module.css";
-import Services2 from "../../../components/serviceDetailSection/services";
-import FooterContainer from "../../../components/footer-container";
+import Services2 from "../../components/serviceDetailSection/services";
+import FooterContainer from "../../components/footer-container";
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
   const response = await fetch(
-    `https://grateful-authority-34f01c9d0d.strapiapp.com/api/services?populate=*&pagination[limit]=1000`
+    `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?populate=*`
   );
   const concern = await response.json();
 
   const paths = concern?.data.map((concern) => ({
     params: {
-      category: concern.category.Name.replace(/\s+/g, "-").toLowerCase(),
-      Name: concern.Name.replace(/\s+/g, "-").toLowerCase(),
-      id: concern.documentId.toString()
-    }, // Ensure the id is a string
+      slug: concern?.attributes?.slug || "",
+    },
   }));
+
   return {
-    paths, // The list of dynamic paths to pre-render
-    fallback: false, // Set to 'false' if you want to show 404 for non-existent paths
+    paths,
+    fallback: "blocking", // Dynamically generate pages for new paths
   };
 }
-export const getStaticProps = async (context) => {
-  const { id, Name, category } = context.params;
+export const getServerSideProps = async (context) => {
+  if (!context.params || !context.params.slug) {
+    return {
+      notFound: true,
+    };
+  }
+  const { slug } = context.params;
 
   try {
     const res = await fetch(
-      `https://grateful-authority-34f01c9d0d.strapiapp.com/api/services/${id}/?populate=*`
+      `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?filters[slug][$eq]=${slug}&populate=*`
     );
     const data = await res.json();
-    console.log(data, "--data");
     return {
       props: {
-        serviceData: data?.data || null,
+        serviceData: data?.data[0] || null, // Assume the first matching item
       },
     };
   } catch (error) {
-    console.error("Error fetching service data:", error);
+    console.error("Error fetching special data:", error);
     return {
       props: {
         serviceData: null,
@@ -53,7 +56,6 @@ export const getStaticProps = async (context) => {
   }
 };
 const ServicesDetails = ({ serviceData }) => {
-  // console.log("🚀 ~ ServicesDetails ~ serviceData:", serviceData);
   const onAccordionHeaderClick = useCallback((event) => {
     // Accordion toggle logic
   }, []);
@@ -61,7 +63,11 @@ const ServicesDetails = ({ serviceData }) => {
   return (
     <div className={styles.servicesDetails}>
       <FooterContainer />
-      <section className={styles.banner}>
+      <section className={styles.banner}
+        style={{
+          backgroundImage: `url(${serviceData?.Main_banner?.url || "/placeholder-image3@2x.png"})`,
+        }}
+      >
         <div className={styles.loremIpsumDolor}>
           HOME - {serviceData?.category?.Name || "Category"}
         </div>

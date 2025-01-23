@@ -10,7 +10,7 @@ import StaticFaqsLisiting1 from "../components/staticfaqs2/staticfaqlist1";
 export async function getServerSideProps(context) {
   const API_BASE_URL =
     process.env.API_BASE_URL ||
-    "https://grateful-authority-34f01c9d0d.strapiapp.com";
+    "https://romantic-acoustics-22fbc9f32c.strapiapp.com";
 
   try {
     const [testimonial] = await Promise.all([

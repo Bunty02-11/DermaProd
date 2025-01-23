@@ -28,13 +28,22 @@
 }
 .placeholderImageIcon {
   align-self: stretch;
+  object-fit: cover;
   position: relative;
   border-radius: var(--br-base);
   max-width: 100%;
   overflow: hidden;
   max-height: 100%;
-  object-fit: cover;
+  
 }
+/* .placeholderImageIcon {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; 
+  border-radius: var(--br-base); 
+  overflow: hidden;
+  display: block; 
+} */
 .image {
   align-self: stretch;
   display: flex;

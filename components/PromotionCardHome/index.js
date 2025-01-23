@@ -15,7 +15,7 @@ const Card = ({ className = "", placeholderImage, details }) => {
     <div className={[styles.card, className].join(" ")}>
       <Image
         className={styles.placeholderImageIcon}
-        width={411}
+        width={620}
         height={260}
         alt=""
         src={
@@ -38,9 +38,8 @@ const Card = ({ className = "", placeholderImage, details }) => {
           <button
             className={styles.btnLearn}
             onClick={() => {
-              const formattedName = details.Name.replace(/\s+/g, "-").toLowerCase();
               handleNavigation(
-                `/specials/${formattedName}/${details.documentId}`
+                `/specials/${details.slug}`
               );
             }}
           >
