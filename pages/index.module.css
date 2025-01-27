@@ -1,3 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1680px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
 .loremIpsumDolor,
 .mediumLengthHero {
   align-self: stretch;
@@ -106,7 +119,7 @@
   max-width: 100%;
 }
 .frameParent {
-  /* flex: 1; */
+  flex: 1;
   flex-direction: column;
   gap: var(--gap-21xl);
 }
@@ -463,7 +476,7 @@
 .testimonialWrapperWrapper {
   align-self: stretch;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
   max-width: 100%;
 }

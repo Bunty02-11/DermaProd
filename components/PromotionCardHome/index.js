@@ -30,9 +30,9 @@ const Card = ({ className = "", placeholderImage, details }) => {
           <h3 className={styles.heading}>{details?.Name}</h3>
         </div>
         <div className={styles.contentDescriptionOne}>
-          {details?.section?.introduction?.length > 235
-            ? details?.section?.introduction.slice(0, 235) + "..."
-            : details?.section?.introduction}
+          {details?.content?.introduction?.length > 235
+            ? details?.content?.introduction.slice(0, 235) + "..."
+            : details?.content?.introduction}
         </div>
         <div className={styles.btns}>
           <button

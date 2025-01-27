@@ -89,6 +89,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
     <div className={styles.home}>
       <FooterContainer />
       <Banner />
+      <div className={styles.container}>
       <FrameComponent2 />
       <FrameComponent3 content={discounts} />
       <FrameComponent4 />
@@ -302,6 +303,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
         </div>
       </section>
+      </div>
       <Footer
         maskGroup="/mask-group@2x.png"
         symbolsvg="/symbolsvg-2.svg"

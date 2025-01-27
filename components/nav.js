@@ -12,6 +12,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
   const [blogs, setBlogs] = useState([]);
   const [activeItem, setActiveItem] = useState(null);
   const [special, setSpecial] = useState([]);
+  const [languageDropdown, setLanguageDropdown] = useState(false);
 
   const router = useRouter();
   const [dropdown, setDropdown] = useState({
@@ -91,11 +92,18 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
     fetchData("special", setSpecial);
   }, []);
 
+  const toggleLanguageDropdown = () => {
+    setLanguageDropdown((prev) => !prev);
+  };
+
+  const selectLanguage = (language) => {
+    // Handle language selection
+    console.log("Selected language:", language);
+    setLanguageDropdown(false);
+  };
+
   return (
-    <div
-      className={[styles.nav, className].join(" ")}
-      style={{ width: "100%" }}
-    >
+    <div className={[styles.nav, className].join(" ")} style={{ width: "100%" }}>
       <div className={styles.content}>
         <div
           onClick={() => handleNavigation("/")}
@@ -291,7 +299,6 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
             )}
           </div>
           {/* Blog Dropdown */}
-          {/* Blog Dropdown */}
           <div className={styles.menuItems}>
             <div
               className={styles.blog}
@@ -310,32 +317,46 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
           </div>
         </div>
 
-        {/* <div className={styles.icons}>
-          <Image
-            className={styles.searchIcon}
-            loading="lazy"
-            width={44}
-            height={44}
-            alt=""
-            src="/search.svg"
-          />
-          <div className={styles.iconsChild} />
-          <div className={styles.language}>
-            <div className={styles.en}>EN</div>
-            <Image
-              className={styles.iconamoonarrowUp2Light4}
-              width={18}
-              height={18}
-              alt=""
-              src="/iconamoonarrowup2light-4@2x.png"
-            />
+        <div className={styles.btnBookWrapper}>
+          <div
+            className={styles.btnBook}
+            onClick={() => handleNavigation("/contact")}
+          >
+            <div className={styles.bookAnAppointment}>Book An Appointment</div>
           </div>
-        </div> */}
-        <div
-          className={styles.btnBook}
-          onClick={() => handleNavigation("/contact")}
-        >
-          <div className={styles.bookAnAppointment}>Book An Appointment</div>
+          <div
+            className={styles.languageDropdownWrapper}
+            onMouseEnter={toggleLanguageDropdown}
+            onMouseLeave={toggleLanguageDropdown}
+          >
+            {/* <div className={styles.languageButton}>
+              Language
+              <Image
+                className={styles.dropdownIcon}
+                loading="lazy"
+                width={24}
+                height={24}
+                alt=""
+                src="/iconamoonarrowup2light@2x.png"
+              />
+            </div>
+            {languageDropdown && (
+              <div className={styles.languageDropdown}>
+                <div
+                  className={styles.languageOption}
+                  onClick={() => selectLanguage("English")}
+                >
+                  English
+                </div>
+                <div
+                  className={styles.languageOption}
+                  onClick={() => selectLanguage("Arabic")}
+                >
+                  Arabic
+                </div>
+              </div>
+            )} */}
+          </div>
         </div>
       </div>
     </div>

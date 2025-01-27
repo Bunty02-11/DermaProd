@@ -29,88 +29,90 @@ const FrameComponent3 = ({ className = "", content }) => {
   const currentContent = content[currentIndex] || {};
 
   return (
-    <div className={[styles.promotionContainerWrapper, className].join(" ")}>
-      <div className={styles.promotionContainer}>
-        <div className={styles.promotionTitle}>
-          <h1 className={styles.specialPromotion}>Special Promotion</h1>
-        </div>
-        <div className={styles.content}>
-          {/* Dynamically display content based on the currentIndex */}
-          {currentContent.image1?.url ? (
-            <Image
-              className={styles.placeholderImageIcon}
-              loading="lazy"
-              width={570}
-              height={458}
-              alt="Promotion Image"
-              src={currentContent.image1.url} // Access the current promotion image URL
-            />
-          ) : (
-            <div className={styles.placeholder}>No Image Available</div>
-          )}
-          <div className={styles.text}>
-            <div className={styles.main}>
-              <div className={styles.aed}>{currentContent.Amount || "N/A"} Aed</div>
-              <div className={styles.yoremIpsumDolor} style={{ fontSize: "20px", fontWeight: "bold" }}>
-                {currentContent.title || "No title available"}
+    <div >
+      <div className={[styles.promotionContainerWrapper, className].join(" ")} >
+        <div className={styles.promotionContainer}>
+          <div className={styles.promotionTitle}>
+            <h1 className={styles.specialPromotion}>Special Promotion</h1>
+          </div>
+          <div className={styles.content}>
+            {/* Dynamically display content based on the currentIndex */}
+            {currentContent.image1?.url ? (
+              <Image
+                className={styles.placeholderImageIcon}
+                loading="lazy"
+                width={570}
+                height={458}
+                alt="Promotion Image"
+                src={currentContent.image1.url} // Access the current promotion image URL
+              />
+            ) : (
+              <div className={styles.placeholder}>No Image Available</div>
+            )}
+            <div className={styles.text}>
+              <div className={styles.main}>
+                <div className={styles.aed}>{currentContent.Amount || "N/A"} Aed</div>
+                <div className={styles.yoremIpsumDolor} style={{ fontSize: "20px", fontWeight: "bold" }}>
+                  {currentContent.title || "No title available"}
+                </div>
               </div>
-            </div>
-            <div className={styles.benefits}>
-              <div className={styles.benefits1}>Benefits:</div>
-              <div className={styles.yoremIpsumDolor}>
-                {currentContent.benifits && currentContent.benifits.length > 0 ? (
-                  <ul className={styles.yoremIpsumDolorSitAmetCo}>
-                    {currentContent.benifits.map((benefit, index) => (
-                      <li key={index} className={styles.yoremIpsumDolor1}>
-                        {benefit.description}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <div>No benefits listed</div>
-                )}
+              <div className={styles.benefits}>
+                <div className={styles.benefits1}>Benefits:</div>
+                <div className={styles.yoremIpsumDolor}>
+                  {currentContent.benifits && currentContent.benifits.length > 0 ? (
+                    <ul className={styles.yoremIpsumDolorSitAmetCo}>
+                      {currentContent.benifits.map((benefit, index) => (
+                        <li key={index} className={styles.yoremIpsumDolor1}>
+                          {benefit.description}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div>No benefits listed</div>
+                  )}
+                </div>
               </div>
-            </div>
-            <div className={styles.btnBook}>
-              <a href="/contact" className={`${styles.payNow} ${styles.noUnderline}`} style={{ color: 'white' }}>
-                <div className={styles.payNow}>Book Now</div>
-              </a>
+              <div className={styles.btnBook}>
+                <a href="/contact" className={`${styles.payNow} ${styles.noUnderline}`} style={{ color: 'white' }}>
+                  <div className={styles.payNow}>Book Now</div>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.buttons}>
-          {/* Dots for navigation */}
-          <div className={styles.promotionDots}>
-            <div className={styles.sliderDots}>
-              {content.map((_, index) => (
-                <div
-                  key={index}
-                  className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ""
-                    }`}
-                  onClick={() => goToSlide(index)}
+          <div className={styles.buttons}>
+            {/* Dots for navigation */}
+            <div className={styles.promotionDots}>
+              <div className={styles.sliderDots}>
+                {content.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ""
+                      }`}
+                    onClick={() => goToSlide(index)}
+                  />
+                ))}
+              </div>
+            </div>
+            {/* Arrow navigation */}
+            <div className={styles.arrowsParent}>
+              <div className={styles.arrows} onClick={goToPrevious}>
+                <Image
+                  className={styles.fearrowUpIcon}
+                  width={48}
+                  height={48}
+                  alt="Arrow Left"
+                  src="/fearrowupprev@2x.png"
                 />
-              ))}
-            </div>
-          </div>
-          {/* Arrow navigation */}
-          <div className={styles.arrowsParent}>
-            <div className={styles.arrows} onClick={goToPrevious}>
-              <Image
-                className={styles.fearrowUpIcon}
-                width={48}
-                height={48}
-                alt="Arrow Left"
-                src="/fearrowupprev@2x.png"
-              />
-            </div>
-            <div className={styles.arrows} onClick={goToNext}>
-              <Image
-                className={styles.fearrowUpIcon}
-                width={48}
-                height={48}
-                alt="Arrow Right"
-                src="/fearrowup@2x.png"
-              />
+              </div>
+              <div className={styles.arrows} onClick={goToNext}>
+                <Image
+                  className={styles.fearrowUpIcon}
+                  width={48}
+                  height={48}
+                  alt="Arrow Right"
+                  src="/fearrowup@2x.png"
+                />
+              </div>
             </div>
           </div>
         </div>

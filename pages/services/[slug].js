@@ -75,8 +75,9 @@ const ServicesDetails = ({ serviceData }) => {
           {serviceData?.Name || "Service Title"}
         </h1>
       </section>
-      <div className={styles.services}>
-        {/* <div className={styles.heading}>
+      <div className={styles.container}>
+        <div className={styles.services}>
+          {/* <div className={styles.heading}>
           <div className={styles.loremIpsumDolor1}>
             {serviceData?.category?.Name || "Category"}
           </div>
@@ -84,7 +85,7 @@ const ServicesDetails = ({ serviceData }) => {
             {serviceData?.heading || "Service Title"}
           </h1>
         </div> */}
-        {/* <div className={styles.image}>
+          {/* <div className={styles.image}>
           <Image
             className={styles.placeholderImageIcon}
             loading="lazy"
@@ -94,26 +95,27 @@ const ServicesDetails = ({ serviceData }) => {
             src={serviceData?.Banner_image?.url || "/placeholder-image3@2x.png"}
           />
         </div> */}
-        {/* <div className={styles.description}>
+          {/* <div className={styles.description}>
           <div className={styles.text}>
             {serviceData?.meta_description || "Service description goes here."}
           </div>
         </div> */}
-        <Services2 serviceDetails={serviceData} />
-      </div>
-      <Contact1 placeholderImage="/placeholder-image-14@2x.png" />
-      <section className={styles.faq}>
-        <div className={styles.sectionTitle}>
-          <div className={styles.subheading}>SUPPORT</div>
-          <div className={styles.content}>
-            <h3 className={styles.heading}>Frequently Asked Questions</h3>
-          </div>
+          <Services2 serviceDetails={serviceData} />
         </div>
-        <FaqsListing faqsList={serviceData?.faqs} />
-        {/* <div style={{ flex: "100%", width: "100%" }}>
+        <Contact1 placeholderImage="/placeholder-image-14@2x.png" />
+        <section className={styles.faq}>
+          <div className={styles.sectionTitle}>
+            <div className={styles.subheading}>SUPPORT</div>
+            <div className={styles.content}>
+              <h3 className={styles.heading}>Frequently Asked Questions</h3>
+            </div>
+          </div>
+          <FaqsListing faqsList={serviceData?.faqs} />
+          {/* <div style={{ flex: "100%", width: "100%" }}>
             <AccordionList faqsList={[]}/>
           </div> */}
-      </section>
+        </section>
+      </div>
       <Footer
         maskGroup="/mask-group@2x.png"
         symbolsvg="/symbolsvg-21.svg"

@@ -6,9 +6,9 @@ import { serverurl } from "../../base";
 const Services2 = ({ className = "", specialDetails }) => {
   // Prepare the images dynamically
   const images = [
-    specialDetails?.section1Image?.url,
-    specialDetails?.section2Image?.url,
-    specialDetails?.sectio3Image?.url
+    specialDetails?.image1?.url,
+    specialDetails?.image2?.url,
+    specialDetails?.image3?.url
   ];
 
   return (
@@ -39,12 +39,12 @@ const Services2 = ({ className = "", specialDetails }) => {
       {/* Introduction Section */}
       <div className={styles.description}>
         <div className={styles.text}>
-          {specialDetails?.section?.introduction}
+          {specialDetails?.content?.introduction}
         </div>
       </div>
 
       {/* First Service Content Section */}
-      {specialDetails?.section?.sections?.map((section, i) => (
+      {specialDetails?.content?.sections?.map((section, i) => (
         <div key={i} className={styles.serviceContent}>
           <div className="row gy-3">
             {/* Image Section */}
