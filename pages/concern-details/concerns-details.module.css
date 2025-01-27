@@ -1,3 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1680px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
 .loremIpsumDolor,
 .mediumLengthHero {
   width: 1281px;

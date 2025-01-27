@@ -58,6 +58,7 @@ const ConcernsDetails = ({ concern }) => {
     <div className={styles.concerns}>
       <FooterContainer />
 
+
       {concern?.length ? (
         <>
           <section className={styles.banner}>
@@ -66,7 +67,9 @@ const ConcernsDetails = ({ concern }) => {
               {concern?.[0]?.category?.Name}
             </h1>
           </section>
-          <ConcernsDetailsComp content={concern} />
+          <div className={styles.container}>
+            <ConcernsDetailsComp content={concern} />
+          </div>
         </>
       ) : (
         <div
@@ -75,7 +78,9 @@ const ConcernsDetails = ({ concern }) => {
         >
           Nothing Found
         </div>
+
       )}
+
 
       <Footer
         maskGroup="/mask-group@2x.png"

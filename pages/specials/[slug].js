@@ -78,6 +78,7 @@ const ServicesDetails = ({ specialData }) => {
           {specialData?.Name || "Special Title"}
         </h1>
       </section>
+      <div className={styles.container}>
       <div className={styles.services}>
         {/* <div className={styles.Name}>
           <div className={styles.loremIpsumDolor1}>
@@ -114,6 +115,7 @@ const ServicesDetails = ({ specialData }) => {
         </div>
         <FaqsListing faqsList={specialData?.faqs} />
       </section>
+      </div>
       <Footer
         maskGroup="/mask-group@2x.png"
         symbolsvg="/symbolsvg-21.svg"

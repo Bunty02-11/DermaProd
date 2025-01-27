@@ -59,6 +59,7 @@ const BlogDetails = ({ blogData }) => {
         <div className={styles.loremIpsumDolor}>HOME - BLOG</div>
         <h1 className={styles.mediumLengthHero}>{blogDetails?.blog_name}</h1>
       </div>
+      <div className={styles.container}>
       <main className={styles.blog}>
         <Image1
           Mainimg={blogDetails?.banner?.url}
@@ -104,6 +105,7 @@ const BlogDetails = ({ blogData }) => {
 
         {/* <Comment1 /> */}
       </main>
+      </div>
       <Footer
         maskGroup="/mask-group@2x.png"
         symbolsvg="/symbolsvg-21.svg"

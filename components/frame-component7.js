@@ -24,7 +24,7 @@ const FrameComponent7 = ({ className = "" }) => {
             <SliderItems
               materialSymbolsLightmailOutline="/materialsymbolslightcalloutline.svg"
               perfumes="Call Us"
-              perfumes1="+971 454 78522"
+              perfumes1="+971 509 870036"
               perfumesAlignSelf="stretch"
             />
             <SliderItems

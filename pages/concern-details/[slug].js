@@ -76,23 +76,25 @@ const ConcernsDetails = ({ concernDetails }) => {
           {concernDetails?.Name || "Special Title"}
         </h3>
       </section>
-      <ContentDetailsComp concernDetails={concernDetails} />
-      <Contact1
-        placeholderImage={"/placeholder-image3@2x.png"
-        }
-      />
-      <section className={styles.faq}>
-        <div className={styles.sectionTitle}>
-          <div className={styles.subheading}>SUPPORT</div>
-          <div className={styles.content}>
-            <h3 className={styles.heading}>Frequently Asked Questions</h3>
+      <div className="container">
+        <ContentDetailsComp concernDetails={concernDetails} />
+        <Contact1
+          placeholderImage={"/placeholder-image3@2x.png"
+          }
+        />
+        <section className={styles.faq}>
+          <div className={styles.sectionTitle}>
+            <div className={styles.subheading}>SUPPORT</div>
+            <div className={styles.content}>
+              <h3 className={styles.heading}>Frequently Asked Questions</h3>
+            </div>
           </div>
-        </div>
-        <FaqsListing faqsList={concernDetails?.faqs} />
-        {/* <div style={{ flex: "100%", width: "100%" }}>
+          <FaqsListing faqsList={concernDetails?.faqs} />
+          {/* <div style={{ flex: "100%", width: "100%" }}>
             <AccordionList faqsList={[]}/>
           </div> */}
-      </section>
+        </section>
+      </div>
       <Footer
         maskGroup="/mask-group@2x.png"
         symbolsvg="/symbolsvg-21.svg"
