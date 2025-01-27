@@ -30,6 +30,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
   return (
     <>
       <footer className={[styles.footer, className].join(" ")}>
+        <div className={styles.container}>
         <div className={styles.content}>
           <div
             className={styles.links}
@@ -224,6 +225,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </footer>
       <FooterMobile
