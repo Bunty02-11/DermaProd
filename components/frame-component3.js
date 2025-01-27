@@ -51,16 +51,16 @@ const FrameComponent3 = ({ className = "", content }) => {
           <div className={styles.text}>
             <div className={styles.main}>
               <div className={styles.aed}>{currentContent.Amount || "N/A"} Aed</div>
-              <div className={styles.yoremIpsumDolor}>
+              <div className={styles.yoremIpsumDolor} style={{ fontSize: "20px", fontWeight: "bold" }}>
                 {currentContent.title || "No title available"}
               </div>
             </div>
             <div className={styles.benefits}>
               <div className={styles.benefits1}>Benefits:</div>
               <div className={styles.yoremIpsumDolor}>
-                {currentContent.benifits?.length > 0 ? (
+                {currentContent.benifits && currentContent.benifits.length > 0 ? (
                   <ul className={styles.yoremIpsumDolorSitAmetCo}>
-                    {currentContent.benefits.map((benefit, index) => (
+                    {currentContent.benifits.map((benefit, index) => (
                       <li key={index} className={styles.yoremIpsumDolor1}>
                         {benefit.description}
                       </li>
@@ -73,7 +73,7 @@ const FrameComponent3 = ({ className = "", content }) => {
             </div>
             <div className={styles.btnBook}>
               <a href="/contact" className={`${styles.payNow} ${styles.noUnderline}`} style={{ color: 'white' }}>
-              <div className={styles.payNow}>Book Now</div>
+                <div className={styles.payNow}>Book Now</div>
               </a>
             </div>
           </div>
@@ -100,7 +100,7 @@ const FrameComponent3 = ({ className = "", content }) => {
                 width={48}
                 height={48}
                 alt="Arrow Left"
-                src="/arrows@2x.png"
+                src="/fearrowupprev@2x.png"
               />
             </div>
             <div className={styles.arrows} onClick={goToNext}>

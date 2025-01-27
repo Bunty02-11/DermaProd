@@ -87,7 +87,7 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
                 width={48}
                 height={48}
                 alt="Arrow Left"
-                src="/arrows@2x.png"
+                src="/fearrowupprev@2x.png"
               />
             </div>
             <div className={styles.arrows} onClick={goToNext}>
