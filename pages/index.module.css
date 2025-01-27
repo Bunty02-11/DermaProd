@@ -106,7 +106,7 @@
   max-width: 100%;
 }
 .frameParent {
-  flex: 1;
+  /* flex: 1; */
   flex-direction: column;
   gap: var(--gap-21xl);
 }
@@ -147,15 +147,15 @@
 .content2,
 .row1 {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
 }
 .row1 {
   align-self: stretch;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: center;
   gap: var(--gap-13xl);
 }
 .content1,
@@ -164,6 +164,7 @@
 }
 .content2 {
   align-self: stretch;
+  align-items: center;
   gap: var(--gap-29xl);
 }
 .content1 {
@@ -187,7 +188,7 @@
 .hero1 {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -462,7 +463,7 @@
 .testimonialWrapperWrapper {
   align-self: stretch;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   box-sizing: border-box;
   max-width: 100%;
 }

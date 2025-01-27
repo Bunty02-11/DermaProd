@@ -150,7 +150,7 @@
 }
 .content,
 .nav {
-  justify-content: flex-start;
+  justify-content: center;
 }
 .content {
   height: 48px;

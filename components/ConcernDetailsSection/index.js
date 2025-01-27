@@ -38,7 +38,7 @@ const Services2 = ({ className = "", concernDetails }) => {
 
       {/* Introduction Section */}
       <div className={styles.description}>
-        <div className={styles.text}>
+        <div className={styles.text} style={{ justifyContent: "center" }}>
           {concernDetails?.content?.introduction}
         </div>
       </div>
