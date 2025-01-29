@@ -56,7 +56,7 @@ export const getServerSideProps = async (context) => {
 };
 
 const ConcernsDetails = ({ concernDetails }) => {
-  console.log(concernDetails, "--concernDetails");
+  // console.log(concernDetails, "--concernDetails");
   const onAccordionHeaderClick = useCallback((event) => {
     event.preventDefault();
   }, []);
