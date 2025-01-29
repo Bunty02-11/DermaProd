@@ -60,51 +60,64 @@ const BlogDetails = ({ blogData }) => {
         <h1 className={styles.mediumLengthHero}>{blogDetails?.blog_name}</h1>
       </div>
       <div className={styles.container}>
-      <main className={styles.blog}>
-        <Image1
-          Mainimg={blogDetails?.banner?.url}
-          category={blogDetails?.attributes?.category}
-          {...blogDetails}
-        />
-        <section className={styles.content}>
-          <div className={styles.heading}>
-            <div className={styles.loremIpsumDolorSitAmetCoParent}>
-              <div className={styles.loremIpsumDolor1}>
-                ADMIN
+        <main className={styles.blog}>
+          <Image1
+            Mainimg={blogDetails?.banner?.url}
+            category={blogDetails?.attributes?.category}
+            {...blogDetails}
+          />
+          <section className={styles.content}>
+            <div className={styles.heading}>
+              <div className={styles.loremIpsumDolorSitAmetCoParent}>
+                <div className={styles.loremIpsumDolor1}>
+                  ADMIN
+                </div>
+                <div className={styles.loremIpsumDolor2}>
+                  {moment(blogDetails?.blog_date).format("DD MMMM YYYY")}
+                </div>
               </div>
-              <div className={styles.loremIpsumDolor2}>
-                {moment(blogDetails?.blog_date).format("DD MMMM YYYY")}
-              </div>
+              <p className={styles.text}>
+                {blogDetails?.blog_info?.introduction}
+              </p>
             </div>
-            <p className={styles.text}>
-              {blogDetails?.blog_info?.introduction}
-            </p>
-          </div>
-          <div className={styles.description}>
-            <div className={styles.text}>
-              <div>
-                <h3>{blogDetails?.blog_info?.sections?.[0]?.title}</h3>
-                <p>{blogDetails?.blog_info?.sections?.[0]?.body}</p>
-              </div>
-              <div>
-                <h3>{blogDetails?.blog_info?.sections?.[1]?.title}</h3>
-                <p>{blogDetails?.blog_info?.sections?.[1]?.body}</p>
-              </div>
-              <div>
-                <h3>{blogDetails?.blog_info?.sections?.[2]?.title}</h3>
-                <p>{blogDetails?.blog_info?.sections?.[2]?.body}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <BlogContent
-          image1={blogDetails?.gallery1?.url}
-          image2={blogDetails?.gallery2?.url}
-          {...blogDetails}
-        />
+            <div className={styles.description}>
+              <div className={styles.text}>
+                {blogDetails?.blog_info?.sections?.map((section, index) => (
+                  <div key={index}>
+                    <h3>{section?.title}</h3>
+                    <p>{section?.body}</p>
 
-        {/* <Comment1 /> */}
-      </main>
+                    {section?.subsections?.length > 0 && (
+                      <ul>
+                        {section.subsections.map((subsection, subIndex) => (
+                          <li key={subIndex}>
+                            <h4>{subsection?.["sub-title"]}</h4>
+                            <p>{subsection?.["sub-body"]}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <BlogContent
+              image1={blogDetails?.gallery1?.url}
+              image2={blogDetails?.gallery2?.url}
+              {...blogDetails}
+            />
+            <div className={styles.description}>
+              <div className={styles.text}>
+                <div>
+                  <h3>Conclusion</h3>
+                  <p>{blogDetails?.blog_info?.conclusion}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* <Comment1 /> */}
+        </main>
       </div>
       <Footer
         maskGroup="/mask-group@2x.png"

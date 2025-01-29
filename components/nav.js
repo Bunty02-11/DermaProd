@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useContext, } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import styles from "./nav.module.css";
+import { LanguageContext } from "../pages/_app";
 
 const Nav = ({ className = "", navWidth, logo1 }) => {
   const [concerns, setConcerns] = useState([]);
@@ -13,6 +14,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
   const [activeItem, setActiveItem] = useState(null);
   const [special, setSpecial] = useState([]);
   const [languageDropdown, setLanguageDropdown] = useState(false);
+  const { language ,setLanguage } = useContext(LanguageContext);
 
   const router = useRouter();
   const [dropdown, setDropdown] = useState({
@@ -21,6 +23,79 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
     blog: false,
     special: false,
   });
+
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang); // Update language in context or state
+    translatePageContent(lang); // Translate content
+    setLanguageDropdown(false); // Close dropdown after selection
+  };
+
+  const translatePageContent = async (targetLanguage) => {
+    if (targetLanguage === "en") {
+      restoreOriginalContent();
+      return;
+    }
+
+    const elements = document.querySelectorAll(
+      "*:not(script):not(style):not(meta)"
+    );
+    const textsToTranslate = [];
+    const elementMap = [];
+
+    elements.forEach((el) => {
+      if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+      ) {
+        const text = el.textContent.trim();
+        if (text) {
+          textsToTranslate.push(text);
+          elementMap.push(el);
+        }
+      }
+    });
+
+    if (textsToTranslate.length === 0) return;
+
+    try {
+      const chunkSize = 128;
+      const textChunks = [];
+      for (let i = 0; i < textsToTranslate.length; i += chunkSize) {
+        textChunks.push(textsToTranslate.slice(i, i + chunkSize));
+      }
+
+      const translations = [];
+
+      for (const chunk of textChunks) {
+        const response = await fetch(
+          `https://translation.googleapis.com/language/translate/v2?key=AIzaSyBFPYrl8v_HRI1jm2nMHNtankZPdFGILPQ`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              q: chunk,
+              target: targetLanguage,
+            }),
+          }
+        );
+
+        const data = await response.json();
+        if (data?.data?.translations) {
+          translations.push(...data.data.translations);
+        }
+      }
+
+      translations.forEach((translation, index) => {
+        elementMap[index].textContent = translation.translatedText;
+      });
+    } catch (error) {
+      console.error("Translation Error:", error);
+    }
+  };
+
+  const restoreOriginalContent = () => {
+    window.location.reload(); // Reload the page to restore original content
+  };
 
   const navStyle = useMemo(() => {
     return {
@@ -103,6 +178,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
   };
 
   return (
+    <LanguageContext.Provider value={{ language, setLanguage }}>
     <div className={[styles.nav, className].join(" ")} style={{ width: "100%" }}>
       <div className={styles.content}>
         <div
@@ -315,21 +391,12 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               Contact
             </div>
           </div>
-        </div>
-
-        <div className={styles.btnBookWrapper}>
-          <div
-            className={styles.btnBook}
-            onClick={() => handleNavigation("/contact")}
-          >
-            <div className={styles.bookAnAppointment}>Book An Appointment</div>
-          </div>
           <div
             className={styles.languageDropdownWrapper}
             onMouseEnter={toggleLanguageDropdown}
             onMouseLeave={toggleLanguageDropdown}
           >
-            {/* <div className={styles.languageButton}>
+            <div className={styles.languageButton}>
               Language
               <Image
                 className={styles.dropdownIcon}
@@ -344,22 +411,32 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               <div className={styles.languageDropdown}>
                 <div
                   className={styles.languageOption}
-                  onClick={() => selectLanguage("English")}
+                  onClick={() => handleLanguageChange("en")}
                 >
                   English
                 </div>
                 <div
                   className={styles.languageOption}
-                  onClick={() => selectLanguage("Arabic")}
+                  onClick={() => handleLanguageChange("Ar")}
                 >
                   Arabic
                 </div>
               </div>
-            )} */}
+            )}
           </div>
+        </div>
+        <div className={styles.btnBookWrapper}>
+          <div
+            className={styles.btnBook}
+            onClick={() => handleNavigation("/contact")}
+          >
+            <div className={styles.bookAnAppointment}>Book An Appointment</div>
+          </div>
+
         </div>
       </div>
     </div>
+    </LanguageContext.Provider>
   );
 };
 
