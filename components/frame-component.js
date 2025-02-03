@@ -26,20 +26,39 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
     setCurrentIndex(index);
   };
 
+  const currentContent = content[currentIndex];
+
   return (
     <section className={[styles.testimonialContainerWrapper, className].join(" ")}>
       <div className={styles.testimonialContainer}>
+        <div className={styles.promotionTitle}>
+          <h1 className={styles.specialPromotion}>Testimonials</h1>
+        </div>
         <div className={styles.content}>
-          <Image
-            className={styles.placeholderImageIcon}
-            width={616}
-            height={640}
-            alt="Placeholder"
-            src={placeholderImage}
-          />
+          {currentContent.image?.url ? (
+            <Image
+              className={styles.placeholderImageIcon}
+              loading="lazy"
+              width={570}
+              height={458}
+              alt="Promotion Image"
+              src={currentContent.image.url}
+              style={{ transition: "all 0.8s ease-in-out" }}
+            />
+          ) : (
+            <Image
+              className={styles.placeholderImageIcon}
+              loading="lazy"
+              width={570}
+              height={458}
+              alt="Placeholder Image"
+              src={placeholderImage}
+              style={{ transition: "all 0.8s ease-in-out" }}
+            />
+          )}
           <div className={styles.content1}>
             <div className={styles.stars}>
-              {[...Array(parseInt(content[currentIndex].Rating))].map((_, index) => (
+              {Array.from({ length: parseInt(currentContent.Rating) }).map((_, index) => (
                 <Image
                   key={index}
                   className={styles.vectorIcon}
@@ -50,15 +69,11 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
                 />
               ))}
             </div>
-            <blockquote className={styles.quote}>
-              {content[currentIndex].description}
-            </blockquote>
+            <blockquote className={styles.quote}>{currentContent.description}</blockquote>
             <div className={styles.avatar}>
               <div className={styles.avatarContent}>
-                <div className={styles.authorName}>{content[currentIndex].Name}</div>
-                <div className={styles.authorPosition}>
-                  {/* {content[currentIndex].job_title || "No Job Title"} */}
-                </div>
+                <div className={styles.authorName}>{currentContent.Name}</div>
+                {/* <div className={styles.authorPosition}>{currentContent.job_title || "No Job Title"}</div> */}
               </div>
             </div>
           </div>
@@ -76,6 +91,10 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
                       : styles.dot
                   }
                   onClick={() => goToSlide(index)}
+                  style={{
+                    transition: "all 0.5s ease-in-out",
+                    transform: index === currentIndex ? "scale(1.5)" : "scale(1)",
+                  }}
                 />
               ))}
             </div>
@@ -111,10 +130,16 @@ FrameComponent.propTypes = {
   placeholderImage: PropTypes.string.isRequired,
   content: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      Rating: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      documentId: PropTypes.string.isRequired,
       Name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      Rating: PropTypes.string.isRequired,
+      createdAt: PropTypes.string,
+      updatedAt: PropTypes.string,
+      publishedAt: PropTypes.string,
+      image1: PropTypes.shape({ url: PropTypes.string }),
+      job_title: PropTypes.string,
     })
   ).isRequired,
 };

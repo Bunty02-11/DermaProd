@@ -6,6 +6,16 @@
   display: inline-block;
   max-width: 100%;
 }
+.emailLink {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease-in-out;
+}
+
+.emailLink:hover {
+  /* transform: scale(2); */
+  color: blue;
+}
 .mediumLengthHero {
   margin: 0;
   width: 628px;

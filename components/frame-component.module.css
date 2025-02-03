@@ -8,6 +8,30 @@
   object-fit: cover;
   min-width: 400px;
 }
+.specialPromotion {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 120%;
+  font-weight: 600;
+  font-family: inherit;
+}
+.promotionTitle {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Centers horizontally */
+  padding: 0 var(--padding-450xl);
+  text-align: center; /* Ensures text is centered */
+  width: 100%; /* Makes sure it takes full width */
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--h2-48-size);
+  color: var(--text-primary);
+  font-family: var(--h2-48);
+}
 .vectorIcon {
   height: 18.9px;
   width: 20px;
@@ -195,6 +219,15 @@
   }
   .testimonialContainerWrapper {
     padding-bottom: var(--padding-32xl);
+    box-sizing: border-box;
+  }
+  .specialPromotion {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+  .promotionTitle {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
 }

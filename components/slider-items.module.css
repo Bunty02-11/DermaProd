@@ -7,6 +7,16 @@
   flex-shrink: 0;
   object-fit: contain;
 }
+.emailLink {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease-in-out;
+}
+
+.emailLink:hover {
+  /* transform: scale(2); */
+  color: blue;
+}
 .perfumes,
 .perfumes1 {
   align-self: stretch;
