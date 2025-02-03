@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./about1.module.css";
+import { useRouter } from "next/router";
+
 
 const About1 = ({
   className = "",
@@ -23,6 +25,11 @@ const About1 = ({
       width: btnsWidth,
     };
   }, [btnsWidth]);
+
+  const router = useRouter();
+  const handleNavigation = (path) => {
+    router.push(path);
+  };
 
   return (
     <div className={[styles.about, className].join(" ")} style={aboutStyle}>
@@ -53,7 +60,7 @@ const About1 = ({
             </div>
           </div>
           <div className={styles.btns} style={btnsStyle}>
-            <div className={styles.btnDiscover}>
+            <div className={styles.btnDiscover} onClick={() => handleNavigation("/contact")} >
               <a href="/contact" className={styles.noUnderline} style={{ color: "white" }}>
               <div className={styles.discoverMore}>{discoverMore}</div>
               </a>

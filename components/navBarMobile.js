@@ -43,7 +43,7 @@ function navBarMobile(props) {
   const fetchSpecialByCategory = async (categoryId) => {
     try {
       const response = await fetch(
-        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/Special-Promotions?filters[category][id][$eq]=${categoryId}`
+        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?filters[category][id][$eq]=${categoryId}`
       );
       const data = await response.json();
       setSpecialByCategory((prev) => ({
@@ -138,11 +138,11 @@ function navBarMobile(props) {
                               className={s.navLInk2}
                               key={service.id}
                               onClick={(event) => {
-                                const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
+                                // const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
                                 event.stopPropagation();
                                 setActiveItem(service.id);
                                 handleNavigation(
-                                  `/services/${formattedName}/${service.documentId}`
+                                  `/services/${service.slug}`
                                 );
                               }}
                             >
@@ -185,11 +185,11 @@ function navBarMobile(props) {
                               className={s.navLInk2}
                               key={service.id}
                               onClick={(event) => {
-                                const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
+                                // const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
                                 event.stopPropagation();
                                 setActiveItem(service.id);
                                 handleNavigation(
-                                  `/specials/${formattedName}/${service.documentId}`
+                                  `/specials/${service.slug}`
                                 );
                               }}
                             >

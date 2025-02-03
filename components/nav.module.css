@@ -149,7 +149,12 @@
   justify-content: center;
   padding: var(--padding-xs) var(--padding-5xl);
   box-sizing: border-box;
-  color: var(--color-gray-100);
+  background-color: #fff; /* Example default color */
+  color: #000;
+}
+.btnBook:hover {
+  background-color: #c39200;
+  color: black;
 }
 .btnBookWrapper {
   display: flex;
