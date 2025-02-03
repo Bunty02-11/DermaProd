@@ -195,6 +195,16 @@
   justify-content: flex-start;
   padding: var(--padding-10xs);
 }
+.emailLink {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.emailLink:hover {
+  /* transform: scale(2); */
+  color: blue;
+}
 .vectorIcon {
   width: 18.7px;
   height: 16px;
@@ -204,6 +214,11 @@
 .x {
   display: flex;
   justify-content: flex-start;
+}
+.fb:hover,
+.social img:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
 }
 .x {
   overflow: hidden;

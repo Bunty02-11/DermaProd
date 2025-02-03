@@ -130,6 +130,9 @@
   line-height: 150%;
   display: inline-block;
   flex-shrink: 0;
+  flex: 1;
+  user-select: none; /* Prevent text selection */
+  pointer-events: none; /* Prevent copying */
 }
 .btnBook,
 .content,

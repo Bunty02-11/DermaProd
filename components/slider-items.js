@@ -27,12 +27,14 @@ const SliderItems = ({
         src={materialSymbolsLightmailOutline}
       />
       <div className={styles.perfumesParent}>
-        <h2 className={styles.perfumes}>{perfumes}</h2>
+        <h2 className={styles.perfumes}>
+          {perfumes}
+        </h2>
         <div className={styles.perfumes1} style={perfumesStyle}>
           {perfumes1}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

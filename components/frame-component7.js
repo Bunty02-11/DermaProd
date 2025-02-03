@@ -19,12 +19,12 @@ const FrameComponent7 = ({ className = "" }) => {
             <SliderItems
               materialSymbolsLightmailOutline="/materialsymbolslightmailoutline.svg"
               perfumes="Email Us"
-              perfumes1="info@dermatechpolyclinic.com"
+              perfumes1={<a href="mailto:info@dermatechpolyclinic.com" className="emailLink" style={{ color: "black", textDecoration: "none" }} > info@dermatechpolyclinic.com </a>}
             />
             <SliderItems
               materialSymbolsLightmailOutline="/materialsymbolslightcalloutline.svg"
               perfumes="Call Us"
-              perfumes1="+971 509 870036"
+              perfumes1={<a href="tel:+971509870036" className="emailLink" style={{ color: "black", textDecoration: "none" }} >+971 509 870036</a>}
               perfumesAlignSelf="stretch"
             />
             <SliderItems

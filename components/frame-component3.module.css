@@ -75,7 +75,10 @@
   flex: 1;
   position: relative;
   line-height: 150%;
+  user-select: none; /* Prevent text selection */
+  pointer-events: none; /* Prevent copying */
 }
+
 .btnBook {
   align-self: stretch;
   border-radius: var(--br-31xl);

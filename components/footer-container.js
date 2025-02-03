@@ -43,7 +43,14 @@ const FooterContainer = ({ className = "" }) => {
                   alt=""
                   src="/materialsymbolscall.svg"
                 />
-                <div className={styles.div}>+971 54 2790 987</div>
+                <div className={styles.div}>
+                  <a
+                    href="tel:+971542790987"
+                    className={styles.emailLink}
+                  >
+                    +971 54 2790 987
+                  </a>
+                </div>
               </div>
               <div className={styles.mail1}>
                 <Image
@@ -53,25 +60,29 @@ const FooterContainer = ({ className = "" }) => {
                   alt=""
                   src="/materialsymbolsmail@2x.png"
                 />
-                <div className={styles.supportgmailcom}>info@dermatechpolyclinic.com</div>
+                <div className={styles.supportgmailcom}>
+                  <a href="mailto:info@dermatechpolyclinic.com" className={styles.emailLink}>
+                    info@dermatechpolyclinic.com
+                  </a>
+                </div>
               </div>
             </div>
             <div className={styles.social} onClick={handleTiktok}>
               <Image
                 className={styles.symbolsvgIcon}
-                width={23}
-                height={26}
+                width={18}
+                height={18}
                 alt=""
                 src="/symbolsvg.svg"
               />
-              <div className={styles.fb} onClick={handleYoutube}>
-              <Image
-                className={styles.symbolsvgIcon1}
-                width={26}
-                height={18}
-                alt=""
-                src="/symbolsvg-1.svg"
-              />
+              <div className={styles.social} onClick={handleYoutube}>
+                <Image
+                  className={styles.symbolsvgIcon1}
+                  width={18}
+                  height={18}
+                  alt=""
+                  src="/symbolsvg-1.svg"
+                />
               </div>
               <div className={styles.fb} onClick={handleFacebook}>
                 <Image
