@@ -62,6 +62,9 @@
   justify-content: center;
   padding: var(--padding-xs) var(--padding-4xl);
 }
+.btnDiscover:hover {
+  transform: scale(1.1);
+}
 .about,
 .btns,
 .column,

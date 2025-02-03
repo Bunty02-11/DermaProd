@@ -4,7 +4,7 @@ import styles from './banner.module.css'; // Ensure to import your CSS module
 
 const HeroCarousel = () => {
   return (
-    <Carousel>
+    <Carousel controls={false} indicators={false} interval={5000} pause={false}>
       {/* First Slide */}
       <Carousel.Item>
         <div
@@ -13,7 +13,9 @@ const HeroCarousel = () => {
         >
           <div className={styles.content}>
             <div className={styles.text1}>
-              <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>DermaTech Polyclinic</div>
+              <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>
+                DermaTech Polyclinic
+              </div>
               <h1 className={styles.mediumLengthHero}>
                 {`Get Advanced Skin Care Treatments in Dubai`}
               </h1>
@@ -25,7 +27,6 @@ const HeroCarousel = () => {
               </div>
             </div>
             <div className={styles.btns}>
-              {/* Wrap with an anchor tag for the href, and add noUnderline class */}
               <a href="/contact" className={`${styles.btnBook} ${styles.noUnderline}`}>
                 <div className={styles.bookAppointment} style={{ color: 'white' }}>
                   Book Appointment
@@ -35,17 +36,19 @@ const HeroCarousel = () => {
           </div>
         </div>
       </Carousel.Item>
-      
+
       {/* Second Slide */}
       <Carousel.Item>
         <div
           className={styles.image}
-          style={{ backgroundImage: 'url(/banner_2.jpg)' }} // First Slide Background
+          style={{ backgroundImage: 'url(/banner_2.jpg)' }} // Second Slide Background
         >
           <div className={styles.content}>
             <div className={styles.text1}>
-              <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>FACIALS</div>
-              <h1 className={styles.mediumLengthHero} >
+              <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>
+                FACIALS
+              </div>
+              <h1 className={styles.mediumLengthHero}>
                 {`Transformative Skin Treatments in Dubai`}
               </h1>
             </div>
@@ -56,7 +59,6 @@ const HeroCarousel = () => {
               </div>
             </div>
             <div className={styles.btns}>
-              {/* Wrap with an anchor tag for the href, and add noUnderline class */}
               <a href="/contact" className={`${styles.btnBook} ${styles.noUnderline}`}>
                 <div className={styles.bookAppointment} style={{ color: 'white' }}>Book Appointment</div>
               </a>
@@ -64,7 +66,7 @@ const HeroCarousel = () => {
           </div>
         </div>
       </Carousel.Item>
-      
+
       {/* Third Slide */}
       <Carousel.Item>
         <div
@@ -73,7 +75,9 @@ const HeroCarousel = () => {
         >
           <div className={styles.content}>
             <div className={styles.text1}>
-              <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>WEIGHT LOSS</div>
+              <div className={styles.loremIpsumDolor} style={{ opacity: '0.8', fontSize: '12px' }}>
+                WEIGHT LOSS
+              </div>
               <h1 className={styles.mediumLengthHero}>
                 {`Effective Weight Loss & Fat Freezing Solutions`}
               </h1>
@@ -85,7 +89,6 @@ const HeroCarousel = () => {
               </div>
             </div>
             <div className={styles.btns}>
-              {/* Wrap with an anchor tag for the href, and add noUnderline class */}
               <a href="/contact" className={`${styles.btnBook} ${styles.noUnderline}`}>
                 <div className={styles.bookAppointment} style={{ color: 'white' }}>Book Appointment</div>
               </a>

@@ -77,6 +77,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="text"
                 name="Name"
                 placeholder="First Name"
+                required
                 value={formData.Name}
                 onChange={handleChange}
               />
@@ -87,6 +88,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="text"
                 name="last_Name"
                 placeholder="Last Name"
+                required
                 value={formData.last_Name}
                 onChange={handleChange}
               />
@@ -99,6 +101,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="email"
                 name="email"
                 placeholder="Email"
+                required
                 value={formData.email}
                 onChange={handleChange}
               />
@@ -109,6 +112,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 type="number"
                 name="Number"
                 placeholder="Phone"
+                required
                 value={formData.Number}
                 onChange={handleChange}
               />
@@ -119,6 +123,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
               type="text"
               name="message"
               placeholder="Message"
+              required
               value={formData.message}
               onChange={handleChange}
               rows={3}
