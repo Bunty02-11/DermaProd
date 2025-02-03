@@ -2,6 +2,7 @@ import FrameComponent1 from "../components/frame-component1";
 import BlogCard from "../components/BlogListingCard";
 import Footer from "../components/footer";
 import styles from "./blog.module.css";
+import FooterContainer from "../components/footer-container";
 
 export async function getServerSideProps() {
   try {
@@ -30,7 +31,7 @@ const Blog = ({ blogList }) => {
   console.log("BlogList", blogList);
   return (
     <div className={styles.blog}>
-      <FrameComponent1 />
+      <FooterContainer />
       <div className={styles.banner}>
         <div className={styles.loremIpsumDolor}>HOME - BLOG</div>
         <h1 className={styles.mediumLengthHero}>Blog</h1>
