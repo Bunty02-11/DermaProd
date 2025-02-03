@@ -65,10 +65,6 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-.symbolsvgIcon1 {
-  height: 18.3px;
-  width: 26px;
-}
 .path14Icon {
   height: 18px;
   width: 18px;
@@ -84,6 +80,22 @@
   box-sizing: border-box;
   width: 26px;
   height: 26px;
+}
+.emailLink {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease-in-out;
+}
+
+.emailLink:hover {
+  /* transform: scale(2); */
+  color: blue;
+}
+
+.fb:hover,
+.social img:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
 }
 .iconPath {
   width: 18.7px;
