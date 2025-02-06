@@ -63,7 +63,8 @@
   padding: var(--padding-xs) var(--padding-4xl);
 }
 .btnDiscover:hover {
-  transform: scale(1.1);
+  background-color: #c39200;
+  color: black;
 }
 .about,
 .btns,
@@ -142,5 +143,13 @@
   }
   .about {
     gap: var(--gap-mini);
+  }
+  .imgIcon {
+    height: 250px;
+    flex: 1;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    /* min-width: 250px; */
   }
 }

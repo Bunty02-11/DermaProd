@@ -197,7 +197,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
         </div>
       </section>
-      <section className={styles.hero1}>
+      <section className={styles.hero}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>services</div>

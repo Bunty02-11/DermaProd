@@ -133,6 +133,15 @@
     padding-top: var(--padding-6xl);
     padding-bottom: var(--padding-6xl);
   }
+  .placeholderImageIcon {
+    width: 600px;
+    height: 300px;
+    position: relative;
+    border-radius: var(--br-base);
+    max-height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+  }
 }
 @media (max-width: 800px) {
   .image {
@@ -157,5 +166,14 @@
   .loremLipsum {
     font-size: clamp(0.9rem, 2vw, var(--font-size-lgi));
     line-height: 1.4;
+  }
+  .placeholderImageIcon {
+    width: 350px;
+    height: 200px;
+    position: relative;
+    border-radius: var(--br-base);
+    max-height: 100%;
+    object-fit: cover;
+    max-width: 100%;
   }
 }

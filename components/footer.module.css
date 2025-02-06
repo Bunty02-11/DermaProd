@@ -39,6 +39,9 @@
   flex-direction: row;
   padding: var(--padding-5xs) 0;
 }
+.link:hover {
+  color: #c39200;
+}
 .footerLinks {
   flex-direction: column;
   font-size: var(--p4-14-size);
@@ -203,8 +206,24 @@
 
 .emailLink:hover {
   /* transform: scale(2); */
-  color: blue;
+  color: #c39200;
 }
+.buttonStyle {
+  width: 30%;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  padding: 10px 10px;
+  color: #001830;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.buttonStyle:hover {
+  background-color: #c39200;
+  /* color: white; */
+}
+
 .vectorIcon {
   width: 18.7px;
   height: 16px;

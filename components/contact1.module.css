@@ -216,4 +216,13 @@
     font-size: var(--font-size-10xl);
     line-height: 35px;
   }
+  .placeholderImageIcon {
+    width: 250px;
+    height: 200px;
+    position: relative;
+    border-radius: var(--br-base);
+    max-height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+  }
 }

@@ -75,7 +75,7 @@ const ServicesDetails = ({ serviceData }) => {
           {serviceData?.Name || "Service Title"}
         </h1>
       </section>
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.services}>
           {/* <div className={styles.heading}>
           <div className={styles.loremIpsumDolor1}>

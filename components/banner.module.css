@@ -162,11 +162,12 @@
     padding: 0;
     align-items: center;
     justify-content: flex-start;
+    background-size: cover;
   }
   .loremIpsumDolor1 {
-    width: 400px;
+    width: 350px;
   }
   .mediumLengthHero{
-    width: 400px;
+    width: 350px;
   }
 }
