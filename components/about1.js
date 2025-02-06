@@ -59,8 +59,8 @@ const About1 = ({
               we symbolize innovation and care in aesthetic medicine.
             </div>
           </div>
-          <div className={styles.btns} style={btnsStyle}>
-            <div className={styles.btnDiscover} onClick={() => handleNavigation("/contact")} >
+          <div className={styles.btns} style={btnsStyle} onClick={() => handleNavigation("/contact")}>
+            <div className={styles.btnDiscover} href="/contact" >
               <a href="/contact" className={styles.noUnderline} style={{ color: "white" }}>
               <div className={styles.discoverMore}>{discoverMore}</div>
               </a>

@@ -89,7 +89,7 @@
 
 .emailLink:hover {
   /* transform: scale(2); */
-  color: blue;
+  color: #c39200;
 }
 
 .fb:hover,
@@ -152,10 +152,16 @@
   .content {
     flex-wrap: wrap;
   }
+  .footerContent {
+    display: none;
+  }
 }
 @media screen and (max-width: 750px) {
   .connect {
     flex-wrap: wrap;
+  }
+  .footerContent {
+    display: none;
   }
 }
 

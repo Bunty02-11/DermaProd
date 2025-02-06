@@ -230,4 +230,13 @@
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
+  .placeholderImageIcon {
+    width: 250px;
+    height: 200px;
+    position: relative;
+    border-radius: var(--br-base);
+    max-height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+  }
 }

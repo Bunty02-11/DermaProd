@@ -170,11 +170,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                     value={formData.email}
                     onChange={handleChange}
                   />
-                  <button
-                    type="submit"
-                    className={styles.buttonStyle}
-                    style={{ width: "30%", height: "45px", backgroundColor: "#fff", borderRadius: "5px", border: "1px solid #fff", padding: "10px 10px", color: "#001830" }}
-                  >
+                  <button type="submit" className={styles.buttonStyle}>
                     {isLoading ? "Subscribing..." : "Subscribe"}
                   </button>
                 </form>
