@@ -62,7 +62,7 @@
   align-content: flex-end;
   gap: var(--gap-base);
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
   font-family: var(--h2-48);

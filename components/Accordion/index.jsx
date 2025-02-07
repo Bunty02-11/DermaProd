@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../pages/_app";
 
 function index(props) {
+  const { language } = useContext(LanguageContext);
   const { faqsList } = props;
 
   return (
@@ -9,7 +11,7 @@ function index(props) {
       <div class="accordion" id="accordionExample">
         {faqsList?.map((accordion, i) => (
           <div class="accordion-item">
-            <h2 class="accordion-header">
+            <h2 class={`accordion-header ${language === "ar" && "acc_ar"}`}>
               <button
                 class="accordion-button"
                 type="button"

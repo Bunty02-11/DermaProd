@@ -30,7 +30,7 @@
   background-repeat: no-repeat;
   background-position: top;
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--text-primary);
   font-family: var(--h2-48);
@@ -262,7 +262,7 @@
   background-color: var(--color-white);
   overflow: hidden;
   box-sizing: border-box;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   font-family: var(--h2-48);
 }

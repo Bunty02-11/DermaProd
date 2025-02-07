@@ -5,7 +5,6 @@
   border-radius: var(--br-base) var(--br-base) 0 0;
   overflow: hidden;
   object-fit: cover; /* Ensures the image maintains aspect ratio */
-
 }
 .contentIntroOne,
 .heading {
@@ -80,7 +79,7 @@
   gap: var(--gap-base);
 }
 .card {
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
   font-family: var(--h2-48);

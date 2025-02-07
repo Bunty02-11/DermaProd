@@ -28,7 +28,7 @@
   flex-direction: row;
   align-items: flex-start;
   padding: 0 0 var(--padding-41xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--h5-24-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

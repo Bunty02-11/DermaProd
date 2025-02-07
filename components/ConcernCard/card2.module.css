@@ -98,7 +98,7 @@
 .card {
   flex: 1;
   min-width: 403px;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
   font-family: var(--h2-48);

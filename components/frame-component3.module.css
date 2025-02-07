@@ -112,7 +112,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--gap-41xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--h5-24-size);
 }
 .dot,

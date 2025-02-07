@@ -102,7 +102,7 @@
 .content {
   align-self: stretch;
   gap: var(--gap-5xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
   font-family: var(--h2-48);
@@ -125,7 +125,7 @@
   padding: var(--padding-3xs) 0 0;
   line-height: normal;
   letter-spacing: normal;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

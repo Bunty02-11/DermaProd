@@ -105,7 +105,7 @@
   flex-direction: column;
   padding: var(--padding-41xl) var(--padding-61xl);
   box-sizing: border-box;
-  text-align: left;
+  text-align: start;
   font-size: clamp(1rem, 1.5vw, var(--p3-16-size));
   color: var(--text-primary);
   font-family: var(--h2-48);

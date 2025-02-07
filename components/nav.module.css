@@ -181,7 +181,6 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   width: 150px;
-  
 }
 
 .languageOption {
@@ -250,7 +249,7 @@
   padding: 8px 16px;
   cursor: pointer;
   color: var(--color-gray-100);
-  text-align: left;
+  text-align: start;
 }
 
 .dropdown div:hover {

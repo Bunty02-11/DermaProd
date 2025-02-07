@@ -17,7 +17,7 @@
   line-height: 150%;
   font-family: var(--h2-48);
   color: var(--text-primary);
-  text-align: left;
+  text-align: start;
 }
 .nameEmailFields {
   flex: 1;
@@ -105,7 +105,7 @@
 }
 .comment {
   gap: var(--gap-21xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--h2-48-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

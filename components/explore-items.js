@@ -15,9 +15,7 @@ const ExploreItems = ({ className = "", explore, perfumes, Doctor }) => {
       />
       <div className={styles.perfumeCards}>
         <h3 className={styles.perfumes}>{perfumes}</h3>
-        <div className={styles.perfumes1}>
-          {Doctor}
-        </div>
+        <div className={styles.perfumes1}>{Doctor}</div>
       </div>
     </div>
   );

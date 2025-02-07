@@ -34,7 +34,7 @@
   background-repeat: no-repeat;
   background-position: top;
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--text-primary);
   font-family: var(--h2-48);
@@ -157,7 +157,7 @@
   align-self: stretch;
   flex-direction: row;
   padding: 0 0 180px;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-white);
   font-family: var(--h2-48);

@@ -1,6 +1,7 @@
 import { Fragment, createContext, useState } from "react";
 import Head from "next/head";
 import "./global.css";
+import Layout from "../components/Layout";
 export const LanguageContext = createContext();
 
 function MyApp({ Component, pageProps }) {
@@ -53,7 +54,9 @@ function MyApp({ Component, pageProps }) {
           ></script>
           {/*  */}
         </Head>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Fragment>
     </LanguageContext.Provider>
   );

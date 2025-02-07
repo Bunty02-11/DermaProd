@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../pages/_app";
 
 const StaticFaqsLisiting = () => {
+  const { language } = useContext(LanguageContext);
+
   const staticFaqs = [
     {
       question: "What services does DermaTech Polyclinic offer?",
@@ -18,22 +21,20 @@ const StaticFaqsLisiting = () => {
         "Yes, our skin care clinic in Dubai offers personalized treatments for both men and women.",
     },
     {
-        question: "Is DermaTech a skin hospital?",
-        answer:
-          "DermaTech is a state-of-the-art skin hospital providing advanced skincare treatments and aesthetic services",
-      },
-      {
-        question: "Can I get weight loss treatments at DermaTech?",
-        answer:
-          "DermaTech is a state-of-the-art skin hospital providing advanced skincare treatments and aesthetic services",
-      },
-      {
-        question: "Can I schedule an appointment online?",
-        answer:
-          "Yes, you can easily book an appointment through our online system for your convenience.",
-      },
-      
-
+      question: "Is DermaTech a skin hospital?",
+      answer:
+        "DermaTech is a state-of-the-art skin hospital providing advanced skincare treatments and aesthetic services",
+    },
+    {
+      question: "Can I get weight loss treatments at DermaTech?",
+      answer:
+        "DermaTech is a state-of-the-art skin hospital providing advanced skincare treatments and aesthetic services",
+    },
+    {
+      question: "Can I schedule an appointment online?",
+      answer:
+        "Yes, you can easily book an appointment through our online system for your convenience.",
+    },
   ];
 
   return (
@@ -41,7 +42,10 @@ const StaticFaqsLisiting = () => {
       <div className="accordion" id="accordionExample">
         {staticFaqs.map((faq, index) => (
           <div className="accordion-item" key={index}>
-            <h2 className="accordion-header" id={`heading${index}`}>
+            <h2
+              className={`accordion-header ${language === "ar" && "acc_ar"}`}
+              id={`heading${index}`}
+            >
               <button
                 className="accordion-button collapsed"
                 type="button"

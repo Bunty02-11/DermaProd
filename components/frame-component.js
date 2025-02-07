@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./frame-component.module.css";
+import { LanguageContext } from "../pages/_app";
 
 const FrameComponent = ({ className = "", placeholderImage, content }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { language } = useContext(LanguageContext);
 
   if (!content || content.length === 0) {
     return (
-      <div className={[styles.testimonialContainerWrapper, className].join(" ")}>
+      <div
+        className={[styles.testimonialContainerWrapper, className].join(" ")}
+      >
         No Testimonials available
       </div>
     );
@@ -19,7 +23,9 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + content.length) % content.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + content.length) % content.length
+    );
   };
 
   const goToSlide = (index) => {
@@ -29,7 +35,9 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
   const currentContent = content[currentIndex];
 
   return (
-    <section className={[styles.testimonialContainerWrapper, className].join(" ")}>
+    <section
+      className={[styles.testimonialContainerWrapper, className].join(" ")}
+    >
       <div className={styles.testimonialContainer}>
         <div className={styles.promotionTitle}>
           <h1 className={styles.specialPromotion}>Testimonials</h1>
@@ -58,18 +66,22 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
           )}
           <div className={styles.content1}>
             <div className={styles.stars}>
-              {Array.from({ length: parseInt(currentContent.Rating) }).map((_, index) => (
-                <Image
-                  key={index}
-                  className={styles.vectorIcon}
-                  width={20}
-                  height={19}
-                  alt="Star"
-                  src="/vector-2.svg"
-                />
-              ))}
+              {Array.from({ length: parseInt(currentContent.Rating) }).map(
+                (_, index) => (
+                  <Image
+                    key={index}
+                    className={styles.vectorIcon}
+                    width={20}
+                    height={19}
+                    alt="Star"
+                    src="/vector-2.svg"
+                  />
+                )
+              )}
             </div>
-            <blockquote className={styles.quote}>{currentContent.description}</blockquote>
+            <blockquote className={styles.quote}>
+              {currentContent.description}
+            </blockquote>
             <div className={styles.avatar}>
               <div className={styles.avatarContent}>
                 <div className={styles.authorName}>{currentContent.Name}</div>
@@ -93,32 +105,56 @@ const FrameComponent = ({ className = "", placeholderImage, content }) => {
                   onClick={() => goToSlide(index)}
                   style={{
                     transition: "all 0.5s ease-in-out",
-                    transform: index === currentIndex ? "scale(1.5)" : "scale(1)",
+                    transform:
+                      index === currentIndex ? "scale(1.5)" : "scale(1)",
                   }}
                 />
               ))}
             </div>
           </div>
-          <div className={styles.arrowsParent}>
-            <div className={styles.arrows} onClick={goToPrevious}>
-              <Image
-                className={styles.fearrowUpIcon}
-                width={48}
-                height={48}
-                alt="Arrow Left"
-                src="/fearrowupprev@2x.png"
-              />
+          {language === "ar" ? (
+            <div className={styles.arrowsParent}>
+              <div className={styles.arrows} onClick={goToNext}>
+                <Image
+                  className={styles.fearrowUpIcon}
+                  width={48}
+                  height={48}
+                  alt="Arrow Right"
+                  src="/fearrowup@2x.png"
+                />
+              </div>
+              <div className={styles.arrows} onClick={goToPrevious}>
+                <Image
+                  className={styles.fearrowUpIcon}
+                  width={48}
+                  height={48}
+                  alt="Arrow Left"
+                  src="/fearrowupprev@2x.png"
+                />
+              </div>
             </div>
-            <div className={styles.arrows} onClick={goToNext}>
-              <Image
-                className={styles.fearrowUpIcon}
-                width={48}
-                height={48}
-                alt="Arrow Right"
-                src="/fearrowup@2x.png"
-              />
+          ) : (
+            <div className={styles.arrowsParent}>
+              <div className={styles.arrows} onClick={goToPrevious}>
+                <Image
+                  className={styles.fearrowUpIcon}
+                  width={48}
+                  height={48}
+                  alt="Arrow Left"
+                  src="/fearrowupprev@2x.png"
+                />
+              </div>
+              <div className={styles.arrows} onClick={goToNext}>
+                <Image
+                  className={styles.fearrowUpIcon}
+                  width={48}
+                  height={48}
+                  alt="Arrow Right"
+                  src="/fearrowup@2x.png"
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

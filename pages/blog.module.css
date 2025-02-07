@@ -137,7 +137,7 @@
   padding: var(--padding-3xs) 0 0;
   line-height: normal;
   letter-spacing: normal;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

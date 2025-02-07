@@ -42,7 +42,7 @@
   background-repeat: no-repeat;
   background-position: top;
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--text-primary);
   font-family: var(--h2-48);
@@ -64,7 +64,7 @@
   line-height: 120%;
   font-weight: 600;
   font-family: inherit;
-  text-align: left;
+  text-align: start;
 }
 .text {
   font-size: var(--p2-18-size);
@@ -117,7 +117,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:  center;
+  justify-content: center;
   gap: var(--gap-21xl);
   cursor: pointer;
 }
@@ -177,7 +177,7 @@
   padding: var(--padding-41xl) var(--padding-61xl);
   gap: var(--gap-21xl);
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
   font-family: var(--h2-48);

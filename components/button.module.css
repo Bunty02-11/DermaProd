@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--padding-xs) var(--padding-5xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
   font-family: var(--h2-48);

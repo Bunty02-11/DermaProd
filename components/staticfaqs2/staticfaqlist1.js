@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../pages/_app";
 
 const StaticFaqsLisiting1 = () => {
+  const { language } = useContext(LanguageContext);
   const staticFaqs = [
     {
       question: "What treatments do you offer?",
@@ -22,7 +24,6 @@ const StaticFaqsLisiting1 = () => {
       answer:
         "Absolutely! Our team ensures comprehensive post-treatment support and guidance to help you achieve the best possible results.",
     },
-
   ];
 
   return (
@@ -30,7 +31,10 @@ const StaticFaqsLisiting1 = () => {
       <div className="accordion" id="accordionExample">
         {staticFaqs.map((faq, index) => (
           <div className="accordion-item" key={index}>
-            <h2 className="accordion-header" id={`heading${index}`}>
+            <h2
+              className={`accordion-header ${language === "ar" && "acc_ar"}`}
+              id={`heading${index}`}
+            >
               <button
                 className="accordion-button collapsed"
                 type="button"

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useContext, } from "react";
+import { useState, useEffect, useMemo, useContext } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
@@ -96,6 +96,13 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
     }
   };
 
+  useEffect(() => {
+    // Make sure the translation happens after the page reload (or path change)
+    if (language !== "en") {
+      translatePageContent(language);
+    }
+  }, [language]);
+
   const restoreOriginalContent = () => {
     window.location.reload(); // Reload the page to restore original content
   };
@@ -157,7 +164,6 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
     }
   };
 
-
   useEffect(() => {
     const fetchData = async (endpoint, setState) => {
       try {
@@ -189,7 +195,10 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
-      <div className={[styles.nav, className].join(" ")} style={{ width: "100%" }}>
+      <div
+        className={[styles.nav, className].join(" ")}
+        style={{ width: "100%" }}
+      >
         <div className={styles.content}>
           <div
             onClick={() => handleNavigation("/")}
@@ -273,7 +282,9 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                       .map((category) => (
                         <div
                           key={category.id}
-                          onMouseEnter={() => fetchServicesByCategory(category.id)}
+                          onMouseEnter={() =>
+                            fetchServicesByCategory(category.id)
+                          }
                           className={styles.dropdownItemWithSubmenu}
                         >
                           <div className={styles.categoryName}>
@@ -289,9 +300,15 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                                   onClick={(event) => {
                                     event.stopPropagation();
                                     setActiveItem(service.id);
-                                    handleNavigation(`/services/${service.slug}`);
+                                    handleNavigation(
+                                      `/services/${service.slug}`
+                                    );
                                   }}
-                                  className={`${styles.submenuItem} ${activeItem === service.id ? styles.active : ""}`}
+                                  className={`${styles.submenuItem} ${
+                                    activeItem === service.id
+                                      ? styles.active
+                                      : ""
+                                  }`}
                                 >
                                   {service.Name || "Unknown Service"}
                                 </div>
@@ -338,7 +355,9 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                       .map((category) => (
                         <div
                           key={category.id}
-                          onMouseEnter={() => fetchSpecialByCategory(category.id)}
+                          onMouseEnter={() =>
+                            fetchSpecialByCategory(category.id)
+                          }
                           className={styles.dropdownItemWithSubmenu}
                         >
                           <div className={styles.categoryName}>
@@ -348,19 +367,27 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                             {loadingSpecial[category.id] ? (
                               <Loader /> // Show loader while loading
                             ) : specialByCategory[category.id]?.length > 0 ? (
-                              specialByCategory[category.id].map((subCategory) => (
-                                <div
-                                  key={subCategory.id}
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    setActiveItem(subCategory.id);
-                                    handleNavigation(`/specials/${subCategory.slug}`);
-                                  }}
-                                  className={`${styles.submenuItem} ${activeItem === subCategory.id ? styles.active : ""}`}
-                                >
-                                  {subCategory.Name}
-                                </div>
-                              ))
+                              specialByCategory[category.id].map(
+                                (subCategory) => (
+                                  <div
+                                    key={subCategory.id}
+                                    onClick={(event) => {
+                                      event.stopPropagation();
+                                      setActiveItem(subCategory.id);
+                                      handleNavigation(
+                                        `/specials/${subCategory.slug}`
+                                      );
+                                    }}
+                                    className={`${styles.submenuItem} ${
+                                      activeItem === subCategory.id
+                                        ? styles.active
+                                        : ""
+                                    }`}
+                                  >
+                                    {subCategory.Name}
+                                  </div>
+                                )
+                              )
                             ) : (
                               <div className={styles.submenuItem}>
                                 No subcategories available
@@ -420,7 +447,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                   </div>
                   <div
                     className={styles.languageOption}
-                    onClick={() => handleLanguageChange("Ar")}
+                    onClick={() => handleLanguageChange("ar")}
                   >
                     Arabic
                   </div>
@@ -433,9 +460,10 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               className={styles.btnBook}
               onClick={() => handleNavigation("/contact")}
             >
-              <div className={styles.bookAnAppointment}>Book An Appointment</div>
+              <div className={styles.bookAnAppointment}>
+                Book An Appointment
+              </div>
             </div>
-
           </div>
         </div>
       </div>

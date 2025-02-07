@@ -277,7 +277,7 @@
   padding: var(--padding-41xl) var(--padding-61xl);
   box-sizing: border-box;
   gap: var(--gap-41xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-white);
   font-family: var(--h2-48);

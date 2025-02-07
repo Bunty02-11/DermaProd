@@ -55,7 +55,7 @@
   gap: var(--gap-5xl);
   min-width: 278px;
   max-width: 302px;
-  text-align: left;
+  text-align: start;
   font-size: var(--h5-24-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

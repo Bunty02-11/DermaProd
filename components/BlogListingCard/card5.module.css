@@ -54,7 +54,7 @@
   flex: 1;
   /* min-width: 350px; */
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p4-14-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

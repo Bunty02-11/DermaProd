@@ -45,7 +45,7 @@
   flex-direction: row-reverse; /* Reversing the order so the image is on the right */
   align-items: center;
   gap: var(--gap-21xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--h5-24-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

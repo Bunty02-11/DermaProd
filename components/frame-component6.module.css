@@ -81,7 +81,7 @@
   font-size: var(--p2-18-size);
   line-height: 150%;
   font-family: var(--text-medium-normal);
-  text-align: left;
+  text-align: start;
   display: none;
   max-width: 100%;
 }
@@ -206,7 +206,7 @@
 .visionContainerParent {
   padding: 0 0 var(--padding-41xl);
   gap: var(--gap-41xl);
-  text-align: left;
+  text-align: start;
   font-size: var(--h2-48-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

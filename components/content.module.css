@@ -30,7 +30,7 @@
   flex-direction: row;
   min-width: 233px;
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--p1-20-size);
   color: var(--color-white);
   font-family: var(--h2-48);

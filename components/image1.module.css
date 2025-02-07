@@ -71,7 +71,7 @@
   align-content: flex-start;
   gap: var(--gap-21xl);
   max-width: 100%;
-  text-align: left;
+  text-align: start;
   font-size: var(--h5-24-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

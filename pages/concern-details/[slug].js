@@ -64,9 +64,12 @@ const ConcernsDetails = ({ concernDetails }) => {
   return (
     <div className={styles.concernsDetails}>
       <FooterContainer />
-      <section className={styles.banner}
+      <section
+        className={styles.banner}
         style={{
-          backgroundImage: `url(${concernDetails?.Main_banner?.url || "/placeholder-image3@2x.png"})`,
+          backgroundImage: `url(${
+            concernDetails?.Main_banner?.url || "/placeholder-image3@2x.png"
+          })`,
         }}
       >
         <div className={styles.loremIpsumDolor}>
@@ -78,10 +81,7 @@ const ConcernsDetails = ({ concernDetails }) => {
       </section>
       <div className="container">
         <ContentDetailsComp concernDetails={concernDetails} />
-        <Contact1
-          placeholderImage={"/placeholder-image3@2x.png"
-          }
-        />
+        <Contact1 placeholderImage={"/placeholder-image3@2x.png"} />
         <section className={styles.faq}>
           <div className={styles.sectionTitle}>
             <div className={styles.subheading}>SUPPORT</div>

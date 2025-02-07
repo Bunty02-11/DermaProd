@@ -15,7 +15,7 @@
 .content {
   flex-direction: column;
   align-items: center;
-  text-align: left;
+  text-align: start;
   font-size: var(--p4-14-size);
   color: var(--text-primary);
   font-family: var(--h2-48);

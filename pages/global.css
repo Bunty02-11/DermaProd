@@ -5,6 +5,7 @@ body {
   margin: 0;
   line-height: normal;
 }
+
 :root {
   /* fonts */
   --h2-48: Poppins;
@@ -126,4 +127,9 @@ body {
 .dropdown-item:hover {
   color: #000;
   background-color: #fff;
+}
+
+.acc_ar .accordion-button::after {
+  margin-right: auto;
+  margin-left: unset;
 }

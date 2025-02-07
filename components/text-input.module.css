@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: var(--padding-xs);
-  text-align: left;
+  text-align: start;
   font-size: var(--p4-14-size);
   color: var(--color-white);
   font-family: var(--h2-48);
