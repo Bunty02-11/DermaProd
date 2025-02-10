@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     <LanguageContext.Provider value={{ language, setLanguage }}>
       <Fragment>
         <Head>
-          <title>Derma tech</title>
+          <title>DERMATECH CLINIC</title>
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
