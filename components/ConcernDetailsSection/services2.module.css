@@ -158,6 +158,11 @@
     padding: var(--padding-xl) var(--padding-21xl);
   }
 }
+@media (max-width: 768px) {
+  .services {
+    padding: var(--padding-xl) 0;
+  }
+}
 @media (max-width: 450px) {
   .mediumLengthHero {
     font-size: clamp(1rem, 3vw, var(--font-size-10xl));

@@ -205,6 +205,9 @@
     padding: var(--padding-20xl) var(--padding-21xl);
     box-sizing: border-box;
   }
+  .container {
+    padding: var(--padding-21xl) 0;
+  }
 }
 @media screen and (max-width: 450px) {
   .heading,
