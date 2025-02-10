@@ -49,6 +49,10 @@
   color: #fff;
   cursor: pointer;
 }
+.btnLearn:hover {
+  background-color: #c39200;
+  border-color: #c39200;
+}
 .btns,
 .card,
 .content {

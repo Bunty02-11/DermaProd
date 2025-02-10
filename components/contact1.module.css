@@ -126,6 +126,10 @@
   justify-content: center;
   padding: var(--padding-xs) var(--padding-4xl);
 }
+.btnSubmit:hover {
+  background-color: #c39200;
+  border-color: #c39200;
+}
 .btns,
 .form {
   display: flex;

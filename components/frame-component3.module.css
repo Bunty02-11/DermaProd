@@ -93,6 +93,9 @@
   font-size: var(--p3-16-size);
   color: var(--color-white);
 }
+.btnBook:hover {
+  background-color: #c39200;
+}
 .content,
 .text {
   display: flex;

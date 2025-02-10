@@ -52,6 +52,9 @@
   box-sizing: border-box;
   white-space: nowrap;
 }
+.btnBook:hover {
+  background-color: #c39200;
+}
 .learnMore {
   flex: 1;
   position: relative;
@@ -69,6 +72,10 @@
   padding: var(--padding-xs) var(--padding-222xl);
   box-sizing: border-box;
   max-width: 100%;
+}
+.btnLearn:hover {
+  background-color: #c39200;
+  border-color: #c39200;
 }
 .btns,
 .card,

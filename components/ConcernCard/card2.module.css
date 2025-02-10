@@ -50,6 +50,9 @@
   box-sizing: border-box;
   white-space: nowrap;
 }
+.btnBook:hover {
+  background-color: #c39200;
+}
 .learnMore {
   flex: 100%;
   position: relative;
@@ -64,6 +67,10 @@
   width: 100%;
   color: #fff;
   cursor: pointer;
+}
+.btnLearn:hover {
+  background-color: #c39200;
+  border-color: #c39200;
 }
 .btns,
 .card,

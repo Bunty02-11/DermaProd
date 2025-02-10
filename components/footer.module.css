@@ -221,7 +221,8 @@
 
 .buttonStyle:hover {
   background-color: #c39200;
-  /* color: white; */
+  border-color: #c39200;
+  color: #fff;
 }
 
 .vectorIcon {

@@ -154,7 +154,7 @@
 }
 .btnBook:hover {
   background-color: #c39200;
-  color: black;
+  color: #fff;
 }
 .btnBookWrapper {
   display: flex;

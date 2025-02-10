@@ -54,6 +54,10 @@
   box-sizing: border-box;
   min-width: 112px;
 }
+.btnBook:hover {
+  background-color: #c39200;
+}
+
 .btns,
 .card,
 .content {
