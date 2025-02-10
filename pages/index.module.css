@@ -692,6 +692,7 @@
     padding-right: var(--padding-21xl);
     box-sizing: border-box;
     padding: 0;
+    margin-top: 0;
   }
   .row1 {
     gap: var(--gap-base);
@@ -726,8 +727,10 @@
     gap: var(--gap-13xl);
   }
   .testimonialWrapperWrapper {
-    padding-left: var(--padding-21xl);
-    padding-right: var(--padding-21xl);
+    /* padding-left: var(--padding-21xl);
+    padding-right: var(--padding-21xl); */
+    padding-left: 0;
+    padding-right: 0;
     padding-bottom: var(--padding-20xl);
     box-sizing: border-box;
   }
@@ -737,6 +740,10 @@
     /* padding: var(--padding-20xl) var(--padding-21xl); */
     padding: var(--padding-20xl) 30px;
     box-sizing: border-box;
+  }
+  .faq {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media screen and (max-width: 450px) {

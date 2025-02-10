@@ -122,6 +122,9 @@
 }
 
 @media (max-width: 768px) {
+  .image {
+    height: 80vh;
+  }
   .mediumLengthHero {
     font-size: 2rem;
     /* Smaller font size on mobile */
@@ -167,7 +170,7 @@
   .loremIpsumDolor1 {
     width: 350px;
   }
-  .mediumLengthHero{
+  .mediumLengthHero {
     width: 350px;
   }
 }

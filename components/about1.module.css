@@ -132,7 +132,8 @@
     gap: var(--gap-11xl);
   }
   .about {
-    padding: var(--padding-20xl) var(--padding-21xl);
+    /* padding: var(--padding-20xl) var(--padding-21xl); */
+    padding: var(--padding-20xl) 0;
     box-sizing: border-box;
   }
 }

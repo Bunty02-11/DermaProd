@@ -294,9 +294,9 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div> */}
           </div>
         </section>
-        <section className={styles.blogs}>
+        {/* <section className={styles.blogs}>
           <BlogListingHomeComp />
-        </section>
+        </section> */}
         <Contact1 placeholderImage="/1.jpg" />
         <section className={styles.faq}>
           <div className={styles.sectionTitle}>

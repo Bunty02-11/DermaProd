@@ -87,6 +87,7 @@
     padding: 0;
     width: 100%;
     box-sizing: border-box;
+    padding-bottom: 0;
   }
 }
 @media screen and (max-width: 450px) {
@@ -95,6 +96,7 @@
     line-height: 35px;
   }
   .services {
-    padding-bottom: 25px;
+    /* padding-bottom: 25px; */
+    padding-bottom: 0;
   }
 }

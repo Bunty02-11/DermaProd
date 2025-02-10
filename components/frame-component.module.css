@@ -201,8 +201,10 @@
     gap: var(--gap-base);
   }
   .testimonialContainerWrapper {
-    padding-left: var(--padding-13xl);
-    padding-right: var(--padding-13xl);
+    /* padding-left: var(--padding-13xl);
+    padding-right: var(--padding-13xl); */
+    padding-left: 0;
+    padding-right: 0;
     box-sizing: border-box;
   }
 }

@@ -36,8 +36,10 @@
 @media screen and (max-width: 750px) {
   .others {
     gap: var(--gap-xl);
-    padding-left: var(--padding-21xl);
-    padding-right: var(--padding-21xl);
+    padding-left: 0;
+    padding-right: 0;
+    /* padding-left: var(--padding-21xl);
+    padding-right: var(--padding-21xl); */
     box-sizing: border-box;
   }
 }
@@ -45,7 +47,10 @@
   .others {
     padding-top: var(--padding-20xl);
   }
-  .others,
+  .others {
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
   .othersWrapper {
     padding-bottom: var(--padding-20xl);
     box-sizing: border-box;

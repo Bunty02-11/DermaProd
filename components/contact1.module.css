@@ -207,7 +207,8 @@
   }
   .contact {
     gap: var(--gap-base);
-    padding: var(--padding-20xl) var(--padding-13xl);
+    /* padding: var(--padding-20xl) var(--padding-13xl); */
+    padding: 0;
     box-sizing: border-box;
   }
 }
