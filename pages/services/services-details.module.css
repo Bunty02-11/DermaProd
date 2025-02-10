@@ -205,7 +205,8 @@
 @media screen and (max-width: 750px) {
   .faq {
     gap: var(--gap-xl);
-    padding: var(--padding-20xl) var(--padding-21xl);
+    /* padding: var(--padding-20xl) var(--padding-21xl); */
+    padding: var(--padding-20xl) 0;
     box-sizing: border-box;
   }
 }
