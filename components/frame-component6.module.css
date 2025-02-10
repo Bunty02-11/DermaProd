@@ -254,9 +254,12 @@
     gap: var(--gap-11xl);
   }
   .visionContainer {
-    padding-left: var(--padding-21xl);
-    padding-right: var(--padding-21xl);
+    padding-left: var(--padding-13xl);
+    padding-right: var(--padding-13xl);
     box-sizing: border-box;
+  }
+  .visionDetails {
+    padding-top: var(--padding-13xl);
   }
   .content2 {
     grid-template-columns: minmax(217px, 1fr);
@@ -270,14 +273,16 @@
   }
   .team {
     gap: var(--gap-xl);
-    padding: var(--padding-20xl) var(--padding-21xl);
+    /* padding: var(--padding-20xl) var(--padding-21xl); */
+    padding: var(--padding-20xl) var(--padding-13xl);
     box-sizing: border-box;
   }
   .visionContainerParent {
     gap: var(--gap-11xl);
     padding-bottom: var(--padding-6xl);
     box-sizing: border-box;
-    margin-top: 150px;
+    margin-top: 0;
+    /* margin-top: 150px; */
   }
 }
 @media screen and (max-width: 450px) {

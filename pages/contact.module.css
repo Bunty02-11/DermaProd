@@ -33,4 +33,8 @@
     gap: var(--gap-11xl);
     gap: 0;
   }
+  .contactForm {
+    padding: 0 var(--padding-13xl);
+    padding-bottom: var(--padding-21xl);
+  }
 }

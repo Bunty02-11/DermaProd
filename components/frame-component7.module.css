@@ -149,12 +149,14 @@
 }
 @media screen and (max-width: 750px) {
   .others {
-    padding-left: var(--padding-21xl);
-    padding-right: var(--padding-21xl);
+    /* padding-left: var(--padding-21xl);
+    padding-right: var(--padding-21xl); */
+    padding-left: 0;
+    padding-right: 0;
     box-sizing: border-box;
   }
   .frameParent {
-    padding-bottom: var(--padding-26xl);
+    padding-bottom: var(--padding-21xl);
     box-sizing: border-box;
   }
 }

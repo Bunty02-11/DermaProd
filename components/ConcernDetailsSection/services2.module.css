@@ -155,7 +155,7 @@
     gap: var(--gap-xl);
   }
   .services {
-    padding: var(--padding-xl) var(--padding-21xl);
+    padding: var(--padding-21xl) var(--padding-21xl);
   }
 }
 @media (max-width: 768px) {

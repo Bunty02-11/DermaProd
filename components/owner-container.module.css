@@ -125,11 +125,11 @@
   .ownerContainer {
     padding: 3rem 1.5rem;
   }
-  
+
   .meetTheOwner {
     font-size: 2rem;
   }
-  
+
   .logosvgIcon {
     width: 110px;
   }
@@ -139,15 +139,15 @@
   .ownerTitleWrapper {
     flex-direction: column;
   }
-  
+
   .ownerTitle {
     max-width: 100%;
   }
-  
+
   .imgIcon {
     max-width: 100%;
   }
-  
+
   .content {
     gap: 1.5rem;
   }
@@ -157,21 +157,27 @@
   .ownerContainer {
     padding: 2rem 1rem;
   }
-  
+  .ownerTitleWrapper {
+    padding: 0 var(--padding-13xl);
+  }
+
   .meetTheOwner {
     font-size: 1.75rem;
   }
-  
+
   .perfumes {
     font-size: 1rem;
   }
-  
+
   .heading {
     font-size: 1.25rem;
   }
-  
+
   .logosvgIcon {
     width: 90px;
+  }
+  .faqParent {
+    padding: 0;
   }
 }
 
@@ -179,19 +185,20 @@
   .ownerContainer {
     padding: 1.5rem 0.75rem;
   }
-  
+
   .meetTheOwner {
     font-size: 1.5rem;
   }
-  
+
   .logo {
-    padding: 2rem 1rem;
+    /* padding: 2rem 1rem; */
+    padding: 0;
   }
-  
+
   .content {
     gap: 1rem;
   }
-  
+
   .heading1 {
     font-size: 1.75rem;
   }

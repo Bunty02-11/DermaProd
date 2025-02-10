@@ -18,13 +18,15 @@ const About = () => {
         <div className={styles.loremIpsumDolor}>HOME - ABOUT</div>
         <h1 className={styles.mediumLengthHero}>About</h1>
       </section>
-      <About1
-        aboutFlex="unset"
-        aboutAlignSelf="stretch"
-        img="/Reception-Image.jpg"
-        btnsWidth="196px"
-        discoverMore="Book Appointment"
-      />
+      <section className={styles.about1C}>
+        <About1
+          aboutFlex="unset"
+          aboutAlignSelf="stretch"
+          img="/Reception-Image.jpg"
+          btnsWidth="196px"
+          discoverMore="Book Appointment"
+        />
+      </section>
       <section className={styles.others}>
         <div className={styles.slider}>
           <ExploreItems

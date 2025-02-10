@@ -220,10 +220,17 @@
   }
 }
 @media screen and (max-width: 750px) {
+  .about1C {
+    padding: var(--padding-21xl) var(--padding-13xl) 0 var(--padding-13xl);
+  }
   .others {
     gap: var(--gap-xl);
-    padding-left: var(--padding-21xl);
-    padding-right: var(--padding-21xl);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0 !important;
+    padding-bottom: var(--padding-21xl);
+    /* padding-left: var(--padding-21xl);
+    padding-right: var(--padding-21xl); */
     box-sizing: border-box;
   }
   .row {

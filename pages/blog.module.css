@@ -179,7 +179,8 @@
   }
   .blogs {
     gap: var(--gap-xl);
-    padding: var(--padding-xl) var(--padding-21xl);
+    /* padding: var(--padding-xl) var(--padding-21xl); */
+    padding: var(--padding-21xl) 0;
     box-sizing: border-box;
   }
 }

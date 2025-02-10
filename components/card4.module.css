@@ -55,6 +55,12 @@
   color: var(--text-primary);
   font-family: var(--h2-48);
 }
+@media screen and (max-width: 768px) {
+  .placeholderImageIcon {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .name {
     font-size: var(--p3-16-size);
