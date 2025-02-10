@@ -28,7 +28,11 @@ export default function Layout({ children }) {
       {loading ? (
         <Loader />
       ) : (
-        <main dir={language === "ar" ? "rtl" : "ltr"}>{children}</main>
+        <main
+        // dir={language === "ar" ? "rtl" : "ltr"}
+        >
+          {children}
+        </main>
       )}
     </div>
   );
