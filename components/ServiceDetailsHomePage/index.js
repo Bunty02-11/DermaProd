@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import ConcernCard from "../ConcernCardHome";
-=======
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import ServiceCard from "../ServiceCard/index";
 import PropTypes from "prop-types";
 import styles from "./services1.module.css";
