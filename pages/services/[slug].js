@@ -63,9 +63,12 @@ const ServicesDetails = ({ serviceData }) => {
   return (
     <div className={styles.servicesDetails}>
       <FooterContainer />
-      <section className={styles.banner}
+      <section
+        className={styles.banner}
         style={{
-          backgroundImage: `url(${serviceData?.Main_banner?.url || "/placeholder-image3@2x.png"})`,
+          backgroundImage: `url(${
+            serviceData?.Main_banner?.url || "/placeholder-image3@2x.png"
+          })`,
         }}
       >
         <div className={styles.loremIpsumDolor}>

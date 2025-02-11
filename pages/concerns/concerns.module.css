@@ -31,13 +31,17 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-81xl) var(--padding-xl) var(--padding-81xl)
-    var(--padding-61xl);
+    var(--padding-61xl); */
+  align-items: flex-start;
+  justify-content: center;
+  height: 550px;
+  padding: 0 4rem;
   box-sizing: border-box;
   gap: var(--gap-base);
-  background-image: url(/banner1@3x.png);
+  /* background-image: url(/banner1@3x.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -208,8 +212,18 @@
   .container {
     padding: var(--padding-21xl) 0;
   }
+  .banner {
+    height: 400px;
+    box-sizing: border-box;
+    background-position: 85% center;
+  }
 }
 @media screen and (max-width: 450px) {
+  .banner {
+    height: 400px;
+    box-sizing: border-box;
+    background-position: 85% center;
+  }
   .heading,
   .mediumLengthHero {
     font-size: var(--font-size-10xl);

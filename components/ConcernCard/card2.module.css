@@ -1,6 +1,7 @@
 .placeholderImageIcon {
   align-self: stretch;
-  height: 260px;
+  /* height: 260px; */
+  height: 400px;
   width: 100%; /* Ensure it spans the full width of the card */
   border-radius: var(--br-base) var(--br-base) 0 0;
   overflow: hidden;

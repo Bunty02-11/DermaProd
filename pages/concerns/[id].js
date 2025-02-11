@@ -6,6 +6,7 @@ import FaqsList from "../../components/FaqsListing";
 import Footer from "../../components/footer";
 import styles from "./concerns.module.css";
 import FooterContainer from "../../components/footer-container";
+import { useParams } from "next/navigation";
 
 export async function getServerSidePaths() {
   const response = await fetch(
@@ -48,8 +49,8 @@ export async function getServerSideProps(context) {
   }
 }
 
-
 const ConcernsDetails = ({ concern }) => {
+  const { id } = useParams();
   const onAccordionHeaderClick = useCallback((event) => {
     event.preventDefault();
   }, []);
@@ -58,10 +59,22 @@ const ConcernsDetails = ({ concern }) => {
     <div className={styles.concerns}>
       <FooterContainer />
 
-
       {concern?.length ? (
         <>
-          <section className={styles.banner}>
+          <section
+            className={styles.banner}
+            style={{
+              backgroundImage: `url(${
+                id == "2"
+                  ? "/facialConcerns.jpg"
+                  : id == "23"
+                  ? "/bodyConcerns.jpg"
+                  : id == "24"
+                  ? "/skinConcerns.webp"
+                  : "/skinConcerns.webp"
+              })`,
+            }}
+          >
             <div className={styles.loremIpsumDolor}>HOME - CONCERNS</div>
             <h1 className={styles.mediumLengthHero}>
               {concern?.[0]?.category?.Name}
@@ -78,9 +91,7 @@ const ConcernsDetails = ({ concern }) => {
         >
           Nothing Found
         </div>
-
       )}
-
 
       <Footer
         maskGroup="/mask-group@2x.png"
