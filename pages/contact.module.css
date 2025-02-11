@@ -10,12 +10,8 @@
 .contactParent {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  align-items: flex-start;
-=======
   /* align-items: flex-start; */
   align-items: center;
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
   justify-content: flex-start;
 }
 .contactParent {
