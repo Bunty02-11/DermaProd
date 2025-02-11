@@ -150,14 +150,16 @@
   max-width: 100%;
 }
 .placeholderImageIcon {
-  height: 640px;
+  /* height: 640px; */
+  height: 450px;
+
   /* flex: 1; */
   position: relative;
   border-radius: var(--br-5xl);
   max-width: 100%;
   overflow: hidden;
-  object-fit: contain;
-  /* object-fit: cover; */
+  /* object-fit: contain; */
+  object-fit: cover;
   /* min-width: 417px; */
 }
 .contact,
@@ -223,8 +225,8 @@
     line-height: 35px;
   }
   .placeholderImageIcon {
-    width: 250px;
-    height: 200px;
+    /* width: 250px; */
+    /* height: 200px; */
     position: relative;
     border-radius: var(--br-base);
     max-height: 100%;

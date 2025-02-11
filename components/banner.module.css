@@ -23,6 +23,7 @@
   height: 100vh;
   /* Full height of the viewport */
   background-size: cover;
+  background-repeat: no-repeat;
   /* Ensures the image covers the entire area */
   background-position: center;
   /* Keeps the background image centered */
@@ -168,7 +169,7 @@
     padding: 0;
     align-items: center;
     justify-content: flex-start;
-    background-size: cover;
+    background-position: 80% center;
   }
   .loremIpsumDolor1 {
     width: 350px;

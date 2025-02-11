@@ -105,7 +105,7 @@ const ServicesDetails = ({ serviceData }) => {
         </div> */}
           <Services2 serviceDetails={serviceData} />
         </div>
-        <Contact1 placeholderImage="/placeholder-image-14@2x.png" />
+        <Contact1 placeholderImage="/contact.jpg" />
         <section className={styles.faq}>
           <div className={styles.sectionTitle}>
             <div className={styles.subheading}>SUPPORT</div>

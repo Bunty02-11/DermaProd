@@ -32,10 +32,14 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-81xl) var(--padding-xl) var(--padding-81xl)
-    var(--padding-61xl);
+    var(--padding-61xl); */
+  align-items: flex-start;
+  justify-content: center;
+  height: 350px;
+  padding: 0 4rem;
   box-sizing: border-box;
   gap: var(--gap-base);
   background-size: cover;
@@ -209,11 +213,17 @@
     padding: var(--padding-20xl) 0;
     box-sizing: border-box;
   }
+  .banner {
+    background-position: 75% center;
+  }
 }
 @media screen and (max-width: 450px) {
   .heading,
   .mediumLengthHero {
     font-size: var(--font-size-10xl);
     line-height: 35px;
+  }
+  .banner {
+    background-position: 75% center;
   }
 }
