@@ -18,11 +18,7 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
         width={620}
         height={260}
         alt=""
-        src={
-          details?.Banner_image?.url
-            ? details?.Banner_image?.url
-            : placeholderImage
-        }
+        src={details?.image1.url ? details?.image1.url : placeholderImage}
       />
       <div className={styles.content}>
         <div className={styles.cardIntroParent}>
@@ -38,9 +34,7 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
           <button
             className={styles.btnLearn}
             onClick={() => {
-              handleNavigation(
-                `/concern-details/${details?.slug}`
-              );
+              handleNavigation(`/concern-details/${details?.slug}`);
             }}
           >
             Learn More
