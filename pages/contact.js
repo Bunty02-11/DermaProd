@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import Image from "next/image";
+=======
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import FrameComponent7 from "../components/frame-component7";
 import Contact1 from "../components/contact1";
 import Footer from "../components/footer";

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import FrameComponent1 from "../components/frame-component1";
+=======
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import BlogCard from "../components/BlogListingCard";
 import Footer from "../components/footer";
 import styles from "./blog.module.css";

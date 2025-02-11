@@ -18,8 +18,8 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
         height={260}
         alt=""
         src={
-          details?.Banner_image?.url
-            ? details?.Banner_image?.url
+          details?.image1?.url
+            ? details?.image1?.url
             : "/placeholder-image3@2x.png"
         }
       />
@@ -37,9 +37,7 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
           <button
             className={styles.btnLearn}
             onClick={() => {
-              handleNavigation(
-                `/services/${details.slug}`
-              );
+              handleNavigation(`/services/${details.slug}`);
             }}
           >
             Learn More

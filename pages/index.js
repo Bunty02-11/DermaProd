@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 import { useCallback } from "react";
+=======
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import Image from "next/image";
 import FooterContainer from "../components/footer-container";
 import Banner from "../components/banner";
 import FrameComponent2 from "../components/frame-component2";
 import FrameComponent3 from "../components/frame-component3";
 import FrameComponent4 from "../components/frame-component4";
+<<<<<<< HEAD
 import Card from "../components/card";
 import Card1 from "../components/card1";
 import Content from "../components/content";
@@ -21,6 +25,18 @@ import BlogListingHomeComp from "../components/BlogListingHomePage";
 import Footer from "../components/footer";
 import styles from "./index.module.css";
 import FaqsList from "../components/FaqsListing";
+=======
+import Content from "../components/content";
+import Component1 from "../components/component1";
+import FrameComponent from "../components/frame-component";
+import Contact1 from "../components/contact1";
+import ConcernsDetailsHomeComp from "../components/ConcernDetailsHomePage/index";
+import ServiceDetailsHomePage from "../components/ServiceDetailsHomePage/index";
+import PromotiondetailsHomePage from "../components/PromotionDetailsHomePage/index";
+// import BlogListingHomeComp from "../components/BlogListingHomePage";
+import Footer from "../components/footer";
+import styles from "./index.module.css";
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import StaticFaqsLisiting from "../components/staticfaqs/staticfaqlist";
 
 export async function getServerSideProps(context) {
@@ -83,6 +99,7 @@ export async function getServerSideProps(context) {
 }
 
 const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
+<<<<<<< HEAD
   // console.log("🚀 ~ Home ~ promotions:", promotions);
   // console.log("🚀 ~ Home ~ concern:", concern);
   // console.log("🚀 ~ Home ~ discount:", discounts);
@@ -90,6 +107,8 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
     event.preventDefault();
   }, []);
 
+=======
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
   return (
     <div className={styles.home}>
       <FooterContainer />
@@ -106,6 +125,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
                 className={styles.mediumLengthHero}
               >{`Concerns & Treatments`}</h1>
             </div>
+<<<<<<< HEAD
 
             <ConcernsDetailsHomeComp content={concerns} />
             {/* <div className={styles.row}>
@@ -147,6 +167,9 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
               </div>
             </div>
           </div> */}
+=======
+            <ConcernsDetailsHomeComp content={concerns} />
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
           </div>
         </section>
         <section className={styles.chooseWrapper}>
@@ -283,6 +306,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             {/* <div className={styles.content12}>
             <div className={styles.sliderDots}>
               <div className={styles.dot} />
@@ -292,6 +316,8 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
               <div className={styles.dot1} />
             </div>
           </div> */}
+=======
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
           </div>
         </section>
         {/* <section className={styles.blogs}>

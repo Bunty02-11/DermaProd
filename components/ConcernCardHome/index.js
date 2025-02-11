@@ -16,11 +16,7 @@ const Card = ({ className = "", placeholderImage, details }) => {
         width={411}
         height={260}
         alt=""
-        src={
-          details?.Banner_image?.url
-            ? details?.Banner_image?.url
-            : placeholderImage
-        }
+        src={details?.image1?.url ? details?.image1?.url : placeholderImage}
       />
       <div className={styles.content}>
         <div className={styles.contentHeadingOne}>

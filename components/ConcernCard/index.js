@@ -18,7 +18,7 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
         width={620}
         height={260}
         alt=""
-        src={details?.image1.url ? details?.image1.url : placeholderImage}
+        src={details?.image1?.url ? details?.image1?.url : placeholderImage}
       />
       <div className={styles.content}>
         <div className={styles.cardIntroParent}>

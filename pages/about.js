@@ -1,5 +1,8 @@
 import Image from "next/image";
+<<<<<<< HEAD
 import FrameComponent1 from "../components/frame-component1";
+=======
+>>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import About1 from "../components/about1";
 import ExploreItems from "../components/explore-items";
 import Content from "../components/content";
