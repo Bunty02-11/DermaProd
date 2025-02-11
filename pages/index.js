@@ -1,31 +1,9 @@
-<<<<<<< HEAD
-import { useCallback } from "react";
-=======
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import Image from "next/image";
 import FooterContainer from "../components/footer-container";
 import Banner from "../components/banner";
 import FrameComponent2 from "../components/frame-component2";
 import FrameComponent3 from "../components/frame-component3";
 import FrameComponent4 from "../components/frame-component4";
-<<<<<<< HEAD
-import Card from "../components/card";
-import Card1 from "../components/card1";
-import Content from "../components/content";
-import Component1 from "../components/component1";
-import FrameComponent from "../components/frame-component";
-import FrameComponent5 from "../components/frame-component5";
-import Content1 from "../components/content1";
-import Contact1 from "../components/contact1";
-import AccordionItem from "../components/accordion-item";
-import ConcernsDetailsHomeComp from "../components/ConcernDetailsHomePage/index";
-import ServiceDetailsHomePage from "../components/ServiceDetailsHomePage/index";
-import PromotiondetailsHomePage from "../components/PromotionDetailsHomePage/index";
-import BlogListingHomeComp from "../components/BlogListingHomePage";
-import Footer from "../components/footer";
-import styles from "./index.module.css";
-import FaqsList from "../components/FaqsListing";
-=======
 import Content from "../components/content";
 import Component1 from "../components/component1";
 import FrameComponent from "../components/frame-component";
@@ -36,7 +14,6 @@ import PromotiondetailsHomePage from "../components/PromotionDetailsHomePage/ind
 // import BlogListingHomeComp from "../components/BlogListingHomePage";
 import Footer from "../components/footer";
 import styles from "./index.module.css";
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
 import StaticFaqsLisiting from "../components/staticfaqs/staticfaqlist";
 
 export async function getServerSideProps(context) {
@@ -99,16 +76,6 @@ export async function getServerSideProps(context) {
 }
 
 const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
-<<<<<<< HEAD
-  // console.log("🚀 ~ Home ~ promotions:", promotions);
-  // console.log("🚀 ~ Home ~ concern:", concern);
-  // console.log("🚀 ~ Home ~ discount:", discounts);
-  const onAccordionHeaderClick = useCallback((event) => {
-    event.preventDefault();
-  }, []);
-
-=======
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
   return (
     <div className={styles.home}>
       <FooterContainer />
@@ -125,51 +92,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
                 className={styles.mediumLengthHero}
               >{`Concerns & Treatments`}</h1>
             </div>
-<<<<<<< HEAD
-
             <ConcernsDetailsHomeComp content={concerns} />
-            {/* <div className={styles.row}>
-            <Card placeholderImage="/placeholder-image-1@2x.png" />
-            <Card placeholderImage="/placeholder-image-1@2x.png" />
-            <Card1
-              placeholderImage="/placeholder-image-1@2x.png"
-              showContentIntroThree
-              heading="Eye Puffiness"
-              contentDescriptionThree="Rediscover your radiance with advanced skincare, including Jalupro, Botox, and Hydrafacial treatments, for a luminous and revitalized complexion. Hydrafacial treatments, for a luminous and revitalized complexion."
-            />
-          </div> */}
-            {/* <div className={styles.content}>
-            <div className={styles.dotsContainer}>
-              <div className={styles.sliderDots}>
-                <div className={styles.dot} />
-                <div className={styles.dot1} />
-                <div className={styles.dot1} />
-                <div className={styles.dot1} />
-                <div className={styles.dot1} />
-              </div>
-            </div>
-            <div className={styles.arrowsParent}>
-              <Image
-                className={styles.arrowsIcon}
-                width={48}
-                height={48}
-                alt=""
-                src="/arrows@2x.png"
-              />
-              <div className={styles.arrows}>
-                <Image
-                  className={styles.fearrowUpIcon}
-                  width={24}
-                  height={24}
-                  alt=""
-                  src="/fearrowup@2x.png"
-                />
-              </div>
-            </div>
-          </div> */}
-=======
-            <ConcernsDetailsHomeComp content={concerns} />
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
           </div>
         </section>
         <section className={styles.chooseWrapper}>
@@ -306,18 +229,6 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
-            {/* <div className={styles.content12}>
-            <div className={styles.sliderDots}>
-              <div className={styles.dot} />
-              <div className={styles.dot1} />
-              <div className={styles.dot1} />
-              <div className={styles.dot1} />
-              <div className={styles.dot1} />
-            </div>
-          </div> */}
-=======
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
           </div>
         </section>
         {/* <section className={styles.blogs}>
