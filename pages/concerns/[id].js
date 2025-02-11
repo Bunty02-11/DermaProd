@@ -70,13 +70,8 @@ const ConcernsDetails = ({ concern }) => {
                   : id == "23"
                   ? "/bodyConcerns.jpg"
                   : id == "24"
-<<<<<<< HEAD
-                  ? "/skinConcerns.webp"
-                  : "/skinConcerns.webp"
-=======
                   ? "/skinConcerns.jpg"
                   : "/skinConcerns.jpg"
->>>>>>> 105ff51a2a0eec39fb502a07e98442a2a3eb6f7d
               })`,
             }}
           >
