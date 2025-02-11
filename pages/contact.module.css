@@ -1,0 +1,41 @@
+.mapIcon {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.contact,
+.contactParent {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  align-items: center;
+  justify-content: flex-start;
+}
+.contactParent {
+  align-self: stretch;
+  max-width: 100%;
+}
+.contact {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  overflow: hidden;
+  padding: var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-41xl);
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 750px) {
+  .contact {
+    gap: var(--gap-11xl);
+    gap: 0;
+  }
+  .contactForm {
+    padding: 0 var(--padding-13xl);
+    padding-bottom: var(--padding-21xl);
+  }
+}

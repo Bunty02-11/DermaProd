@@ -1,0 +1,183 @@
+.loremIpsumDolor,
+.mediumLengthHero {
+  width: 1281px;
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  max-width: 100%;
+}
+.emailLink {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease-in-out;
+}
+
+.emailLink:hover {
+  /* transform: scale(2); */
+  color: blue;
+}
+.mediumLengthHero {
+  margin: 0;
+  width: 628px;
+  font-size: var(--h2-48-size);
+  line-height: 120%;
+  font-weight: 600;
+  font-family: inherit;
+}
+.banner {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-81xl) var(--padding-xl) var(--padding-81xl)
+    var(--padding-61xl);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  background-image: url(/contactbanner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  max-width: 100%;
+}
+.mynauilocationIcon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: var(--br-31xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.perfumes {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  line-height: 140%;
+  font-weight: 600;
+  font-family: inherit;
+}
+.friWed {
+  margin: 0;
+}
+.perfumes1 {
+  position: relative;
+  font-size: var(--p3-16-size);
+  /* line-height: 150%; */
+}
+.perfumesParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  height: 120px;
+}
+.slider,
+.sliderItems {
+  display: flex;
+  gap: var(--gap-5xl);
+}
+.sliderItems {
+  flex: 1;
+  border-radius: var(--br-base);
+  border: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-19xl) var(--padding-4xl);
+  min-width: 278px;
+  max-width: 302px;
+}
+.slider {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.frameParent,
+.mainContent,
+.others {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.others {
+  margin-left: -36px;
+  width: 100%;
+  background-color: var(--color-white);
+  overflow: hidden;
+  align-items: center;
+  padding: var(--padding-41xl) var(--padding-61xl);
+  box-sizing: border-box;
+  z-index: 1;
+  /* margin-top: -129px; */
+  font-size: var(--h5-24-size);
+}
+.frameParent,
+.mainContent {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.frameParent {
+  padding: 0 0 var(--padding-50xl);
+  box-sizing: border-box;
+  text-align: start;
+  font-size: var(--p3-16-size);
+  color: var(--text-primary);
+  font-family: var(--h2-48);
+}
+@media screen and (max-width: 1200px) {
+  .banner {
+    padding-left: var(--padding-21xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .mediumLengthHero {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .others {
+    /* padding-left: var(--padding-21xl);
+    padding-right: var(--padding-21xl); */
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .frameParent {
+    padding-bottom: var(--padding-21xl);
+    box-sizing: border-box;
+  }
+  .banner {
+    background-position: 85% center;
+  }
+}
+@media screen and (max-width: 450px) {
+  .banner {
+    background-position: 85% center;
+  }
+  .mediumLengthHero {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+  .perfumes {
+    font-size: var(--font-size-lgi);
+    line-height: 27px;
+  }
+  .others {
+    padding-bottom: var(--padding-20xl);
+    box-sizing: border-box;
+    margin: 0;
+  }
+}

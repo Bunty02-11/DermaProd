@@ -1,0 +1,31 @@
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--gap-21xl);
+  max-width: 100%;
+}
+.content {
+  align-self: stretch;
+  height: 1865px;
+  position: relative;
+  max-width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  .content {
+    height: auto;
+    min-height: 1865;
+  }
+}
+@media screen and (max-width: 750px) {
+  .row {
+    gap: var(--gap-xl);
+  }
+}
