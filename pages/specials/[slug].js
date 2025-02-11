@@ -66,9 +66,12 @@ const ServicesDetails = ({ specialData }) => {
   return (
     <div className={styles.servicesDetails}>
       <FooterContainer />
-      <section className={styles.banner}
+      <section
+        className={styles.banner}
         style={{
-          backgroundImage: `url(${specialData?.Main_banner?.url || "/placeholder-image3@2x.png"})`,
+          backgroundImage: `url(${
+            specialData?.Main_banner?.url || "/placeholder-image3@2x.png"
+          })`,
         }}
       >
         <div className={styles.loremIpsumDolor}>
@@ -79,8 +82,8 @@ const ServicesDetails = ({ specialData }) => {
         </h1>
       </section>
       <div className={styles.container}>
-      <div className={styles.services}>
-        {/* <div className={styles.Name}>
+        <div className={styles.services}>
+          {/* <div className={styles.Name}>
           <div className={styles.loremIpsumDolor1}>
             {specialData?.category?.Name || "Category"}
           </div>
@@ -103,18 +106,18 @@ const ServicesDetails = ({ specialData }) => {
             {specialData?.meta_description || "Special description goes here."}
           </div>
         </div> */}
-        <Special specialDetails={specialData} />
-      </div>
-      <Contact1 placeholderImage="/placeholder-image-14@2x.png" />
-      <section className={styles.faq}>
-        <div className={styles.sectionTitle}>
-          <div className={styles.subheading}>SUPPORT</div>
-          <div className={styles.content}>
-            <h3 className={styles.heading}>Frequently Asked Questions</h3>
-          </div>
+          <Special specialDetails={specialData} />
         </div>
-        <FaqsListing faqsList={specialData?.faqs} />
-      </section>
+        <Contact1 placeholderImage="/contact.jpg" />
+        <section className={styles.faq}>
+          <div className={styles.sectionTitle}>
+            <div className={styles.subheading}>SUPPORT</div>
+            <div className={styles.content}>
+              <h3 className={styles.heading}>Frequently Asked Questions</h3>
+            </div>
+          </div>
+          <FaqsListing faqsList={specialData?.faqs} />
+        </section>
       </div>
       <Footer
         maskGroup="/mask-group@2x.png"

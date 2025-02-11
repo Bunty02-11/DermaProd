@@ -297,7 +297,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
         {/* <section className={styles.blogs}>
           <BlogListingHomeComp />
         </section> */}
-        <Contact1 placeholderImage="/1.jpg" />
+        <Contact1 placeholderImage="/contact.jpg" />
         <section className={styles.faq}>
           <div className={styles.sectionTitle}>
             <div className={styles.subheading}>SUPPORT</div>

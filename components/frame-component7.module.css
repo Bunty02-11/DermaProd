@@ -35,7 +35,7 @@
     var(--padding-61xl);
   box-sizing: border-box;
   gap: var(--gap-base);
-  background-image: url(/banner1@3x.png);
+  background-image: url(/contactbanner.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -159,8 +159,14 @@
     padding-bottom: var(--padding-21xl);
     box-sizing: border-box;
   }
+  .banner {
+    background-position: 85% center;
+  }
 }
 @media screen and (max-width: 450px) {
+  .banner {
+    background-position: 85% center;
+  }
   .mediumLengthHero {
     font-size: var(--font-size-10xl);
     line-height: 35px;

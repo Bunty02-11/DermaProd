@@ -81,7 +81,7 @@ const ConcernsDetails = ({ concernDetails }) => {
       </section>
       <div className="container">
         <ContentDetailsComp concernDetails={concernDetails} />
-        <Contact1 placeholderImage={"/placeholder-image3@2x.png"} />
+        <Contact1 placeholderImage={"/contact.jpg"} />
         <section className={styles.faq}>
           <div className={styles.sectionTitle}>
             <div className={styles.subheading}>SUPPORT</div>

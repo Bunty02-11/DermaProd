@@ -38,7 +38,7 @@
     var(--padding-61xl);
   box-sizing: border-box;
   gap: var(--gap-base);
-  background-image: url(/banner1@3x.png);
+  background-image: url(/blogbanner.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -183,8 +183,14 @@
     padding: var(--padding-21xl) 0;
     box-sizing: border-box;
   }
+  .banner {
+    background-position: 60% center;
+  }
 }
 @media screen and (max-width: 450px) {
+  .banner {
+    background-position: 60% center;
+  }
   .mediumLengthHero,
   .mediumLengthHero1 {
     font-size: var(--font-size-10xl);
