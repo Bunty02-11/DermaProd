@@ -215,6 +215,7 @@
   }
   .banner {
     background-position: 75% center;
+    margin-top: 75px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -225,5 +226,6 @@
   }
   .banner {
     background-position: 75% center;
+    margin-top: 75px;
   }
 }
