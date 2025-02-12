@@ -40,7 +40,8 @@
   gap: var(--gap-base);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: right top;
+  /* background-position: top; */
   max-width: 100%;
   text-align: start;
   font-size: var(--p3-16-size);
@@ -209,8 +210,14 @@
     padding: var(--padding-20xl) 0;
     box-sizing: border-box;
   }
+  .banner {
+    background-position: 75% center;
+  }
 }
 @media screen and (max-width: 450px) {
+  .banner {
+    background-position: 75% center;
+  }
   .heading,
   .mediumLengthHero {
     font-size: var(--font-size-10xl);
