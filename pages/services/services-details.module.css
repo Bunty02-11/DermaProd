@@ -214,8 +214,8 @@
     box-sizing: border-box;
   }
   .banner {
-    background-position: 75% center;
-    margin-top: 75px;
+    background-position: right center;
+    margin-top: 150px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -225,7 +225,7 @@
     line-height: 35px;
   }
   .banner {
-    background-position: 75% center;
-    margin-top: 75px;
+    background-position: right center;
+    margin-top: 150px;
   }
 }
