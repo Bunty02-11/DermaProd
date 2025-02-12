@@ -133,3 +133,37 @@ body {
   margin-right: auto;
   margin-left: unset;
 }
+
+.floating_icon_wrape {
+  position: fixed;
+  bottom: 3rem;
+  right: 2rem;
+  z-index: 9999999;
+}
+@media (max-width: 576px) {
+  .floating_icon_wrape {
+    bottom: 5rem;
+    right: 1rem;
+  }
+}
+
+.floating_icon_wrape .contact-pannel-btn {
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.floating_icon_wrape .contact-pannel-btn figure {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.floating_icon_wrape .contact-pannel-btn figure img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}

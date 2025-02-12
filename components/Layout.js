@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { LanguageContext } from "../pages/_app";
 import Loader from "./Loader/Loader";
+import FloatingIcon from "./floating-icon/floating-icon";
 
 export default function Layout({ children }) {
   const { language } = useContext(LanguageContext);
@@ -28,11 +29,14 @@ export default function Layout({ children }) {
       {loading ? (
         <Loader />
       ) : (
-        <main
-        // dir={language === "ar" ? "rtl" : "ltr"}
-        >
-          {children}
-        </main>
+        <>
+          <main
+          // dir={language === "ar" ? "rtl" : "ltr"}
+          >
+            {children}
+          </main>
+          <FloatingIcon />
+        </>
       )}
     </div>
   );
