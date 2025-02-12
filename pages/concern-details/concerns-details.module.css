@@ -211,14 +211,14 @@
     box-sizing: border-box;
   }
   .banner {
-    background-position: 75% center;
-    margin-top: 75px;
+    background-position: right center;
+    margin-top: 150px;
   }
 }
 @media screen and (max-width: 450px) {
   .banner {
-    background-position: 75% center;
-    margin-top: 75px;
+    background-position: right center;
+    margin-top: 150px;
   }
   .heading,
   .mediumLengthHero {

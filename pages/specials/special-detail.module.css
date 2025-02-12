@@ -218,11 +218,11 @@
 @media screen and (max-width: 450px) {
   .banner {
     background-position: right center;
-    margin-top: 75px;
+    margin-top: 150px;
   }
   .heading,
   .mediumLengthHero {
     font-size: var(--font-size-10xl);
-    line-height: 150px;
+    line-height: 35px;
   }
 }
