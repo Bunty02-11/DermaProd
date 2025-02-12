@@ -44,7 +44,7 @@
   gap: var(--gap-base);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: right center;
   max-width: 100%;
   text-align: start;
   font-size: var(--p3-16-size);
