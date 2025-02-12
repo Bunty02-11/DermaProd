@@ -197,6 +197,7 @@
   .banner {
     padding-left: var(--padding-21xl);
     box-sizing: border-box;
+    margin-top: 75px;
   }
 }
 @media screen and (max-width: 1050px) {
