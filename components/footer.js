@@ -18,16 +18,32 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
 
   // Navigation handler
   const handleInstagram = () => {
-    window.open('https://www.instagram.com/dermatech_polyclinic/', '_blank', 'noopener,noreferrer');
+    window.open(
+      "https://www.instagram.com/dermatech_polyclinic/",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
   const handleTiktok = () => {
-    window.open('https://www.tiktok.com/@dermatech_polyclinic?lang=en', '_blank', 'noopener,noreferrer');
+    window.open(
+      "https://www.tiktok.com/@dermatech_polyclinic?lang=en",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
   const handleFacebook = () => {
-    window.open('https://www.facebook.com/DermatechPolyclinic', '_blank', 'noopener,noreferrer');
+    window.open(
+      "https://www.facebook.com/DermatechPolyclinic",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
   const handleYoutube = () => {
-    window.open('https://www.youtube.com/@DermaTech_Polyclinic', '_blank', 'noopener,noreferrer');
+    window.open(
+      "https://www.youtube.com/@DermaTech_Polyclinic",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   const handleNavigation = (path) => {
@@ -134,17 +150,17 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                 <div className={styles.footerLinks}>
                   <div className={styles.link}>
                     <div className={styles.concerns}>
-                      <a
-                        href="tel:+971542790987"
-                        className={styles.emailLink}
-                      >
-                        +971 54 2790 987
+                      <a href="tel:+971509870036" className={styles.emailLink}>
+                        +971 50 9870 036
                       </a>
                     </div>
                   </div>
                   <div className={styles.link}>
                     <div className={styles.concerns}>
-                      <a href="mailto:info@dermatechpolyclinic.com" className={styles.emailLink}>
+                      <a
+                        href="mailto:info@dermatechpolyclinic.com"
+                        className={styles.emailLink}
+                      >
                         info@dermatechpolyclinic.com
                       </a>
                     </div>
@@ -156,13 +172,22 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
               <div className={styles.subscribeParent}>
                 <div className={styles.quickLinks}>Subscribe</div>
                 <div className={styles.joinOurNewsletter}>
-                  Join our newsletter to stay up to date on features and releases.
+                  Join our newsletter to stay up to date on features and
+                  releases.
                 </div>
               </div>
               <div className={styles.actions}>
                 <form onSubmit={handleSubmit} className={styles.form}>
                   <input
-                    style={{ width: "60%", height: "45px", backgroundColor: "#001830", borderRadius: "5px", border: "1px solid #E5E5E5", padding: "10px 10px", color: "#fff" }}
+                    style={{
+                      width: "60%",
+                      height: "45px",
+                      backgroundColor: "#001830",
+                      borderRadius: "5px",
+                      border: "1px solid #E5E5E5",
+                      padding: "10px 10px",
+                      color: "#fff",
+                    }}
                     className={styles.firstName}
                     type="email"
                     name="email"
@@ -198,8 +223,12 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                   >{`© 2024 Designed & Managed by Prism.`}</div>
                   <div className={styles.footerLinks3}>
                     <div className={styles.designedManaged}>Privacy Policy</div>
-                    <div className={styles.designedManaged}>Terms of Service</div>
-                    <div className={styles.designedManaged}>Cookies Settings</div>
+                    <div className={styles.designedManaged}>
+                      Terms of Service
+                    </div>
+                    <div className={styles.designedManaged}>
+                      Cookies Settings
+                    </div>
                   </div>
                 </div>
                 <div className={styles.social} onClick={handleTiktok}>
