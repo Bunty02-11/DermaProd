@@ -64,90 +64,91 @@ const Contact1 = ({ className = "", placeholderImage }) => {
   return (
     <div className={[styles.contact, className].join(" ")}>
       <ToastContainer />
-      <div className={styles.content}>
-        <div className={styles.form}>
-          <div className={styles.heading}>
-            <div className={styles.loremIpsumDolor}>CONTACT</div>
-            <h3 className={styles.mediumLengthHero}>Request A Consultation</h3>
-          </div>
-          <div className={styles.formFields}>
-            <div className={styles.name}>
-              <input
-                className={styles.firstName}
+      <div className="container">
+        <div className={styles.content}>
+          <div className={styles.form}>
+            <div className={styles.heading}>
+              <div className={styles.loremIpsumDolor}>CONTACT</div>
+              <h3 className={styles.mediumLengthHero}>
+                Request A Consultation
+              </h3>
+            </div>
+            <div className={styles.formFields}>
+              <div className={styles.name}>
+                <input
+                  className={styles.firstName}
+                  type="text"
+                  name="Name"
+                  placeholder="First Name"
+                  required
+                  value={formData.Name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.name}>
+                <input
+                  className={styles.firstName}
+                  type="text"
+                  name="last_Name"
+                  placeholder="Last Name"
+                  required
+                  value={formData.last_Name}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className={styles.formFields}>
+              <div className={styles.name}>
+                <input
+                  className={styles.firstName}
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.name}>
+                <input
+                  className={styles.firstName}
+                  type="number"
+                  name="Number"
+                  placeholder="Phone"
+                  required
+                  value={formData.Number}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className={styles.name5}>
+              <textarea
                 type="text"
-                name="Name"
-                placeholder="First Name"
+                name="message"
+                placeholder="Message"
                 required
-                value={formData.Name}
+                value={formData.message}
                 onChange={handleChange}
+                rows={3}
               />
             </div>
-            <div className={styles.name}>
-              <input
-                className={styles.firstName}
-                type="text"
-                name="last_Name"
-                placeholder="Last Name"
-                required
-                value={formData.last_Name}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className={styles.formFields}>
-            <div className={styles.name}>
-              <input
-                className={styles.firstName}
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.name}>
-              <input
-                className={styles.firstName}
-                type="number"
-                name="Number"
-                placeholder="Phone"
-                required
-                value={formData.Number}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className={styles.name5}>
-            <textarea
-              type="text"
-              name="message"
-              placeholder="Message"
-              required
-              value={formData.message}
-              onChange={handleChange}
-              rows={3}
-            />
-          </div>
-          <div className={styles.btns}>
-            <div className={styles.btnSubmit}>
-              <div
-                className={styles.submitNow}
-                onClick={handleSubmit}
-              >
-                {isLoading ? "Submitting..." : "Submit Now"}
+            <div className={styles.btns}>
+              <div className={styles.btnSubmit}>
+                <div className={styles.submitNow} onClick={handleSubmit}>
+                  {isLoading ? "Submitting..." : "Submit Now"}
+                </div>
               </div>
             </div>
           </div>
+          <Image
+            className={styles.placeholderImageIcon}
+            loading="lazy"
+            width={642}
+            height={640}
+            alt=""
+            src={placeholderImage}
+          />
         </div>
-        <Image
-          className={styles.placeholderImageIcon}
-          loading="lazy"
-          width={642}
-          height={640}
-          alt=""
-          src={placeholderImage}
-        />
       </div>
     </div>
   );
@@ -159,4 +160,3 @@ Contact1.propTypes = {
 };
 
 export default Contact1;
- 

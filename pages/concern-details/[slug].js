@@ -90,9 +90,6 @@ const ConcernsDetails = ({ concernDetails }) => {
             </div>
           </div>
           <FaqsListing faqsList={concernDetails?.faqs} />
-          {/* <div style={{ flex: "100%", width: "100%" }}>
-            <AccordionList faqsList={[]}/>
-          </div> */}
         </section>
       </div>
       <Footer
