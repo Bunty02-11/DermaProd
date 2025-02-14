@@ -1,14 +1,13 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./services2.module.css";
-import { serverurl } from "../../base";
 
 const Services2 = ({ className = "", concernDetails }) => {
   // Prepare the images dynamically
   const images = [
     concernDetails?.image1?.url,
     concernDetails?.image2?.url,
-    concernDetails?.image3?.url
+    concernDetails?.image3?.url,
   ];
 
   return (
@@ -49,8 +48,9 @@ const Services2 = ({ className = "", concernDetails }) => {
           <div className="row gy-3">
             {/* Image Section */}
             <div
-              className={`col col-12 col-md-6 ${i % 2 === 0 ? "order-1" : "order-2"
-                }`}
+              className={`col col-12 col-md-6 ${
+                i % 2 === 0 ? "order-1" : "order-2"
+              }`}
             >
               <Image
                 className={styles.placeholderImageIcon}
@@ -58,18 +58,15 @@ const Services2 = ({ className = "", concernDetails }) => {
                 width={800}
                 height={300}
                 alt={`Section Image ${i + 1}`}
-                src={
-                  images[i]
-                    ? images[i]
-                    : "/placeholder-image3@2x.png"
-                }
+                src={images[i] ? images[i] : "/placeholder-image3@2x.png"}
               />
             </div>
 
             {/* Text Section */}
             <div
-              className={`col col-12 col-md-6 ${i % 2 === 0 ? "order-2" : "order-1"
-                }`}
+              className={`col col-12 col-md-6 ${
+                i % 2 === 0 ? "order-2" : "order-1"
+              }`}
               style={{
                 display: "flex",
                 justifyContent: "center",
