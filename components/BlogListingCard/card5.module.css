@@ -20,6 +20,11 @@
   line-height: 140%;
   font-weight: 600;
   font-family: inherit;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .textParent {
   align-self: stretch;
