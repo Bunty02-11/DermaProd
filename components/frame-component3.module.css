@@ -1,4 +1,4 @@
-.specialPromotion {
+.specialPromotionTitle {
   margin: 0;
   flex: 1;
   position: relative;
@@ -7,14 +7,7 @@
   font-weight: 600;
   font-family: inherit;
 }
-.promotionTitle {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 var(--padding-397xl) 0 var(--padding-398xl);
-}
+
 .noUnderline {
   text-decoration: none;
 }
@@ -192,22 +185,22 @@
   flex: 1;
   flex-direction: column;
   gap: var(--gap-21xl);
+  align-items: center;
+  justify-content: center;
 }
 .promotionContainerWrapper {
   align-self: stretch;
   flex-direction: row;
-  padding: 0 var(--padding-61xl) var(--padding-41xl);
+  /* padding: 0 var(--padding-61xl) var(--padding-41xl); */
   box-sizing: border-box;
   text-align: center;
   font-size: var(--h2-48-size);
   color: var(--text-primary);
   font-family: var(--h2-48);
 }
-@media screen and (max-width: 1200px) {
-  .promotionTitle {
-    padding-left: var(--padding-189xl);
-    padding-right: var(--padding-189xl);
-    box-sizing: border-box;
+@media screen and (max-width: 1280px) {
+  .specialPromotionTitle {
+    font-size: 34px;
   }
   .placeholderImageIcon {
     flex: 1;
@@ -217,14 +210,13 @@
   }
 }
 @media screen and (max-width: 1050px) {
-  .specialPromotion {
+  .specialPromotionTitle {
     font-size: var(--font-size-19xl);
     line-height: 46px;
   }
 }
 @media screen and (max-width: 750px) {
-  .btnBook,
-  .promotionTitle {
+  .btnBook {
     padding-left: var(--padding-85xl);
     padding-right: var(--padding-85xl);
     box-sizing: border-box;
@@ -242,22 +234,11 @@
   .promotionContainer {
     gap: var(--gap-xl);
   }
-  .promotionContainerWrapper {
-    padding-left: var(--padding-21xl);
-    padding-right: var(--padding-21xl);
-    padding-bottom: var(--padding-20xl);
-    box-sizing: border-box;
-  }
 }
 @media screen and (max-width: 450px) {
-  .specialPromotion {
+  .specialPromotionTitle {
     font-size: var(--font-size-10xl);
     line-height: 35px;
-  }
-  .promotionTitle {
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
-    box-sizing: border-box;
   }
   .aed {
     font-size: var(--font-size-lgi);

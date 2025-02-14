@@ -81,8 +81,10 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
       <FooterContainer />
       <Banner />
       <div className={styles.container}>
-        <FrameComponent2 />
-        <FrameComponent3 content={discounts} />
+        <section className="container">
+          <FrameComponent2 />
+          <FrameComponent3 content={discounts} />
+        </section>
         <FrameComponent4 />
         <section className={styles.hero}>
           <div className={styles.frameParent}>

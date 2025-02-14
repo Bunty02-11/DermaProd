@@ -45,9 +45,7 @@ const FrameComponent3 = ({ className = "", content }) => {
           className={styles.promotionContainer}
           style={{ transition: "all 0.5s ease-in-out" }}
         >
-          <div className={styles.promotionTitle}>
-            <h1 className={styles.specialPromotion}>Special Promotion</h1>
-          </div>
+          <h1 className={styles.specialPromotionTitle}>Special Promotion</h1>
           <div
             className={styles.content}
             style={{ transition: "all 0.5s ease-in-out" }}
