@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>DERMATECH CLINIC</title>
           <meta
+            name="msvalidate.01"
+            content="D1C198BDBBE2925A9EF0433A45A70583"
+          />
+          <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
