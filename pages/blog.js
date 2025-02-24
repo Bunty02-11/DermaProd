@@ -27,7 +27,6 @@ export async function getServerSideProps() {
 }
 
 const Blog = ({ blogList }) => {
-  console.log("BlogList", blogList);
   return (
     <div className={styles.blog}>
       <FooterContainer />

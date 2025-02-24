@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>DERMATECH CLINIC</title>
           <meta
+            name="google-site-verification"
+            content="d9V7OBhFf1cht0AtkOuzlDqLSCEu18CiubZETeGPRbg"
+          />
+          <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
@@ -52,6 +56,7 @@ function MyApp({ Component, pageProps }) {
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
           ></script>
+
           {/*  */}
         </Head>
         <Layout>
