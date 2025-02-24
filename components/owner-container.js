@@ -1,3 +1,4 @@
+"use client";
 import { useCallback } from "react";
 import Image from "next/image";
 import FrameComponent from "./frame-component";
@@ -17,9 +18,7 @@ export async function getServerSideProps(context) {
       fetch(`${API_BASE_URL}/api/testimonials?populate=*`),
     ]);
 
-    const [testimonialData] = await Promise.all([
-      testimonial.json(),
-    ]);
+    const [testimonialData] = await Promise.all([testimonial.json()]);
 
     if (!testimonialData.data) {
       return { notFound: true };
@@ -27,7 +26,7 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        testimonial: testimonialData.data
+        testimonial: testimonialData.data,
       },
     };
   } catch (error) {
@@ -50,11 +49,11 @@ const OwnerContainer = ({ className = "", testimonial }) => {
       accItem?.parentElement?.previousElementSibling;
     const siblingContainerAccItem = accItem?.hasAttribute("data-acc-original")
       ? accItem?.nextElementSibling ||
-      nextOuterSibling?.querySelector("[data-acc-item]") ||
-      nextOuterSibling
+        nextOuterSibling?.querySelector("[data-acc-item]") ||
+        nextOuterSibling
       : accItem?.previousElementSibling ||
-      prevOuterSibling?.querySelector("[data-acc-item]") ||
-      prevOuterSibling;
+        prevOuterSibling?.querySelector("[data-acc-item]") ||
+        prevOuterSibling;
     const siblingAccItem =
       siblingContainerAccItem?.querySelector("[data-acc-item]") ||
       siblingContainerAccItem;
@@ -115,9 +114,13 @@ const OwnerContainer = ({ className = "", testimonial }) => {
           <div className={styles.ownerTitle}>
             <h1 className={styles.meetTheOwner}>Meet The Owner</h1>
             <div className={styles.perfumes}>
-              At the helm of Derma Tech Poly Clinic stands a visionary leader who combines passion and expertise to redefine aesthetic care in Dubai.
-              With years of experience in the medical and wellness industry, the owner is dedicated to creating a space where innovation meets compassion.
-              By integrating advanced technology with a commitment to personalized care, our leadership drives the clinic's mission to set new standards in aesthetic excellence.
+              At the helm of Derma Tech Poly Clinic stands a visionary leader
+              who combines passion and expertise to redefine aesthetic care in
+              Dubai. With years of experience in the medical and wellness
+              industry, the owner is dedicated to creating a space where
+              innovation meets compassion. By integrating advanced technology
+              with a commitment to personalized care, our leadership drives the
+              clinic's mission to set new standards in aesthetic excellence.
             </div>
           </div>
           <Image
@@ -179,9 +182,7 @@ const OwnerContainer = ({ className = "", testimonial }) => {
           {/* <FrameComponent placeholderImage="/placeholder-image-7@2x.png" content={testimonial} /> */}
         </div>
 
-        <div
-          className={styles.faqParent}
-        >
+        <div className={styles.faqParent}>
           <div
             className={styles.subheading}
             style={{
@@ -212,7 +213,7 @@ const OwnerContainer = ({ className = "", testimonial }) => {
                 fontSize: "1.5rem",
                 lineHeight: "1.2",
                 margin: 0,
-                fontSize: "36px"
+                fontSize: "36px",
               }}
             >
               Frequently Asked Questions
@@ -233,7 +234,6 @@ const OwnerContainer = ({ className = "", testimonial }) => {
             <StaticFaqsLisiting1 staticFaqs={[]} />
           </div>
         </div>
-
       </div>
     </div>
   );
