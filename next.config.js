@@ -1,6 +1,4 @@
 const nextConfig = {
-  siteUrl: "https://derma-prod.vercel.app",
-  generateRobotsTxt: true, // Generates robots.txt
   reactStrictMode: true,
   images: {
     unoptimized: true,
