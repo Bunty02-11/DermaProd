@@ -18,16 +18,63 @@ export default async function handler(req, res) {
     },
   ];
 
-  // Fetch dynamic routes from an API or database
   const fetchDynamicRoutes = async () => {
-    const response = await fetch(
-      "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs?populate=*"
-    );
-    const data = await response.json();
-    return data.map((page) => ({
-      loc: `https://derma-prod.vercel.app/blog/${page?.documentId}`,
-      lastmod: new Date().toISOString(),
-    }));
+    try {
+      // API endpoints
+      const endpoints = [
+        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs?populate=*",
+        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/categories?populate=*",
+        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/Concerns?populate=*",
+        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?populate=*",
+        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?populate=*",
+      ];
+
+      // Fetch data from all endpoints in parallel
+      const responses = await Promise.all(endpoints.map((url) => fetch(url)));
+      const data = await Promise.all(responses.map((res) => res.json()));
+
+      // Extract and format data from each API response
+      const blogRoutes =
+        data[0]?.data?.map((page) => ({
+          loc: `https://derma-prod.vercel.app/blog/${page?.documentId}`,
+          lastmod: new Date().toISOString(),
+        })) || [];
+
+      const concernsRoutes =
+        data[1]?.data?.map((product) => ({
+          loc: `https://derma-prod.vercel.app/concerns/${product?.id}`,
+          lastmod: new Date().toISOString(),
+        })) || [];
+
+      const concernsInnerRoutes =
+        data[2]?.data?.map((product) => ({
+          loc: `https://derma-prod.vercel.app/concern-details/${product?.slug}`,
+          lastmod: new Date().toISOString(),
+        })) || [];
+
+      const servicesRoutes =
+        data[3]?.data?.map((product) => ({
+          loc: `https://derma-prod.vercel.app/services/${product?.slug}`,
+          lastmod: new Date().toISOString(),
+        })) || [];
+
+      const specialsRoutes =
+        data[4]?.data?.map((category) => ({
+          loc: `https://derma-prod.vercel.app/specials/${category?.slug}`,
+          lastmod: new Date().toISOString(),
+        })) || [];
+
+      return [
+        ...blogRoutes,
+        ...concernsRoutes,
+        ...concernsInnerRoutes,
+        ...servicesRoutes,
+        ...specialsRoutes,
+      ];
+    } catch (error) {
+      console.error("Error fetching dynamic routes:", error);
+      return [];
+    }
   };
 
   const dynamicRoutes = await fetchDynamicRoutes();
