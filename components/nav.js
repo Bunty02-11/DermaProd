@@ -421,7 +421,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                 Contact
               </div>
             </div>
-            <div
+            {/* <div
               className={styles.languageDropdownWrapper}
               onMouseEnter={toggleLanguageDropdown}
               onMouseLeave={toggleLanguageDropdown}
@@ -453,7 +453,7 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
           <div className={styles.btnBookWrapper}>
             <div
