@@ -1,9 +1,3 @@
-# *
 User-agent: *
 Allow: /
-
-# Host
-Host: https://derma-prod.vercel.app
-
-# Sitemaps
-Sitemap: https://derma-prod.vercel.app/sitemap.xml
+Sitemap: https://derma-prod.vercel.app/api/sitemap
