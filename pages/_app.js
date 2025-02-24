@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
           <title>DERMATECH CLINIC</title>
           <meta
             name="google-site-verification"
-            content="d9V7OBhFf1cht0AtkOuzlDqLSCEu18CiubZETeGPRbg"
+            content="K0PLZpXEaFdCuijdc0cDE34at4wo_B-VhRJeimdCIcA"
           />
           <meta
             name="viewport"
