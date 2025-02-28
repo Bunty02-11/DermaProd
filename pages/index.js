@@ -136,16 +136,16 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
                 />
                 <Content
                   doctor1="/support-1.svg"
-                  mediumLengthSectionHeading="24/7 Services"
-                  loremipsum="24/7 Services Our clinic offers round-the-clock services, catering to your beauty and wellness needs anytime."
+                  mediumLengthSectionHeading="Services"
+                  loremipsum="Services Our clinic offers round-the-clock services, catering to your beauty and wellness needs anytime."
                 />
               </div>
             </div>
           </div>
           <div className={styles.slider}>
-            <Component1 perfumes="75+" perfumes1="Expert Doctors" />
+            <Component1 perfumes="15" perfumes1="Expert Doctors" />
             <Component1 perfumes="7k" perfumes1="Happy Patients" />
-            <Component1 perfumes="850" perfumes1=" Modern Amenities" />
+            <Component1 perfumes="55+" perfumes1=" Modern Amenities" />
             <Component1 perfumes="15" perfumes1="Awards Won" />
           </div>
         </div>
@@ -185,9 +185,6 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
       <section className={styles.testimonialWrapperWrapper}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
-            <div className={styles.loremIpsumDolor}>
-              Desired Procedure to Begin
-            </div>
             <h1 className={styles.mediumLengthHero}>Before After Gallery</h1>
           </div>
           <div className={styles.content5}>
