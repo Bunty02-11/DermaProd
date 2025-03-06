@@ -49,7 +49,7 @@ const About1 = ({
                 Welcome to Our Clinic!
               </div>
               <h1 className={styles.mediumLengthHero}>
-                Derma Tech Poly Clinic L.L.C
+                DermaTech Poly Clinic L.L.C
               </h1>
             </div>
             <div className={styles.loremIpsumDolor1}>

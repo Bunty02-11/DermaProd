@@ -6,7 +6,7 @@ import styles from "./frame-component6.module.css";
 const FrameComponent6 = ({ className = "" }) => {
   return (
     <section className={[styles.visionContainerParent, className].join(" ")}>
-      <div className={styles.visionContainer} >
+      <div className={styles.visionContainer}>
         <div className={styles.visionContent}>
           <Image
             className={styles.imgIcon}
@@ -20,9 +20,10 @@ const FrameComponent6 = ({ className = "" }) => {
             <div className={styles.ourVisionParent}>
               <h1 className={styles.ourVision}>Our Vision</h1>
               <div className={styles.perfumes}>
-                We believe beauty transcends appearance—it's about health, confidence, and self-love.
-                Our mission is to empower individuals by providing tailored
-                treatments that enhance both physical beauty and inner confidence.
+                We believe beauty transcends appearance—it's about health,
+                confidence, and self-love. Our mission is to empower individuals
+                by providing tailored treatments that enhance both physical
+                beauty and inner confidence.
               </div>
             </div>
           </div>
@@ -34,11 +35,13 @@ const FrameComponent6 = ({ className = "" }) => {
           <div className={styles.content}>
             <h1 className={styles.heading}>Meet Our People</h1>
             <div className={styles.loremIpsumDolor1}>
-              At the helm of Derma Tech Poly Clinic stands a visionary leader who combines passion and expertise
-              to redefine aesthetic care in Dubai. With years of experience in the medical and wellness industry,
-              the owner is dedicated to creating a space where innovation meets compassion.
-              By integrating advanced technology with a commitment to personalized care,
-              our leadership drives the clinic's mission to set new standards in aesthetic excellence.
+              At the helm of DermaTech Poly Clinic stands a visionary leader who
+              combines passion and expertise to redefine aesthetic care in
+              Dubai. With years of experience in the medical and wellness
+              industry, the owner is dedicated to creating a space where
+              innovation meets compassion. By integrating advanced technology
+              with a commitment to personalized care, our leadership drives the
+              clinic's mission to set new standards in aesthetic excellence.
             </div>
           </div>
         </div>

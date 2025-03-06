@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
       <Fragment>
         <Head>
           <title>DERMATECH CLINIC</title>
+          {/* bing code */}
           <meta
             name="msvalidate.01"
             content="D1C198BDBBE2925A9EF0433A45A70583"

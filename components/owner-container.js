@@ -114,8 +114,8 @@ const OwnerContainer = ({ className = "", testimonial }) => {
           <div className={styles.ownerTitle}>
             <h1 className={styles.meetTheOwner}>Meet The Owner</h1>
             <div className={styles.perfumes}>
-              At the helm of Derma Tech Poly Clinic stands a visionary leader
-              who combines passion and expertise to redefine aesthetic care in
+              At the helm of DermaTech Poly Clinic stands a visionary leader who
+              combines passion and expertise to redefine aesthetic care in
               Dubai. With years of experience in the medical and wellness
               industry, the owner is dedicated to creating a space where
               innovation meets compassion. By integrating advanced technology
