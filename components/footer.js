@@ -208,7 +208,8 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                       By subscribing you agree to with our
                     </span>
                     <span className={styles.span}>{` `}</span>
-                    <span className={styles.privacyPolicy}>Privacy Policy</span>
+                    <span className={styles.privacyPolicy}
+                    >Privacy Policy</span>
                     <span className={styles.span}>{` `}</span>
                     <span className={styles.bySubscribingYou}>
                       and provide consent to receive updates from our company.
@@ -231,9 +232,6 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                       </div>
                       <div className={styles.designedManaged}>
                         Terms of Service
-                      </div>
-                      <div className={styles.designedManaged}>
-                        Cookies Settings
                       </div>
                     </div>
                   </div>
