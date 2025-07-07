@@ -16,76 +16,76 @@ import Footer from "../components/footer";
 import styles from "./index.module.css";
 import StaticFaqsLisiting from "../components/staticfaqs/staticfaqlist";
 
-export async function getServerSideProps(context) {
-  const API_BASE_URL =
-    process.env.API_BASE_URL ||
-    "https://romantic-acoustics-22fbc9f32c.strapiapp.com";
+// export async function getServerSideProps(context) {
+//   const API_BASE_URL =
+//     process.env.API_BASE_URL ||
+//     "https://romantic-acoustics-22fbc9f32c.strapiapp.com";
 
-  try {
-    const [
-      concernsRes,
-      servicesRes,
-      promotionsRes,
-      discountRes,
-      testimonialRes,
-    ] = await Promise.all([
-      fetch(`${API_BASE_URL}/api/concerns?populate=*`),
-      fetch(`${API_BASE_URL}/api/services?populate=*`),
-      fetch(`${API_BASE_URL}/api/Promotions?populate=*`),
-      fetch(`${API_BASE_URL}/api/Discounts?populate=*`),
-      fetch(`${API_BASE_URL}/api/testimonials?populate=*`),
-    ]);
+//   try {
+//     const [
+//       concernsRes,
+//       servicesRes,
+//       promotionsRes,
+//       discountRes,
+//       testimonialRes,
+//     ] = await Promise.all([
+//       fetch(`${API_BASE_URL}/api/concerns?populate=*`),
+//       fetch(`${API_BASE_URL}/api/services?populate=*`),
+//       fetch(`${API_BASE_URL}/api/Promotions?populate=*`),
+//       fetch(`${API_BASE_URL}/api/Discounts?populate=*`),
+//       fetch(`${API_BASE_URL}/api/testimonials?populate=*`),
+//     ]);
 
-    const [
-      concernsData,
-      servicesData,
-      promotionsData,
-      discountData,
-      testimonialData,
-    ] = await Promise.all([
-      concernsRes.json(),
-      servicesRes.json(),
-      promotionsRes.json(),
-      discountRes.json(),
-      testimonialRes.json(),
-    ]);
+//     const [
+//       concernsData,
+//       servicesData,
+//       promotionsData,
+//       discountData,
+//       testimonialData,
+//     ] = await Promise.all([
+//       concernsRes.json(),
+//       servicesRes.json(),
+//       promotionsRes.json(),
+//       discountRes.json(),
+//       testimonialRes.json(),
+//     ]);
 
-    if (
-      !concernsData.data ||
-      !servicesData.data ||
-      !promotionsData.data ||
-      !discountData.data ||
-      !testimonialData.data
-    ) {
-      return { notFound: true };
-    }
+//     if (
+//       !concernsData.data ||
+//       !servicesData.data ||
+//       !promotionsData.data ||
+//       !discountData.data ||
+//       !testimonialData.data
+//     ) {
+//       return { notFound: true };
+//     }
 
-    return {
-      props: {
-        concerns: concernsData.data,
-        services: servicesData.data,
-        promotions: promotionsData.data,
-        discounts: discountData.data,
-        testimonial: testimonialData.data,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return { notFound: true };
-  }
-}
+//     return {
+//       props: {
+//         concerns: concernsData.data,
+//         services: servicesData.data,
+//         promotions: promotionsData.data,
+//         discounts: discountData.data,
+//         testimonial: testimonialData.data,
+//       },
+//     };
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     return { notFound: true };
+//   }
+// }
 
 const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
   return (
     <div className={styles.home}>
       <FooterContainer />
       <Banner />
-      <section className="container">
+      {/* <section className="container">
         <FrameComponent2 />
         <FrameComponent3 content={discounts} />
-      </section>
+      </section> */}
       <FrameComponent4 />
-      <section className={styles.hero}>
+      {/* <section className={styles.hero}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>Concerns</div>
@@ -95,7 +95,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
           <ConcernsDetailsHomeComp content={concerns} />
         </div>
-      </section>
+      </section> */}
       <section className={styles.chooseWrapper}>
         <div className={styles.choose}>
           <Image
@@ -150,7 +150,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
         </div>
       </section>
-      <section className={styles.hero}>
+      {/* <section className={styles.hero}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>services</div>
@@ -160,7 +160,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
           <ServiceDetailsHomePage content={services} />
         </div>
-      </section>
+      </section> */}
       <Image
         className={styles.shape211Icon}
         width={655}
@@ -168,11 +168,11 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
         alt=""
         src="/shape21-1@2x.png"
       />
-      <FrameComponent
+      {/* <FrameComponent
         placeholderImage="/placeholder-image-7@2x.png"
         content={testimonial}
-      />
-      <section className={styles.hero}>
+      /> */}
+      {/* <section className={styles.hero}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>Special Promotions</div>
@@ -180,7 +180,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
           <PromotiondetailsHomePage content={promotions} />
         </div>
-      </section>
+      </section> */}
 
       <section className={styles.testimonialWrapperWrapper}>
         <div className={styles.frameParent}>

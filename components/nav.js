@@ -7,25 +7,24 @@ import { LanguageContext } from "../pages/_app";
 import Loader from "./loader";
 
 const Nav = ({ className = "", navWidth, logo1 }) => {
-  const [concerns, setConcerns] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [servicesByCategory, setServicesByCategory] = useState({});
-  const [specialByCategory, setSpecialByCategory] = useState({});
-  const [blogs, setBlogs] = useState([]);
+  const [services, setServices] = useState([]);
+  const [specialProducts, setSpecialProducts] = useState([]);
+  const [concerns, setConcerns] = useState([]);
   const [activeItem, setActiveItem] = useState(null);
-  const [special, setSpecial] = useState([]);
   const [languageDropdown, setLanguageDropdown] = useState(false);
   const { language, setLanguage } = useContext(LanguageContext);
-  const [loadingServices, setLoadingServices] = useState({});
-  const [loadingSpecial, setLoadingSpecial] = useState({});
-
-  const router = useRouter();
   const [dropdown, setDropdown] = useState({
     concerns: false,
     services: false,
     blog: false,
     special: false,
   });
+  const [openServiceCategory, setOpenServiceCategory] = useState(null);
+  const [openSpecialCategory, setOpenSpecialCategory] = useState(null);
+  const [openConcernCategory, setOpenConcernCategory] = useState(null);
+
+  const router = useRouter();
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang); // Update language in context or state
@@ -128,70 +127,49 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
     setDropdown({ concerns: false, services: false, blog: false });
   };
 
-  const fetchServicesByCategory = async (categoryId) => {
-    setLoadingServices((prev) => ({ ...prev, [categoryId]: true })); // Set loading to true
-    try {
-      const response = await fetch(
-        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?filters[category][id][$eq]=${categoryId}`
-      );
-      const data = await response.json();
-      setServicesByCategory((prev) => ({
-        ...prev,
-        [categoryId]: data.data || [],
-      }));
-    } catch (error) {
-      console.error("Failed to fetch services by category:", error);
-    } finally {
-      setLoadingServices((prev) => ({ ...prev, [categoryId]: false })); // Set loading to false
-    }
-  };
-
-  const fetchSpecialByCategory = async (categoryId) => {
-    setLoadingSpecial((prev) => ({ ...prev, [categoryId]: true })); // Set loading to true
-    try {
-      const response = await fetch(
-        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?filters[category][id][$eq]=${categoryId}`
-      );
-      const data = await response.json();
-      setSpecialByCategory((prev) => ({
-        ...prev,
-        [categoryId]: data.data || [],
-      }));
-    } catch (error) {
-      console.error("Failed to fetch special by category:", error);
-    } finally {
-      setLoadingSpecial((prev) => ({ ...prev, [categoryId]: false })); // Set loading to false
-    }
-  };
-
+  // Fetch categories, services, special products, and concerns from new APIs
   useEffect(() => {
-    const fetchData = async (endpoint, setState) => {
+    const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/${endpoint}?populate=*&pagination[limit]=1000`
-        );
+        const response = await fetch("http://localhost:8000/api/categories/");
         const data = await response.json();
-        setState(data.data || []);
+        setCategories(data);
       } catch (error) {
-        console.error(`Failed to fetch ${endpoint}:`, error);
+        console.error("Failed to fetch categories:", error);
       }
     };
-
-    fetchData("categories", setCategories);
-    fetchData("categories", setConcerns); // Assuming the "concerns" are also categories
-    fetchData("blog", setBlogs);
-    fetchData("special", setSpecial);
+    const fetchServices = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/services/");
+        const data = await response.json();
+        setServices(data);
+      } catch (error) {
+        console.error("Failed to fetch services:", error);
+      }
+    };
+    const fetchSpecialProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/specialproducts/");
+        const data = await response.json();
+        setSpecialProducts(data);
+      } catch (error) {
+        console.error("Failed to fetch special products:", error);
+      }
+    };
+    const fetchConcerns = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/concerns");
+        const data = await response.json();
+        setConcerns(data);
+      } catch (error) {
+        console.error("Failed to fetch concerns:", error);
+      }
+    };
+    fetchCategories();
+    fetchServices();
+    fetchSpecialProducts();
+    fetchConcerns();
   }, []);
-
-  const toggleLanguageDropdown = () => {
-    setLanguageDropdown((prev) => !prev);
-  };
-
-  const selectLanguage = (language) => {
-    // Handle language selection
-    console.log("Selected language:", language);
-    setLanguageDropdown(false);
-  };
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
@@ -217,8 +195,11 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
             {/* Concerns Dropdown */}
             <div
               className={styles.menuItems}
-              onMouseEnter={() => toggleDropdown("concerns")}
-              onMouseLeave={closeDropdowns}
+              onMouseEnter={() => setDropdown((prev) => ({ ...prev, concerns: true }))}
+              onMouseLeave={() => {
+                setDropdown((prev) => ({ ...prev, concerns: false }));
+                setOpenConcernCategory(null);
+              }}
             >
               <div className={styles.concerns}>Concerns</div>
               <Image
@@ -231,21 +212,44 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               />
               {dropdown.concerns && (
                 <div className={styles.dropdown}>
-                  {concerns.length > 0 ? (
-                    concerns
-                      .filter((category) =>
-                        category.slug.toLowerCase().includes("category")
-                      )
-                      .map((concern) => (
+                  {categories.filter((cat) => cat.slug.startsWith("Concerns-")).length > 0 ? (
+                    categories
+                      .filter((cat) => cat.slug.startsWith("Concerns-"))
+                      .map((category) => (
                         <div
-                          key={concern.id}
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            handleNavigation(`/concerns/${concern.id}`);
-                          }}
-                          className={styles.dropdownItem}
+                          key={category._id}
+                          className={styles.dropdownItemWithSubmenu}
+                          onMouseEnter={() => setOpenConcernCategory(category._id)}
+                          onMouseLeave={() => setOpenConcernCategory(null)}
                         >
-                          {concern.Name || "Unknown Concern"}
+                          <div className={styles.categoryName}>
+                            {category.name || "Unknown Category"}
+                          </div>
+                          {openConcernCategory === category._id && (
+                            <div className={styles.submenu}>
+                              {concerns.filter((c) => c.category && c.category._id === category._id).length > 0 ? (
+                                concerns
+                                  .filter((c) => c.category && c.category._id === category._id)
+                                  .map((concern) => (
+                                    <div
+                                      key={concern._id}
+                                      onClick={(event) => {
+                                        event.stopPropagation();
+                                        setActiveItem(concern._id);
+                                        handleNavigation(`/concern-details/${concern.slug}`);
+                                      }}
+                                      className={styles.submenuItem}
+                                    >
+                                      {concern.name || "Unknown Concern"}
+                                    </div>
+                                  ))
+                              ) : (
+                                <div className={styles.submenuItem}>
+                                  No concerns available
+                                </div>
+                              )}
+                            </div>
+                          )}
                         </div>
                       ))
                   ) : (
@@ -260,8 +264,11 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
             {/* Services Dropdown */}
             <div
               className={styles.menuItems}
-              onMouseEnter={() => toggleDropdown("services")}
-              onMouseLeave={closeDropdowns}
+              onMouseEnter={() => setDropdown((prev) => ({ ...prev, services: true }))}
+              onMouseLeave={() => {
+                setDropdown((prev) => ({ ...prev, services: false }));
+                setOpenServiceCategory(null);
+              }}
             >
               <div className={styles.services}>Services</div>
               <Image
@@ -274,56 +281,49 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               />
               {dropdown.services && (
                 <div className={styles.dropdown}>
-                  {categories.length > 0 ? (
+                  {categories.filter((cat) => cat.slug.startsWith("Services-")).length > 0 ? (
                     categories
-                      .filter((category) =>
-                        category.slug.toLowerCase().includes("service")
-                      )
+                      .filter((cat) => cat.slug.startsWith("Services-"))
                       .map((category) => (
                         <div
-                          key={category.id}
-                          onMouseEnter={() =>
-                            fetchServicesByCategory(category.id)
-                          }
+                          key={category._id}
                           className={styles.dropdownItemWithSubmenu}
+                          onMouseEnter={() => setOpenServiceCategory(category._id)}
+                          onMouseLeave={() => setOpenServiceCategory(null)}
                         >
                           <div className={styles.categoryName}>
-                            {category.Name || "Unknown Category"}
+                            {category.name || "Unknown Category"}
                           </div>
-                          <div className={styles.submenu}>
-                            {loadingServices[category.id] ? (
-                              <Loader /> // Show loader while loading
-                            ) : servicesByCategory[category.id]?.length > 0 ? (
-                              servicesByCategory[category.id].map((service) => (
-                                <div
-                                  key={service.id}
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    setActiveItem(service.id);
-                                    handleNavigation(
-                                      `/services/${service.slug}`
-                                    );
-                                  }}
-                                  className={`${styles.submenuItem} ${
-                                    activeItem === service.id
-                                      ? styles.active
-                                      : ""
-                                  }`}
-                                >
-                                  {service.Name || "Unknown Service"}
+                          {openServiceCategory === category._id && (
+                            <div className={styles.submenu}>
+                              {services.filter((srv) => srv.category && srv.category._id === category._id).length > 0 ? (
+                                services
+                                  .filter((srv) => srv.category && srv.category._id === category._id)
+                                  .map((service) => (
+                                    <div
+                                      key={service._id}
+                                      onClick={(event) => {
+                                        event.stopPropagation();
+                                        setActiveItem(service._id);
+                                        handleNavigation(`/services/${service.slug}`);
+                                      }}
+                                      className={styles.submenuItem}
+                                    >
+                                      {service.name || "Unknown Service"}
+                                    </div>
+                                  ))
+                              ) : (
+                                <div className={styles.submenuItem}>
+                                  No services available
                                 </div>
-                              ))
-                            ) : (
-                              <div className={styles.noSubcategory}>
-                                No subcategory available
-                              </div>
-                            )}
-                          </div>
+                              )}
+                            </div>
+                          )}
                         </div>
                       ))
                   ) : (
                     <div className={styles.dropdownItem}>
-                      No categories available
+                      No services available
                     </div>
                   )}
                 </div>
@@ -333,8 +333,11 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
             {/* Special Dropdown */}
             <div
               className={styles.menuItems}
-              onMouseEnter={() => toggleDropdown("special")}
-              onMouseLeave={closeDropdowns}
+              onMouseEnter={() => setDropdown((prev) => ({ ...prev, special: true }))}
+              onMouseLeave={() => {
+                setDropdown((prev) => ({ ...prev, special: false }));
+                setOpenSpecialCategory(null);
+              }}
             >
               <div className={styles.services}>Special</div>
               <Image
@@ -347,58 +350,49 @@ const Nav = ({ className = "", navWidth, logo1 }) => {
               />
               {dropdown.special && (
                 <div className={styles.dropdown}>
-                  {categories.length > 0 ? (
+                  {categories.filter((cat) => cat.slug.startsWith("Special-")).length > 0 ? (
                     categories
-                      .filter((category) =>
-                        category.slug.toLowerCase().includes("trendy")
-                      )
+                      .filter((cat) => cat.slug.startsWith("Special-"))
                       .map((category) => (
                         <div
-                          key={category.id}
-                          onMouseEnter={() =>
-                            fetchSpecialByCategory(category.id)
-                          }
+                          key={category._id}
                           className={styles.dropdownItemWithSubmenu}
+                          onMouseEnter={() => setOpenSpecialCategory(category._id)}
+                          onMouseLeave={() => setOpenSpecialCategory(null)}
                         >
                           <div className={styles.categoryName}>
-                            {category.Name || "Unknown Category"}
+                            {category.name || "Unknown Category"}
                           </div>
-                          <div className={styles.submenu}>
-                            {loadingSpecial[category.id] ? (
-                              <Loader /> // Show loader while loading
-                            ) : specialByCategory[category.id]?.length > 0 ? (
-                              specialByCategory[category.id].map(
-                                (subCategory) => (
-                                  <div
-                                    key={subCategory.id}
-                                    onClick={(event) => {
-                                      event.stopPropagation();
-                                      setActiveItem(subCategory.id);
-                                      handleNavigation(
-                                        `/specials/${subCategory.slug}`
-                                      );
-                                    }}
-                                    className={`${styles.submenuItem} ${
-                                      activeItem === subCategory.id
-                                        ? styles.active
-                                        : ""
-                                    }`}
-                                  >
-                                    {subCategory.Name}
-                                  </div>
-                                )
-                              )
-                            ) : (
-                              <div className={styles.submenuItem}>
-                                No subcategories available
-                              </div>
-                            )}
-                          </div>
+                          {openSpecialCategory === category._id && (
+                            <div className={styles.submenu}>
+                              {specialProducts.filter((sp) => sp.category && sp.category._id === category._id).length > 0 ? (
+                                specialProducts
+                                  .filter((sp) => sp.category && sp.category._id === category._id)
+                                  .map((special) => (
+                                    <div
+                                      key={special._id}
+                                      onClick={(event) => {
+                                        event.stopPropagation();
+                                        setActiveItem(special._id);
+                                        handleNavigation(`/specials/${special.slug}`);
+                                      }}
+                                      className={styles.submenuItem}
+                                    >
+                                      {special.name || "Unknown Special"}
+                                    </div>
+                                  ))
+                              ) : (
+                                <div className={styles.submenuItem}>
+                                  No specials available
+                                </div>
+                              )}
+                            </div>
+                          )}
                         </div>
                       ))
                   ) : (
                     <div className={styles.dropdownItem}>
-                      No categories available
+                      No specials available
                     </div>
                   )}
                 </div>
