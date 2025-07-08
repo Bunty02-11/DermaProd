@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import FooterContainer from "../components/footer-container";
 import Banner from "../components/banner";
 import FrameComponent2 from "../components/frame-component2";
@@ -16,86 +17,98 @@ import Footer from "../components/footer";
 import styles from "./index.module.css";
 import StaticFaqsLisiting from "../components/staticfaqs/staticfaqlist";
 
-// export async function getServerSideProps(context) {
-//   const API_BASE_URL =
-//     process.env.API_BASE_URL ||
-//     "https://romantic-acoustics-22fbc9f32c.strapiapp.com";
+const Home = () => {
+  const [concerns, setConcerns] = useState([]);
+  const [services, setServices] = useState([]);
+  const [promotions, setPromotions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//   try {
-//     const [
-//       concernsRes,
-//       servicesRes,
-//       promotionsRes,
-//       discountRes,
-//       testimonialRes,
-//     ] = await Promise.all([
-//       fetch(`${API_BASE_URL}/api/concerns?populate=*`),
-//       fetch(`${API_BASE_URL}/api/services?populate=*`),
-//       fetch(`${API_BASE_URL}/api/Promotions?populate=*`),
-//       fetch(`${API_BASE_URL}/api/Discounts?populate=*`),
-//       fetch(`${API_BASE_URL}/api/testimonials?populate=*`),
-//     ]);
+  useEffect(() => {
+    // Define API base URL
+    const API_BASE_URL = "https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/";
 
-//     const [
-//       concernsData,
-//       servicesData,
-//       promotionsData,
-//       discountData,
-//       testimonialData,
-//     ] = await Promise.all([
-//       concernsRes.json(),
-//       servicesRes.json(),
-//       promotionsRes.json(),
-//       discountRes.json(),
-//       testimonialRes.json(),
-//     ]);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
 
-//     if (
-//       !concernsData.data ||
-//       !servicesData.data ||
-//       !promotionsData.data ||
-//       !discountData.data ||
-//       !testimonialData.data
-//     ) {
-//       return { notFound: true };
-//     }
+        console.log("Fetching data from:", API_BASE_URL);
 
-//     return {
-//       props: {
-//         concerns: concernsData.data,
-//         services: servicesData.data,
-//         promotions: promotionsData.data,
-//         discounts: discountData.data,
-//         testimonial: testimonialData.data,
-//       },
-//     };
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     return { notFound: true };
-//   }
-// }
+        // Fetch concerns
+        const concernsRes = await fetch(`${API_BASE_URL}/api/concerns`);
+        // console.log("Concerns response status:", concernsRes.status);
+        const concernsData = await concernsRes.json();
+        // console.log("Concerns data:", concernsData);
+        setConcerns(concernsData);
 
-const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
+        // Fetch services
+        const servicesRes = await fetch(`${API_BASE_URL}/api/services`);
+        // console.log("Services response status:", servicesRes.status);
+        const servicesData = await servicesRes.json();
+        // console.log("Services data:", servicesData);
+        setServices(servicesData);
+
+        // Fetch promotions
+        const promotionsRes = await fetch(`${API_BASE_URL}/api/specialproducts`);
+        // console.log("Promotions response status:", promotionsRes.status);
+        const promotionsData = await promotionsRes.json();
+        // console.log("Promotions data:", promotionsData);
+        setPromotions(promotionsData);
+
+        // Update state with fetched data - API returns array directly, not nested in data property
+        // setConcerns(concernsData);
+        // setServices(servicesData);
+        // setPromotions(promotionsData);
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Failed to fetch data. Please check your API connection.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log(concerns, "concerns");
+
   return (
     <div className={styles.home}>
       <FooterContainer />
       <Banner />
-      {/* <section className="container">
-        <FrameComponent2 />
-        <FrameComponent3 content={discounts} />
-      </section> */}
+      <section className="container">
+        {/* <FrameComponent2 /> */}
+        {/* <FrameComponent3 content={discounts} /> */}
+      </section>
       <FrameComponent4 />
-      {/* <section className={styles.hero}>
+
+      {/* Error message display */}
+      {/* {error && (
+        <div className="error-message" style={{ color: 'red', padding: '20px', textAlign: 'center' }}>
+          {error}
+        </div>
+      )} */}
+
+      {/* Concerns Section */}
+      <section className={styles.hero} style={{ display: 'block', margin: '40px 0' }}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>Concerns</div>
-            <h1
+            <h2
               className={styles.mediumLengthHero}
-            >{`Concerns & Treatments`}</h1>
+            >{`Concerns & Treatments`}</h2>
           </div>
-          <ConcernsDetailsHomeComp content={concerns} />
+          {loading ? (
+            <div>Loading concerns...</div>
+          ) : concerns && concerns.length > 0 ? (
+            <ConcernsDetailsHomeComp content={concerns} />
+          ) : (
+            <div>No concerns data available</div>
+          )}
         </div>
-      </section> */}
+      </section>
+
       <section className={styles.chooseWrapper}>
         <div className={styles.choose}>
           <Image
@@ -104,7 +117,6 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
             width={550}
             height={650}
             alt=""
-            // src="/rectangle-1@2x.png"
             src="/whychoose.jpg"
           />
           <div className={styles.content1}>
@@ -150,17 +162,26 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
         </div>
       </section>
-      {/* <section className={styles.hero}>
+
+      {/* Services Section */}
+      <section className={styles.hero} style={{ display: 'block', margin: '40px 0' }}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>services</div>
-            <h1
+            <h2
               className={styles.mediumLengthHero}
-            >{`Services & Treatments`}</h1>
+            >{`Services & Treatments`}</h2>
           </div>
-          <ServiceDetailsHomePage content={services} />
+          {loading ? (
+            <div>Loading services...</div>
+          ) : services && services.length > 0 ? (
+            <ServiceDetailsHomePage content={services} />
+          ) : (
+            <div>No services data available</div>
+          )}
         </div>
-      </section> */}
+      </section>
+
       <Image
         className={styles.shape211Icon}
         width={655}
@@ -168,19 +189,23 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
         alt=""
         src="/shape21-1@2x.png"
       />
-      {/* <FrameComponent
-        placeholderImage="/placeholder-image-7@2x.png"
-        content={testimonial}
-      /> */}
-      {/* <section className={styles.hero}>
+
+      {/* Promotions Section */}
+      <section className={styles.hero} style={{ display: 'block', margin: '40px 0' }}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>Special Promotions</div>
-            <h1 className={styles.mediumLengthHero}>{`Trendy & Men Beauty`}</h1>
+            <h2 className={styles.mediumLengthHero}>{`Trendy & Men Beauty`}</h2>
           </div>
-          <PromotiondetailsHomePage content={promotions} />
+          {loading ? (
+            <div>Loading promotions...</div>
+          ) : promotions && promotions.length > 0 ? (
+            <PromotiondetailsHomePage content={promotions} />
+          ) : (
+            <div>No promotions data available</div>
+          )}
         </div>
-      </section> */}
+      </section>
 
       <section className={styles.testimonialWrapperWrapper}>
         <div className={styles.frameParent}>
@@ -226,9 +251,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
           </div>
         </div>
       </section>
-      {/* <section className={styles.blogs}>
-          <BlogListingHomeComp />
-        </section> */}
+
       <Contact1 placeholderImage="/contact.jpg" />
       <section className={styles.faq}>
         <div className={styles.sectionTitle}>
@@ -240,7 +263,7 @@ const Home = ({ concerns, services, promotions, discounts, testimonial }) => {
             >{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. `}</div>
           </div>
           <div className="container-fluid mt-5">
-            <StaticFaqsLisiting staticFaqs={[]} />
+            <StaticFaqsLisiting />
           </div>
         </div>
       </section>

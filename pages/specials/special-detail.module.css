@@ -175,7 +175,8 @@
 }
 .faq {
   align-self: stretch;
-  padding: var(--padding-41xl) var(--padding-61xl);
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  padding: var(--padding-41xl) 0;
   gap: var(--gap-21xl);
   max-width: 100%;
   text-align: start;

@@ -22,14 +22,14 @@ const Card = ({ className = "", placeholderImage, details }) => {
       />
       <div className={styles.content}>
         <div className={styles.contentHeadingOne}>
-          <div className={styles.cardIntro}>{details?.category?.Name}</div>
-          <h3 className={styles.heading}>{details?.Name}</h3>
+          <div className={styles.cardIntro}>{details?.category?.name}</div>
+          <h3 className={styles.heading}>{details?.name}</h3>
         </div>
-        <div className={styles.contentDescriptionOne}>
-          {details?.content?.introduction?.length > 60
-            ? details?.content?.introduction.slice(0, 60) + "..."
-            : details?.content?.introduction}
-        </div>
+        {/* <div className={styles.contentDescriptionOne}>
+          {details?.introduction?.length > 60
+            ? details?.introduction.slice(0, 60) + "..."
+            : details?.introduction}
+        </div> */}
         <div className={styles.btns}>
           <button
             className={styles.btnLearn}

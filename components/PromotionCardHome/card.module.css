@@ -19,6 +19,12 @@
   font-weight: 500;
   font-family: inherit;
   color: var(--text-primary);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .contentHeadingOne {
   align-self: stretch;
@@ -34,6 +40,8 @@
   line-height: 150%;
   /* height: 200px; */
   color: var(--text-primary);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .learnMore {
   flex: 1;

@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import FrameComponent1 from "../../components/frame-component1";
 import ContentDetailsComp from "../../components/ConcernDetailsSection/index";
 import Contact1 from "../../components/contact1";
@@ -8,23 +8,30 @@ import styles from "./concerns-details.module.css";
 import { serverurl } from "../../base";
 import FaqsListing from "../../components/FaqsListing/index";
 import FooterContainer from "../../components/footer-container";
+import { useRouter } from "next/router";
 
 export async function getServerSidePaths() {
-  const response = await fetch(
-    `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/Concerns?populate=*`
-  );
-  const concern = await response.json();
+  try {
+    const response = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns`);
+    const concerns = await response.json();
 
-  const paths = concern?.data.map((concern) => ({
-    params: {
-      slug: concern?.attributes?.slug || "",
-    },
-  }));
+    const paths = concerns?.map((concern) => ({
+      params: {
+        slug: concern?.slug || "",
+      },
+    }));
 
-  return {
-    paths,
-    fallback: "blocking", // Dynamically generate pages for new paths
-  };
+    return {
+      paths,
+      fallback: "blocking", // Dynamically generate pages for new paths
+    };
+  } catch (error) {
+    console.error("Error fetching paths:", error);
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
 }
 
 export const getServerSideProps = async (context) => {
@@ -36,17 +43,16 @@ export const getServerSideProps = async (context) => {
   const { slug } = context.params;
 
   try {
-    const res = await fetch(
-      `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/Concerns?filters[slug][$eq]=${slug}&populate=*`
-    );
+    const res = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns/slug/${slug}`);
     const data = await res.json();
+    
     return {
       props: {
-        concernDetails: data?.data[0] || null, // Assume the first matching item
+        concernDetails: data || null,
       },
     };
   } catch (error) {
-    console.error("Error fetching special data:", error);
+    console.error("Error fetching concern data:", error);
     return {
       props: {
         concernDetails: null,
@@ -56,7 +62,6 @@ export const getServerSideProps = async (context) => {
 };
 
 const ConcernsDetails = ({ concernDetails }) => {
-  // console.log(concernDetails, "--concernDetails");
   const onAccordionHeaderClick = useCallback((event) => {
     event.preventDefault();
   }, []);
@@ -73,10 +78,10 @@ const ConcernsDetails = ({ concernDetails }) => {
         }}
       >
         <div className={styles.loremIpsumDolor}>
-          HOME - {concernDetails?.category?.Name || "Category"}
+          HOME - {concernDetails?.category?.name || "Category"}
         </div>
         <h3 className={styles.mediumLengthHero}>
-          {concernDetails?.Name || "Special Title"}
+          {concernDetails?.name || "Special Title"}
         </h3>
       </section>
       <div className="container">

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./services2.module.css";
-import { serverurl } from "../../base";
 
 const Services2 = ({ className = "", serviceDetails }) => {
   // Prepare the images dynamically
@@ -15,7 +14,7 @@ const Services2 = ({ className = "", serviceDetails }) => {
     <div className={[styles.services, className].join(" ")}>
       <div className={styles.heading}>
         <div className={styles.loremIpsumDolor}>
-          {serviceDetails?.category?.Name}
+          {serviceDetails?.category?.name}
         </div>
         <h1 className={styles.mediumLengthHero}>{serviceDetails?.heading}</h1>
       </div>
@@ -38,19 +37,20 @@ const Services2 = ({ className = "", serviceDetails }) => {
 
       {/* Introduction Section */}
       <div className={styles.description}>
-        <div className={styles.text}>
-          {serviceDetails?.content?.introduction}
+        <div className={styles.text} style={{ justifyContent: "center" }}>
+          {serviceDetails?.introduction}
         </div>
       </div>
 
-      {/* First Service Content Section */}
-      {serviceDetails?.content?.sections?.map((section, i) => (
+      {/* Service Content Sections */}
+      {serviceDetails?.content?.map((section, i) => (
         <div key={i} className={styles.serviceContent}>
           <div className="row gy-3">
             {/* Image Section */}
             <div
-              className={`col col-12 col-md-6 ${i % 2 === 0 ? "order-1" : "order-2"
-                }`}
+              className={`col col-12 col-md-6 ${
+                i % 2 === 0 ? "order-1" : "order-2"
+              }`}
             >
               <Image
                 className={styles.placeholderImageIcon}
@@ -58,18 +58,15 @@ const Services2 = ({ className = "", serviceDetails }) => {
                 width={800}
                 height={300}
                 alt={`Section Image ${i + 1}`}
-                src={
-                  images[i]
-                    ? images[i]
-                    : "/placeholder-image3@2x.png"
-                }
+                src={images[i] ? images[i] : "/placeholder-image3@2x.png"}
               />
             </div>
 
             {/* Text Section */}
             <div
-              className={`col col-12 col-md-6 ${i % 2 === 0 ? "order-2" : "order-1"
-                }`}
+              className={`col col-12 col-md-6 ${
+                i % 2 === 0 ? "order-2" : "order-1"
+              }`}
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -91,22 +88,21 @@ const Services2 = ({ className = "", serviceDetails }) => {
 Services2.propTypes = {
   className: PropTypes.string,
   serviceDetails: PropTypes.shape({
-    Name: PropTypes.string,
+    name: PropTypes.string,
+    heading: PropTypes.string,
     Banner_image: PropTypes.shape({
       url: PropTypes.string,
     }),
     category: PropTypes.shape({
-      Name: PropTypes.string,
+      name: PropTypes.string,
     }),
-    content: PropTypes.shape({
-      introduction: PropTypes.string,
-      sections: PropTypes.arrayOf(
-        PropTypes.shape({
-          title: PropTypes.string,
-          body: PropTypes.string,
-        })
-      ),
-    }),
+    introduction: PropTypes.string,
+    content: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        body: PropTypes.string,
+      })
+    ),
     image1: PropTypes.shape({
       url: PropTypes.string,
     }),

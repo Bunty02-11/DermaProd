@@ -9,15 +9,11 @@ import s from "./navBarMobile.module.css";
 
 function navBarMobile(props) {
   const [showNavbar, setShowNavbar] = useState(false);
-  const [concerns, setConcerns] = useState([]);
-  const [services, setServices] = useState([]);
-  const [blogs, setBlogs] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [special, setSpecial] = useState([]);
+  const [services, setServices] = useState([]);
+  const [specialProducts, setSpecialProducts] = useState([]);
+  const [concerns, setConcerns] = useState([]);
   const [activeItem, setActiveItem] = useState(null);
-
-  const [servicesByCategory, setServicesByCategory] = useState({});
-  const [specialByCategory, setSpecialByCategory] = useState({});
 
   const router = useRouter();
 
@@ -25,53 +21,48 @@ function navBarMobile(props) {
     router.push(path);
   };
 
-  const fetchServicesByCategory = async (categoryId) => {
-    try {
-      const response = await fetch(
-        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/services?filters[category][id][$eq]=${categoryId}`
-      );
-      const data = await response.json();
-      setServicesByCategory((prev) => ({
-        ...prev,
-        [categoryId]: data.data || [],
-      }));
-    } catch (error) {
-      console.error("Failed to fetch services by category:", error);
-    }
-  };
-
-  const fetchSpecialByCategory = async (categoryId) => {
-    try {
-      const response = await fetch(
-        `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/promotions?filters[category][id][$eq]=${categoryId}`
-      );
-      const data = await response.json();
-      setSpecialByCategory((prev) => ({
-        ...prev,
-        [categoryId]: data.data || [],
-      }));
-    } catch (error) {
-      console.error("Failed to fetch special by category:", error);
-    }
-  };
-
+  // Fetch categories, services, special products, and concerns from the same APIs as nav.js
   useEffect(() => {
-    const fetchData = async (endpoint, setState) => {
+    const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/${endpoint}`
-        );
+        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/categories/");
         const data = await response.json();
-        setState(data.data || []);
+        setCategories(data);
       } catch (error) {
-        console.error(`Failed to fetch ${endpoint}:`, error);
+        console.error("Failed to fetch categories:", error);
       }
     };
-    fetchData("categories", setCategories);
-    fetchData("categories", setConcerns);
-    fetchData("services", setServices);
-    fetchData("blog", setBlogs);
-    fetchData("special", setSpecial);
+    const fetchServices = async () => {
+      try {
+        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/services/");
+        const data = await response.json();
+        setServices(data);
+      } catch (error) {
+        console.error("Failed to fetch services:", error);
+      }
+    };
+    const fetchSpecialProducts = async () => {
+      try {
+        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/specialproducts/");
+        const data = await response.json();
+        setSpecialProducts(data);
+      } catch (error) {
+        console.error("Failed to fetch special products:", error);
+      }
+    };
+    const fetchConcerns = async () => {
+      try {
+        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns");
+        const data = await response.json();
+        setConcerns(data);
+      } catch (error) {
+        console.error("Failed to fetch concerns:", error);
+      }
+    };
+    fetchCategories();
+    fetchServices();
+    fetchSpecialProducts();
+    fetchConcerns();
   }, []);
 
   return (
@@ -91,120 +82,126 @@ function navBarMobile(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto text-left">
+              {/* Concerns Dropdown */}
               <NavDropdown
                 title="Concerns"
                 className={s.navLInk}
                 id="basic-nav-dropdown"
               >
-                {concerns.length > 0 ? (
-                  concerns
-                    .filter((category) =>
-                      category.slug.toLowerCase().includes("category")
-                    )
-                    .map((concern) => (
-                      <NavDropdown.Item
+                {categories.filter(cat => cat.slug.startsWith("Concerns-")).length > 0 ? (
+                  categories
+                    .filter(cat => cat.slug.startsWith("Concerns-"))
+                    .map((category) => (
+                      <NavDropdown
+                        key={category._id}
+                        title={category.name || "Unknown Category"}
+                        id={`nav-dropdown-${category._id}`}
                         className={s.subNav}
-                        href={`/concerns/${concern.id}`}
                       >
-                        {concern.Name || "Unknown Concern"}
-                      </NavDropdown.Item>
+                        {concerns.filter(c => c.category && c.category._id === category._id).length > 0 ? (
+                          concerns
+                            .filter(c => c.category && c.category._id === category._id)
+                            .map((concern) => (
+                              <NavDropdown.Item
+                                key={concern._id}
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  setActiveItem(concern._id);
+                                  handleNavigation(`/concern-details/${concern.slug}`);
+                                }}
+                              >
+                                {concern.name || "Unknown Concern"}
+                              </NavDropdown.Item>
+                            ))
+                        ) : (
+                          <NavDropdown.Item>No concerns available</NavDropdown.Item>
+                        )}
+                      </NavDropdown>
                     ))
                 ) : (
-                  <NavDropdown.Item>Nothing Found</NavDropdown.Item>
+                  <NavDropdown.Item>No concerns available</NavDropdown.Item>
                 )}
               </NavDropdown>
-              {/* Services */}
+
+              {/* Services Dropdown */}
               <NavDropdown
                 title="Services"
                 className={s.navLInk}
                 id="basic-nav-dropdown"
               >
-                {categories.length > 0 ? (
+                {categories.filter(cat => cat.slug.startsWith("Services-")).length > 0 ? (
                   categories
-                    .filter((category) =>
-                      category.slug.toLowerCase().includes("service")
-                    )
-                    .map((Mainservice) => (
+                    .filter(cat => cat.slug.startsWith("Services-"))
+                    .map((category) => (
                       <NavDropdown
-                        title={`${Mainservice.Name}`}
-                        id="nav-dropdown2"
-                        onClick={() => {
-                          fetchServicesByCategory(Mainservice.id);
-                        }}
+                        key={category._id}
+                        title={category.name || "Unknown Category"}
+                        id={`nav-dropdown-${category._id}`}
+                        className={s.subNav}
                       >
-                        {servicesByCategory[Mainservice.id]?.length ? (
-                          servicesByCategory[Mainservice.id]?.map((service) => (
-                            <NavDropdown.Item
-                              className={s.navLInk2}
-                              key={service.id}
-                              onClick={(event) => {
-                                // const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
-                                event.stopPropagation();
-                                setActiveItem(service.id);
-                                handleNavigation(
-                                  `/services/${service.slug}`
-                                );
-                              }}
-                            >
-                              {service.Name || "Unknown Service"}
-                            </NavDropdown.Item>
-                          ))
+                        {services.filter(srv => srv.category && srv.category._id === category._id).length > 0 ? (
+                          services
+                            .filter(srv => srv.category && srv.category._id === category._id)
+                            .map((service) => (
+                              <NavDropdown.Item
+                                key={service._id}
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  setActiveItem(service._id);
+                                  handleNavigation(`/services/${service.slug}`);
+                                }}
+                              >
+                                {service.name || "Unknown Service"}
+                              </NavDropdown.Item>
+                            ))
                         ) : (
-                          <NavDropdown.Item>
-                            No Service Available
-                          </NavDropdown.Item>
+                          <NavDropdown.Item>No services available</NavDropdown.Item>
                         )}
                       </NavDropdown>
                     ))
                 ) : (
-                  <NavDropdown.Item>Nothing Found</NavDropdown.Item>
+                  <NavDropdown.Item>No services available</NavDropdown.Item>
                 )}
               </NavDropdown>
-              {/* Special */}
+
+              {/* Special Dropdown */}
               <NavDropdown
                 title="Special"
                 className={s.navLInk}
-                id="basic-nav-dropdown32"
+                id="basic-nav-dropdown"
               >
-                {categories.length > 0 ? (
+                {categories.filter(cat => cat.slug.startsWith("Special-")).length > 0 ? (
                   categories
-                    .filter((category) =>
-                      category.slug.toLowerCase().includes("trendy")
-                    )
-                    .map((Mainservice) => (
+                    .filter(cat => cat.slug.startsWith("Special-"))
+                    .map((category) => (
                       <NavDropdown
-                        title={`${Mainservice.Name}`}
-                        id="nav-dropdown2"
-                        onClick={() => {
-                          fetchSpecialByCategory(Mainservice.id);
-                        }}
+                        key={category._id}
+                        title={category.name || "Unknown Category"}
+                        id={`nav-dropdown-${category._id}`}
+                        className={s.subNav}
                       >
-                        {specialByCategory[Mainservice.id]?.length ? (
-                          specialByCategory[Mainservice.id]?.map((service) => (
-                            <NavDropdown.Item
-                              className={s.navLInk2}
-                              key={service.id}
-                              onClick={(event) => {
-                                // const formattedName = service.Name.replace(/\s+/g, "-").toLowerCase();
-                                event.stopPropagation();
-                                setActiveItem(service.id);
-                                handleNavigation(
-                                  `/specials/${service.slug}`
-                                );
-                              }}
-                            >
-                              {service.Name || "Unknown Special"}
-                            </NavDropdown.Item>
-                          ))
+                        {specialProducts.filter(sp => sp.category && sp.category._id === category._id).length > 0 ? (
+                          specialProducts
+                            .filter(sp => sp.category && sp.category._id === category._id)
+                            .map((special) => (
+                              <NavDropdown.Item
+                                key={special._id}
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  setActiveItem(special._id);
+                                  handleNavigation(`/specials/${special.slug}`);
+                                }}
+                              >
+                                {special.name || "Unknown Special"}
+                              </NavDropdown.Item>
+                            ))
                         ) : (
-                          <NavDropdown.Item>
-                            No Special Available
-                          </NavDropdown.Item>
+                          <NavDropdown.Item>No specials available</NavDropdown.Item>
                         )}
                       </NavDropdown>
                     ))
                 ) : (
-                  <NavDropdown.Item>Nothing Found</NavDropdown.Item>
+                  <NavDropdown.Item>No specials available</NavDropdown.Item>
                 )}
               </NavDropdown>
 

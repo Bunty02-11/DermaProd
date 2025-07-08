@@ -33,8 +33,7 @@
   max-width: 100%;
   overflow: hidden;
   max-height: 100%;
-  /* object-fit: cover; */
-  object-fit: contain;
+  object-fit: cover;
 }
 .image {
   align-self: stretch;
@@ -104,7 +103,8 @@
   background-color: var(--color-white);
   overflow: hidden;
   flex-direction: column;
-  padding: var(--padding-41xl) var(--padding-61xl);
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  padding: var(--padding-41xl) 0;
   box-sizing: border-box;
   text-align: start;
   font-size: clamp(1rem, 1.5vw, var(--p3-16-size));

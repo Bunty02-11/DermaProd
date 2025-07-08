@@ -14,7 +14,7 @@ const Services2 = ({ className = "", concernDetails }) => {
     <div className={[styles.services, className].join(" ")}>
       <div className={styles.heading}>
         <div className={styles.loremIpsumDolor}>
-          {concernDetails?.category?.Name}
+          {concernDetails?.category?.name}
         </div>
         <h1 className={styles.mediumLengthHero}>{concernDetails?.heading}</h1>
       </div>
@@ -38,12 +38,12 @@ const Services2 = ({ className = "", concernDetails }) => {
       {/* Introduction Section */}
       <div className={styles.description}>
         <div className={styles.text} style={{ justifyContent: "center" }}>
-          {concernDetails?.content?.introduction}
+          {concernDetails?.introduction}
         </div>
       </div>
 
       {/* First Service Content Section */}
-      {concernDetails?.content?.sections?.map((section, i) => (
+      {concernDetails?.content?.map((section, i) => (
         <div key={i} className={styles.serviceContent}>
           <div className="row gy-3">
             {/* Image Section */}

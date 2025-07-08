@@ -32,19 +32,16 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start;
+  align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-81xl) var(--padding-xl) var(--padding-81xl)
-    var(--padding-61xl); */
-  align-items: flex-start;
-  justify-content: center;
-  height: 350px;
-  padding: 0 4rem;
+    var(--padding-61xl);
   box-sizing: border-box;
   gap: var(--gap-base);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right top;
+  /* background-position: top; */
   max-width: 100%;
   text-align: start;
   font-size: var(--p3-16-size);
@@ -178,7 +175,8 @@
 }
 .faq {
   align-self: stretch;
-  padding: var(--padding-41xl) var(--padding-61xl);
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  padding: var(--padding-41xl) 0;
   gap: var(--gap-21xl);
   max-width: 100%;
   text-align: start;
@@ -220,13 +218,13 @@
   }
 }
 @media screen and (max-width: 450px) {
+  .banner {
+    background-position: right center;
+    margin-top: 75px;
+  }
   .heading,
   .mediumLengthHero {
     font-size: var(--font-size-10xl);
     line-height: 35px;
-  }
-  .banner {
-    background-position: right center;
-    margin-top: 75px;
   }
 }

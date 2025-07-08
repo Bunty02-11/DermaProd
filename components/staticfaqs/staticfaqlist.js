@@ -26,7 +26,7 @@ const StaticFaqsLisiting = () => {
         "DermaTech offers advanced and personalized treatments tailored to support weight loss and overall wellness. Our expert team provides customized solutions to help you achieve your weight loss goals safely and effectively. Whether you're looking for body contouring or other weight management treatments, DermaTech's cutting-edge services are designed to meet your unique needs and enhance your results",
     },
     {
-      question: "Can I get weight loss treatments at DermaTech?",
+      question: "What is DermaTech Polyclinic?",
       answer:
         "DermaTech is a state-of-the-art skin hospital providing advanced skincare treatments and aesthetic services",
     },

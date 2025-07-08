@@ -20,6 +20,7 @@ var settings = {
 };
 const Services1 = (props) => {
   const { className = "", content } = props;
+  console.log(content, "content");
   return (
     <section className={[styles.services, className].join(" ")}>
       <div className={styles.content}>

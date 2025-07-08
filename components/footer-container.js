@@ -32,7 +32,7 @@ const FooterContainer = ({ className = "" }) => {
                   src="/basilclocksolid.svg"
                 />
                 <div className={styles.friWed}>
-                  Fri - Wed  12:00 pm to 09:00 pm | Thu – Closed
+                  Fri - Wed  12:00 pm to 09:00 pm | Thu – Closed
                 </div>
               </div>
               <div className={styles.mail1}>
@@ -67,15 +67,17 @@ const FooterContainer = ({ className = "" }) => {
                 </div>
               </div>
             </div>
-            <div className={styles.social} onClick={handleTiktok}>
-              <Image
-                className={styles.symbolsvgIcon}
-                width={18}
-                height={18}
-                alt=""
-                src="/symbolsvg.svg"
-              />
-              <div className={styles.social} onClick={handleYoutube}>
+            <div className={styles.social}>
+              <div className={styles.tiktokIcon} onClick={handleTiktok}>
+                <Image
+                  className={styles.symbolsvgIcon}
+                  width={18}
+                  height={18}
+                  alt=""
+                  src="/symbolsvg.svg"
+                />
+              </div>
+              <div className={styles.youtubeIcon} onClick={handleYoutube}>
                 <Image
                   className={styles.symbolsvgIcon1}
                   width={18}
