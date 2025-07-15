@@ -94,7 +94,7 @@
     line-height: 24px;
   }
   .placeholderImageIcon {
-    width: 350px;
+    /* width: 350px; */
     height: 200px;
     position: relative;
     border-radius: var(--br-base);

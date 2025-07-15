@@ -14,7 +14,7 @@ const Services2 = ({ className = "", serviceDetails }) => {
     <div className={[styles.services, className].join(" ")}>
       <div className={styles.heading}>
         <div className={styles.loremIpsumDolor}>
-          {serviceDetails?.category?.name}
+          {serviceDetails?.category?.Name}
         </div>
         <h1 className={styles.mediumLengthHero}>{serviceDetails?.heading}</h1>
       </div>
@@ -28,8 +28,10 @@ const Services2 = ({ className = "", serviceDetails }) => {
           height={500}
           alt="Banner Image"
           src={
-            serviceDetails?.Banner_image?.url
-              ? serviceDetails?.Banner_image?.url
+            serviceDetails?.banner_image?.url
+              ? serviceDetails.banner_image.url.startsWith("http")
+                ? serviceDetails.banner_image.url
+                : serverurl + serviceDetails.banner_image.url
               : "/placeholder-image3@2x.png"
           }
         />
@@ -37,45 +39,48 @@ const Services2 = ({ className = "", serviceDetails }) => {
 
       {/* Introduction Section */}
       <div className={styles.description}>
-        <div className={styles.text} style={{ justifyContent: "center" }}>
+        <div className={styles.text}>
           {serviceDetails?.introduction}
         </div>
       </div>
 
-      {/* Service Content Sections */}
+      {/* First Service Content Section */}
       {serviceDetails?.content?.map((section, i) => (
         <div key={i} className={styles.serviceContent}>
-          <div className="row gy-3">
+          <div className="row">
             {/* Image Section */}
             <div
-              className={`col col-12 col-md-6 ${
-                i % 2 === 0 ? "order-1" : "order-2"
-              }`}
+              className={`col col-12 col-md-6 order-1 ${i % 2 === 0 ? "order-md-1" : "order-md-2"
+                }`}
             >
-              <Image
-                className={styles.placeholderImageIcon}
-                loading="lazy"
-                width={800}
-                height={300}
-                alt={`Section Image ${i + 1}`}
-                src={images[i] ? images[i] : "/placeholder-image3@2x.png"}
-              />
+              <div className={styles.imageContainer}>
+                <Image
+                  className={styles.placeholderImageIcon}
+                  loading="lazy"
+                  width={1000}
+                  height={300}
+                  alt={`Section Image ${i + 1}`}
+                  src={
+                    images[i]
+                      ? images[i].startsWith("http")
+                        ? images[i]
+                        : serverurl + images[i]
+                      : "/placeholder-image3@2x.png"
+                  }
+                />
+              </div>
             </div>
 
             {/* Text Section */}
             <div
-              className={`col col-12 col-md-6 ${
-                i % 2 === 0 ? "order-2" : "order-1"
-              }`}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              className={`col col-12 col-md-6 order-2 ${i % 2 === 0 ? "order-md-2" : "order-md-1"
+                }`}
             >
-              <div className={styles.loremLipsumParent}>
-                <h2 className={styles.loremLipsum}>{section?.title}</h2>
-                <div className={styles.text2}>{section?.body}</div>
+              <div className={styles.textContainer}>
+                <div className={styles.loremLipsumParent}>
+                  <h2 className={styles.loremLipsum}>{section?.body}</h2>
+                  <div className={styles.text2}>{section?.title}</div>
+                </div>
               </div>
             </div>
           </div>

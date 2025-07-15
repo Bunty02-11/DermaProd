@@ -2,7 +2,6 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./card5.module.css";
 import moment from "moment";
-import { serverurl } from "../../base";
 import { useRouter } from "next/router";
 
 const Card5 = ({
@@ -12,12 +11,8 @@ const Card5 = ({
   text,
   date,
   documentId,
-  blog,
 }) => {
   const router = useRouter();
-
-  console.log('Banner in Card5:', Banner);
-
 
   const handleNavigation = (path) => {
     // Store documentId in localStorage
@@ -37,7 +32,6 @@ const Card5 = ({
     <div
       className={[styles.card, className].join(" ")}
       style={{ cursor: "pointer" }}
-    // Pass the documentId in the route
     >
       <Image
         className={styles.placeholderImageIcon}
@@ -45,9 +39,8 @@ const Card5 = ({
         width={500}
         height={260}
         alt="Banner image"
-        src={Banner ? Banner : "/placeholder-image4@2x.png"} // Fallback to placeholder
+        src={Banner}
       />
-      {console.log('Banner in Card5:', Banner)}
       <div className={styles.content}
         onClick={() => handleNavigation(`/blogdetails/${documentId}`)}
       >
@@ -57,7 +50,7 @@ const Card5 = ({
           </div>
           <h2 className={styles.heading}>{heading}</h2>
         </div>
-        {/* <div className={styles.text1}>{text}</div> */}
+        <div className={styles.text1}>{text}</div>
       </div>
     </div>
   );
@@ -65,7 +58,7 @@ const Card5 = ({
 
 Card5.propTypes = {
   className: PropTypes.string,
-  placeholderImage: PropTypes.string.isRequired,
+  Banner: PropTypes.string,
   heading: PropTypes.string,
   text: PropTypes.string,
   date: PropTypes.string,

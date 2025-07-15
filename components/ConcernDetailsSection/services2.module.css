@@ -73,11 +73,13 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: var(--gap-base);
   min-width: 100%;
   max-width: 100%;
+  height: 100%;
+  min-height: 40vh;
 }
 .imgIcon {
   width: 100%;
@@ -95,7 +97,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-21xl);
+  gap: 60px;
   max-width: 100%;
   font-size: var(--h5-24-size);
 }
@@ -104,7 +106,11 @@
   overflow: hidden;
   flex-direction: column;
   /* padding: var(--padding-41xl) var(--padding-61xl); */
-  padding: var(--padding-41xl) 0;
+  /* padding-left: 40px; */
+  /* padding-right: 40px; */
+  padding-top: 60px;
+  /* padding-bottom: 60px; */
+  /* padding: var(--padding-41xl) 0; */
   box-sizing: border-box;
   text-align: start;
   font-size: clamp(1rem, 1.5vw, var(--p3-16-size));
@@ -150,6 +156,7 @@
   }
   .loremLipsumParent {
     min-width: 100%;
+    min-height: 0vh;
   }
   .serviceContent,
   .services {
@@ -166,8 +173,11 @@
 }
 @media (max-width: 450px) {
   .mediumLengthHero {
-    font-size: clamp(1rem, 3vw, var(--font-size-10xl));
-    line-height: 1.2;
+    font-size: 40px;
+    line-height: 120%;
+    font-weight: 600;
+    font-family: inherit;
+    text-align: left;
   }
   .loremLipsum {
     font-size: clamp(0.9rem, 2vw, var(--font-size-lgi));
@@ -180,6 +190,45 @@
     border-radius: var(--br-base);
     max-height: 100%;
     object-fit: cover;
+    max-width: 100%;
+  }
+  .services {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+  .serviceContent {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .textContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+  .loremLipsum {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 600;
+    font-family: inherit;
+    text-align: left;
+  }
+  .loremLipsumParent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-base);
+    min-width: 100%;
     max-width: 100%;
   }
 }

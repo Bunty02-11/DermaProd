@@ -29,7 +29,7 @@
   /* Keeps the background image centered */
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 0;
   /* Removes any default margin */
   padding: 100px;
@@ -64,6 +64,7 @@
   align-items: flex-start;
   gap: 20px;
   z-index: 1;
+  width: 1360px;
   /* Ensures the content stays above the background */
 }
 
@@ -88,6 +89,7 @@
   margin: 0;
   max-width: 100%;
   width: 500px;
+  color: #000;
 }
 
 .filter {
@@ -101,6 +103,7 @@
   line-height: 1.5;
   font-weight: 500;
   width: 500px;
+  color: #000;
 }
 
 .btns {
@@ -136,6 +139,7 @@
 @media (max-width: 768px) {
   .image {
     height: 80vh;
+    position: relative;
   }
   .mediumLengthHero {
     font-size: 2rem;
@@ -152,6 +156,20 @@
 
   .btns {
     justify-content: center;
+  }
+}
+
+/* Overlay for mobile only */
+@media (max-width: 768px) {
+  .mobileOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 0;
+    pointer-events: none;
   }
 }
 
@@ -181,8 +199,25 @@
   }
   .loremIpsumDolor1 {
     width: 350px;
+    color: #fff;
   }
   .mediumLengthHero {
     width: 350px;
+    font-size: 48px;
+    line-height: 120%;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+  }
+  .content {
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    z-index: 1;
+    width: 100%;
+    /* Ensures the content stays above the background */
   }
 }

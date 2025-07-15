@@ -233,6 +233,8 @@
   }
   .promotionContainer {
     gap: var(--gap-xl);
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -251,7 +253,7 @@
   }
   .buttons {
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
   .placeholderImageIcon {
     width: 250px;

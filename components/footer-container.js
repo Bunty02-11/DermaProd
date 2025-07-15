@@ -48,7 +48,7 @@ const FooterContainer = ({ className = "" }) => {
                     href="tel:+971542790987"
                     className={styles.emailLink}
                   >
-                    +971 54 2790 987
+                    +971 509 870 036
                   </a>
                 </div>
               </div>

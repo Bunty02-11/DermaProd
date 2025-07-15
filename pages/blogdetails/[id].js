@@ -6,116 +6,165 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import FooterContainer from "../../components/footer-container";
 import styles from "./blog-details.module.css";
+import axios from "axios";
 
 export async function getServerSidePaths() {
-  const response = await fetch(
-    `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs?populate=*`
-  );
-  const concern = await response.json();
+  try {
+    const response = await fetch(
+      `https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/blogs`
+    );
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    const blogs = await response.json();
 
-  const paths = concern?.data.map((concern) => ({
-    params: { id: concern.documentId.toString() }, // Ensure the id is a string
-  }));
-  console.log("🚀 ~ paths ~ paths:", paths);
-  return {
-    paths, // The list of dynamic paths to pre-render
-    fallback: false, // Set to 'false' if you want to show 404 for non-existent paths
-  };
+    if (!blogs.data || !Array.isArray(blogs.data)) {
+      return {
+        paths: [],
+        fallback: false,
+      };
+    }
+
+    const paths = blogs.data.map((blog) => ({
+      params: { id: blog._id.toString() }, // Ensure the id is a string
+    }));
+    console.log("🚀 ~ paths ~ paths:", paths);
+    return {
+      paths, // The list of dynamic paths to pre-render
+      fallback: 'blocking', // Show loading state while fetching data
+    };
+  } catch (error) {
+    console.error("Error fetching blog paths:", error);
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
 }
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
 
   try {
-    const response = await fetch(
-      `https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/blogs/${id}?populate=*`
-    );
-    const blogData = await response.json();
-    if (!blogData || !blogData.data) {
+    const response = await axios.get(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/blogs/${id}`);
+    const blogData = response.data;
+    if (!blogData) {
       return {
-        notFound: true, // If no concern is found, show a 404 page
+        props: {
+          blogData: null,
+          hasData: false,
+          error: "Blog post not found"
+        }
       };
     }
 
     return {
-      props: { blogData: blogData.data }, // Pass only the relevant concern data
+      props: { 
+        blogData: blogData,
+        hasData: true,
+        error: null
+      },
     };
   } catch (error) {
-    console.error("Error fetching concern data:", error);
+    console.error("Error fetching blog data:", error);
     return {
-      notFound: true, // Fallback to 404 if an error occurs
+      props: {
+        blogData: null,
+        hasData: false,
+        error: error.message || "Failed to fetch blog data"
+      },
     };
   }
 }
 
-const BlogDetails = ({ blogData }) => {
-  // console.log("🚀 ~ ConcernsDetails ~ blogData:", blogData);
+const BlogDetails = ({ blogData, hasData, error }) => {
+  
   let blogDetails = blogData;
-  // console.log("🚀 ~ ConcernsDetails ~ blogDetails:", blogDetails);
+  // console.log("🚀 ~ BlogDetails ~ blogData:", blogData);
+  
+  if (!hasData) {
+    return (
+      <div className={styles.blogDetails}>
+        <FooterContainer />
+        <div className={styles.banner}>
+          <div className={styles.loremIpsumDolor}>HOME - BLOG</div>
+          <h1 className={styles.mediumLengthHero}>Blog Details</h1>
+        </div>
+        <div className={styles.container}>
+          <main className={styles.blog}>
+            <div className="alert alert-danger text-center my-5" role="alert">
+              {error ? `Error: ${error}` : "Blog post not found or unavailable"}
+            </div>
+          </main>
+        </div>
+        <Footer
+          maskGroup="/mask-group@2x.png"
+          symbolsvg="/symbolsvg-21.svg"
+          symbolsvg1="/symbolsvg-31.svg"
+        />
+      </div>
+    );
+  }
+  
   return (
     <div className={styles.blogDetails}>
       <FooterContainer />
       <div className={styles.banner}>
         <div className={styles.loremIpsumDolor}>HOME - BLOG</div>
-        <h1 className={styles.mediumLengthHero}>{blogDetails?.blog_name}</h1>
+        <h1 className={styles.mediumLengthHero}>{blogDetails?.title || "Blog Details"}</h1>
       </div>
       <div className={styles.container}>
         <main className={styles.blog}>
           <Image1
-            Mainimg={blogDetails?.banner?.url}
-            category={blogDetails?.attributes?.category}
+            Mainimg={
+              blogDetails?.banner?.url ||
+              blogDetails?.banner ||
+              "/placeholder-image4@2x.png"
+            }
+            category={blogDetails?.category}
             {...blogDetails}
           />
           <section className={styles.content}>
             <div className={styles.heading}>
               <div className={styles.loremIpsumDolorSitAmetCoParent}>
                 <div className={styles.loremIpsumDolor1}>
-                  ADMIN
+                  {blogDetails?.author ? blogDetails.author.toUpperCase() : "ADMIN"}
                 </div>
                 <div className={styles.loremIpsumDolor2}>
-                  {moment(blogDetails?.blog_date).format("DD MMMM YYYY")}
+                  {blogDetails?.date
+                    ? moment(blogDetails.date).format("DD MMMM YYYY")
+                    : "No date available"}
                 </div>
               </div>
-              <p className={styles.text}>
-                {blogDetails?.blog_info?.introduction}
-              </p>
+              {/* <p className={styles.text}>
+                {blogDetails?.intro || "No introduction available"}
+              </p> */}
             </div>
             <div className={styles.description}>
               <div className={styles.text}>
-                {blogDetails?.blog_info?.sections?.map((section, index) => (
-                  <div key={index}>
-                    <h3>{section?.title}</h3>
-                    <p>{section?.body}</p>
-
-                    {section?.subsections?.length > 0 && (
-                      <ul>
-                        {section.subsections.map((subsection, subIndex) => (
-                          <li key={subIndex}>
-                            <h4>{subsection?.["sub-title"]}</h4>
-                            <p>{subsection?.["sub-body"]}</p>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ))}
+                {Array.isArray(blogDetails?.content) &&
+                  blogDetails.content.map((section, index) => (
+                    <div key={index}>
+                      <h3>{section?.title}</h3>
+                      <p>{section?.body}</p>
+                      {Array.isArray(section?.section) && section.section.length > 0 && (
+                        <ul>
+                          {section.section.map((subsection, subIndex) => (
+                            <li key={subIndex}>
+                              <h4>{subsection?.title}</h4>
+                              <p>{subsection?.body}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
               </div>
             </div>
-            <BlogContent
-              image1={blogDetails?.gallery1?.url}
-              image2={blogDetails?.gallery2?.url}
-              {...blogDetails}
-            />
-            <div className={styles.description}>
-              <div className={styles.text}>
-                <div>
-                  <h3>Conclusion</h3>
-                  <p>{blogDetails?.blog_info?.conclusion}</p>
-                </div>
-              </div>
-            </div>
+            {/* BlogContent and conclusion are not present in this structure, so skip or adjust as needed */}
           </section>
-
           {/* <Comment1 /> */}
         </main>
       </div>

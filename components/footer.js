@@ -112,8 +112,22 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                   width={270}
                   height={48}
                   alt=""
-                  src={maskGroup}
+                  src="/logo-1@2x.png"
+                  onClick={() => handleNavigation("/")}
                 />
+                {/* <div className={styles.column}>
+                <div className={styles.quickLinks}>Quick Links</div>
+                <div className={styles.footerLinks}>
+                  <div className={styles.link}>
+                    <div
+                      className={styles.concerns}
+                      onClick={() => handleNavigation("/about")}
+                    >
+                      About
+                    </div>
+                  </div>
+                </div>
+              </div> */}
                 <div className={styles.column}>
                   <div className={styles.quickLinks}>Quick Links</div>
                   <div className={styles.footerLinks}>
@@ -125,18 +139,25 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                         About
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className={styles.column}>
-                  <div className={styles.quickLinks}>Company</div>
-                  <div className={styles.footerLinks}>
                     <div className={styles.link}>
                       <div
                         className={styles.concerns}
                         onClick={() => handleNavigation("/blog")}
                       >
-                        Blogs
+                        Blog
                       </div>
+                    </div>
+                    <div
+                    className={styles.link}
+                    onClick={() => handleNavigation("/concern-details/Hollow-Cheeks")}
+                  >
+                    <div className={styles.concerns}>Concern</div>
+                  </div>
+                    <div
+                      className={styles.link}
+                      onClick={() => handleNavigation("/services/hydrafacial")}
+                    >
+                      <div className={styles.concerns}>Service</div>
                     </div>
                     <div
                       className={styles.link}
@@ -155,7 +176,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                           href="tel:+971509870036"
                           className={styles.emailLink}
                         >
-                          +971 50 9870 036
+                          +971 509 870 036
                         </a>
                       </div>
                     </div>
@@ -166,6 +187,18 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                           className={styles.emailLink}
                         >
                           info@dermatechpolyclinic.com
+                        </a>
+                      </div>
+                    </div>
+                    <div className={styles.link}>
+                      <div className={styles.concerns}>
+                        <a
+                          href="https://www.google.com/maps/dir//DermaTech+Polyclinic+Emirates+Concord+Office+Tower+Floor+No:16+Deira+-+DeiraRiggat+Al+Buteen+-+Dubai+United+Arab+Emirates/@25.259807,55.3209268,14z/data=!4m5!4m4!1m0!1m2!1m1!1s0x3e5f5dfc9507fd9f:0xa675f90b00cbeeff"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.emailLink}
+                        >
+                          Location
                         </a>
                       </div>
                     </div>
@@ -249,7 +282,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                         className={styles.symbolsvgIcon1}
                         loading="lazy"
                         width={24}
-                        height={17}
+                        height={24}
                         alt=""
                         src={symbolsvg1}
                       />

@@ -2,11 +2,16 @@
   align-self: stretch;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 0 var(--padding-41xl);
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-  max-width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  /* padding-top: 60px; */
+  padding-bottom: 60px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
   text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
@@ -20,7 +25,9 @@
 }
 @media screen and (max-width: 450px) {
   .aboutWrapper {
-    padding-bottom: var(--padding-6xl);
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
     box-sizing: border-box;
   }
 }

@@ -164,9 +164,9 @@
 .testimonialContainer,
 .testimonialContainerWrapper {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+
 }
 .testimonialContainer {
   flex: 1;
@@ -176,12 +176,19 @@
 .testimonialContainerWrapper {
   align-self: stretch;
   flex-direction: row;
-  padding: 0 var(--padding-45xl) var(--padding-101xl);
+  /* padding: 0 var(--padding-45xl) var(--padding-101xl); */
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 60px;
+  /* padding-bottom: 60px; */
   box-sizing: border-box;
   text-align: start;
   font-size: var(--h5-24-size);
   color: var(--text-primary);
   font-family: var(--h2-48);
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
 }
 @media screen and (max-width: 1050px) {
   .testimonialContainerWrapper {
@@ -220,12 +227,14 @@
     flex-wrap: wrap;
   }
   .testimonialContainerWrapper {
-    padding-bottom: var(--padding-32xl);
+    padding-bottom: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
     box-sizing: border-box;
   }
   .specialPromotion {
-    font-size: var(--font-size-10xl);
-    line-height: 35px;
+    font-size: 40px;
+    line-height: 120%;
   }
   .promotionTitle {
     padding-left: var(--padding-xl);

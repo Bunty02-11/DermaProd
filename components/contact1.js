@@ -4,13 +4,14 @@ import styles from "./contact1.module.css";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Contact1 = ({ className = "", placeholderImage }) => {
   const [formData, setFormData] = useState({
-    Name: "",
-    last_Name: "",
+    name: "",
+    last_name: "",
     email: "",
-    Number: "",
+    phone: "",
     message: "",
   });
 
@@ -20,42 +21,106 @@ const Contact1 = ({ className = "", placeholderImage }) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async () => {
-    const { Name, last_Name, email, Number, message } = formData;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const { name, last_name, email, phone, message } = formData;
 
-    if (!Name || !last_Name || !email || !Number || !message) {
-      toast.error("Please fill in all fields.");
+    // Field validation
+    if (!name || !last_name || !email || !phone || !message) {
+      toast.error("Please fill in all fields.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+
+    // Phone validation
+    const phoneRegex = /^[0-9\-\+]{9,15}$/;
+    if (!phoneRegex.test(phone)) {
+      toast.error("Please enter a valid phone number (9-15 digits).", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
 
     setIsLoading(true);
     try {
-      const response = await fetch(
-        "https://romantic-acoustics-22fbc9f32c.strapiapp.com/api/contacts",
+      const response = await axios.post(
+        "https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/contacts",
+        formData, // Changed from { data: formData } to formData directly
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ data: formData }),
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form.");
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Form submitted successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setFormData({
+          name: "",
+          last_name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
       }
-
-      toast.success("Form submitted successfully!");
-      setFormData({
-        Name: "",
-        last_Name: "",
-        email: "",
-        Number: "",
-        message: "",
-      });
     } catch (err) {
       console.error("ERR", err);
-      toast.error("Submission failed. Please try again later.");
+      let errorMessage = "Submission failed. Please try again later.";
+      
+      if (err.response) {
+        errorMessage = err.response.data?.message || 
+                      err.response.data?.error || 
+                      `Server error: ${err.response.status}`;
+      } else if (err.request) {
+        errorMessage = "No response from server. Please check your connection.";
+      }
+      
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } finally {
       setIsLoading(false);
     }
@@ -63,7 +128,17 @@ const Contact1 = ({ className = "", placeholderImage }) => {
 
   return (
     <div className={[styles.contact, className].join(" ")}>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="container">
         <div className={styles.content}>
           <div className={styles.form}>
@@ -78,10 +153,10 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 <input
                   className={styles.firstName}
                   type="text"
-                  name="Name"
+                  name="name"
                   placeholder="First Name"
                   required
-                  value={formData.Name}
+                  value={formData.name}
                   onChange={handleChange}
                 />
               </div>
@@ -89,10 +164,10 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 <input
                   className={styles.firstName}
                   type="text"
-                  name="last_Name"
+                  name="last_name"
                   placeholder="Last Name"
                   required
-                  value={formData.last_Name}
+                  value={formData.last_name}
                   onChange={handleChange}
                 />
               </div>
@@ -112,18 +187,17 @@ const Contact1 = ({ className = "", placeholderImage }) => {
               <div className={styles.name}>
                 <input
                   className={styles.firstName}
-                  type="number"
-                  name="Number"
+                  type="tel"
+                  name="phone"
                   placeholder="Phone"
                   required
-                  value={formData.Number}
+                  value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
             </div>
             <div className={styles.name5}>
               <textarea
-                type="text"
                 name="message"
                 placeholder="Message"
                 required
@@ -134,9 +208,18 @@ const Contact1 = ({ className = "", placeholderImage }) => {
             </div>
             <div className={styles.btns}>
               <div className={styles.btnSubmit}>
-                <div className={styles.submitNow} onClick={handleSubmit}>
+                <button 
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#fff",
+                    border: "none",
+                  }}
+                  className={styles.submitNow} 
+                  onClick={handleSubmit}
+                  disabled={isLoading}
+                >
                   {isLoading ? "Submitting..." : "Submit Now"}
-                </div>
+                </button>
               </div>
             </div>
           </div>

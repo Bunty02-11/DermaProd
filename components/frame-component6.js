@@ -69,7 +69,7 @@ const FrameComponent6 = ({ className = "" }) => {
                 jobTitle="Senior Doctor"
               />
             </div>
-            <div className={styles.content3}>
+            {/* <div className={styles.content3}>
               <div className={styles.sliderDots}>
                 <div className={styles.dot} />
                 <div className={styles.dot1} />
@@ -93,7 +93,7 @@ const FrameComponent6 = ({ className = "" }) => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -82,7 +82,7 @@
 .about,
 .column,
 .container {
-  max-width: 100%;
+  max-width: 1360px;
 }
 .column {
   flex: 1;
@@ -103,13 +103,19 @@
   flex-wrap: wrap;
   align-content: center;
   gap: var(--gap-41xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
 }
 .about {
   flex: 1;
   background-color: var(--color-white);
   overflow: hidden;
   flex-direction: column;
-  padding: var(--padding-41xl) var(--padding-61xl);
+  /* padding: 0 0 var(--padding-41xl); */
   box-sizing: border-box;
   text-align: start;
   font-size: var(--p3-16-size);
@@ -147,14 +153,14 @@
 }
 @media screen and (max-width: 450px) {
   .mediumLengthHero {
-    font-size: var(--font-size-10xl);
-    line-height: 35px;
+    font-size: 40px;
+    line-height: 120%;
   }
   .about {
     gap: var(--gap-mini);
   }
   .imgIcon {
-    height: 250px;
+    height: 400px;
     flex: 1;
     position: relative;
     max-width: 100%;

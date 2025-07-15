@@ -1,14 +1,43 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./frame-component3.module.css";
 import { useRouter } from "next/router";
 import { LanguageContext } from "../pages/_app";
 
-const FrameComponent3 = ({ className = "", content }) => {
+const FrameComponent3 = ({ className = "" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [content, setContent] = useState([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { language } = useContext(LanguageContext);
+
+  useEffect(() => {
+    const fetchDiscountServices = async () => {
+      try {
+        const response = await fetch('https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/discountservices/');
+        if (!response.ok) {
+          throw new Error('Failed to fetch discount services');
+        }
+        const data = await response.json();
+        setContent(data);
+      } catch (error) {
+        console.error('Error fetching discount services:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDiscountServices();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className={[styles.promotionContainerWrapper, className].join(" ")}>
+        Loading promotions...
+      </div>
+    );
+  }
 
   if (!content || content.length === 0) {
     return (
@@ -50,43 +79,40 @@ const FrameComponent3 = ({ className = "", content }) => {
             className={styles.content}
             style={{ transition: "all 0.5s ease-in-out" }}
           >
-            {currentContent.image1?.url ? (
-              <Image
-                className={styles.placeholderImageIcon}
-                loading="lazy"
-                width={570}
-                height={458}
-                alt="Promotion Image"
-                src={currentContent.image1.url} // Access the current promotion image URL
-                style={{ transition: "all 0.8s ease-in-out" }}
-              />
-            ) : (
-              <div className={styles.placeholder}>No Image Available</div>
-            )}
+            {/* Use a static image if no image is available */}
+            <Image
+              className={styles.placeholderImageIcon}
+              loading="lazy"
+              width={570}
+              height={458}
+              alt="Promotion Image"
+              src={"/hydrafacial.png"} // Static image as fallback
+              style={{ transition: "all 0.8s ease-in-out" }}
+            />
             <div
               className={styles.text}
               style={{ transition: "all 0.8s ease-in-out" }}
             >
               <div className={styles.main}>
                 <div className={styles.aed}>
-                  {currentContent.Amount || "N/A"} Aed
+                  {currentContent.discountedPrice || "N/A"} Aed
                 </div>
                 <div
                   className={styles.yoremIpsumDolor}
                   style={{ fontSize: "20px", fontWeight: "bold" }}
                 >
-                  {currentContent.title || "No title available"}
+                  {currentContent.serviceName || "No title available"}
                 </div>
               </div>
               <div className={styles.benefits}>
                 <div className={styles.benefits1}>Benefits:</div>
                 <div className={styles.yoremIpsumDolor}>
-                  {currentContent.benifits &&
-                  currentContent.benifits.length > 0 ? (
+                  {currentContent.description &&
+                  currentContent.description.length > 0 ? (
                     <ul className={styles.yoremIpsumDolorSitAmetCo}>
-                      {currentContent.benifits.map((benefit, index) => (
+                      {currentContent.description.map((benefit, index) => (
                         <li key={index} className={styles.yoremIpsumDolor1}>
-                          {benefit.description}
+                          {benefit.title}
                         </li>
                       ))}
                     </ul>
@@ -182,20 +208,6 @@ const FrameComponent3 = ({ className = "", content }) => {
 
 FrameComponent3.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.arrayOf(
-    PropTypes.shape({
-      image1: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-      }),
-      Amount: PropTypes.string,
-      content: PropTypes.string,
-      benefits: PropTypes.arrayOf(
-        PropTypes.shape({
-          description: PropTypes.string.isRequired,
-        })
-      ),
-    })
-  ).isRequired,
 };
 
 export default FrameComponent3;

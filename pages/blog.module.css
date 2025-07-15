@@ -4,24 +4,25 @@
   align-items: center;
   /* flex-direction: column; */
   min-height: 100vh;
-  padding: 0 20px;
   width: 100%;
-  max-width: 1680px;
+  max-width: 1360px;
   box-sizing: border-box;
   margin: 0 auto;
 }
 
 .loremIpsumDolor,
 .mediumLengthHero {
-  width: 1281px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
   position: relative;
   line-height: 150%;
   display: inline-block;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 .mediumLengthHero {
-  margin: 0;
-  width: 628px;
+  /* margin: 0; */
+  /* width: 628px; */
   font-size: var(--h2-48-size);
   line-height: 120%;
   font-weight: 600;
@@ -122,25 +123,155 @@
   overflow: hidden;
   flex-direction: column;
   box-sizing: border-box;
+  
 }
 .blogs {
   align-self: stretch;
   align-items: center;
-  padding: var(--padding-41xl) var(--padding-61xl);
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
   gap: var(--gap-21xl);
-  max-width: 100%;
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto
+}
+.blogs1 {
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-self: stretch;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 60px;
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  gap: var(--gap-21xl);
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto
+}
+.blogs2 {
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-self: stretch;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 60px;
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  gap: var(--gap-21xl);
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto
+}
+.blogs3 {
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-self: stretch;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 60px;
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  gap: var(--gap-21xl);
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto
 }
 .blog {
   width: 100%;
   position: relative;
   align-items: flex-start;
-  padding: var(--padding-3xs) 0 0;
+  /* padding: var(--padding-3xs) 0 0; */
   line-height: normal;
   letter-spacing: normal;
   text-align: start;
   font-size: var(--p3-16-size);
   color: var(--text-primary);
   font-family: var(--h2-48);
+}
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--color-white);
+  overflow: hidden;
+  box-sizing: border-box;
+  align-self: stretch;
+  /* padding: var(--padding-41xl) var(--padding-61xl); */
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 60px;
+  gap: var(--gap-21xl);
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 2;
+  text-align: start;
+  font-size: var(--p3-16-size);
+  color: var(--color-gray-100);
+  font-family: var(--h2-48);
+}
+.sectionTitle {
+  display: flex;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-base);
+  max-width: 100%;
+}
+.heading1,
+.subheading {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+  font-weight: 500;
+}
+.heading1 {
+  margin: 0;
+  font-size: inherit;
+  line-height: 120%;
+  font-weight: 600;
+  font-family: inherit;
+}
+.content13 {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-5xl);
+  max-width: 100%;
+  font-size: var(--h2-48-size);
+  color: var(--text-primary);
 }
 @media screen and (max-width: 1200px) {
   .banner {
@@ -198,5 +329,72 @@
   }
   .content {
     gap: var(--gap-base);
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  .loremIpsumDolor,
+  .mediumLengthHero {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    /* box-sizing: border-box; */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-base);
+    max-width: 100%;
+    /* padding-top: 40px; */
+    /* max-width: 100%; */
+  }
+  .blogs{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto
+  }
+  .blogs1 {
+    padding-top: 0px;
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto
+  }
+  .blogs2 {
+    padding-top: 0px;
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto
+  }
+  .blogs3 {
+    padding-top: 0px;
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto
+  }
+  .heading1 {
+    font-size: 40px;
+    line-height: 120%;
+  }
+  .faq {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }

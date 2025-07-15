@@ -1,15 +1,21 @@
 .ownerContainer {
+  max-width: 1360px;
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* padding-top: 60px; */
+  /* padding-bottom: 60px; */
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ownerContent {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  /* gap: 4rem; */
   width: 100%;
 }
 
@@ -61,7 +67,10 @@
 .logo {
   width: 100%;
   background-color: var(--color-white);
-  padding: 3rem 2rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 60px;
+  /* padding-bottom: 60px; */
   border-radius: var(--br-5xl);
 }
 
@@ -157,9 +166,9 @@
   .ownerContainer {
     padding: 2rem 1rem;
   }
-  .ownerTitleWrapper {
+  /* .ownerTitleWrapper {
     padding: 0 var(--padding-13xl);
-  }
+  } */
 
   .meetTheOwner {
     font-size: 1.75rem;
@@ -182,12 +191,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .ownerContainer {
-    padding: 1.5rem 0.75rem;
-  }
 
   .meetTheOwner {
-    font-size: 1.5rem;
+    font-size: 40px;
   }
 
   .logo {
@@ -201,5 +207,10 @@
 
   .heading1 {
     font-size: 1.75rem;
+  }
+  .ownerContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 0px;
   }
 }

@@ -181,59 +181,6 @@ const OwnerContainer = ({ className = "", testimonial }) => {
           </div>
           {/* <FrameComponent placeholderImage="/placeholder-image-7@2x.png" content={testimonial} /> */}
         </div>
-
-        <div className={styles.faqParent}>
-          <div
-            className={styles.subheading}
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              marginLeft: "5%",
-              marginBottom: "10px",
-              fontSize: "18px",
-            }}
-          >
-            SUPPORT
-          </div>
-          <div
-            className={styles.content13}
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              marginLeft: "5%",
-              marginBottom: "20px",
-              fontSize: "36px",
-            }}
-          >
-            <h3
-              className={styles.heading1}
-              style={{
-                fontSize: "1.5rem",
-                lineHeight: "1.2",
-                margin: 0,
-                fontSize: "36px",
-              }}
-            >
-              Frequently Asked Questions
-            </h3>
-          </div>
-          <div
-            className="container-fluid mt-4"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              paddingLeft: "5%",
-              paddingRight: "5%",
-              marginBottom: "40px",
-            }}
-          >
-            <StaticFaqsLisiting1 staticFaqs={[]} />
-          </div>
-        </div>
       </div>
     </div>
   );

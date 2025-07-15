@@ -13,8 +13,8 @@ body {
 :root {
   /* fonts */
   --h2-48: Poppins;
-  --text-medium-normal: Roboto;
-  --web-p3-16: "Helvetica Neue";
+  --text-medium-normal: Poppins;
+  --web-p3-16: "Poppins";
 
   /* font sizes */
   --p4-14-size: 14px;

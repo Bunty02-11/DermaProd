@@ -16,6 +16,11 @@ import PromotiondetailsHomePage from "../components/PromotionDetailsHomePage/ind
 import Footer from "../components/footer";
 import styles from "./index.module.css";
 import StaticFaqsLisiting from "../components/staticfaqs/staticfaqlist";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import StatsSlider from "../components/StatsSlider";
 
 const Home = () => {
   const [concerns, setConcerns] = useState([]);
@@ -78,8 +83,8 @@ const Home = () => {
       <FooterContainer />
       <Banner />
       <section className="container">
-        {/* <FrameComponent2 /> */}
-        {/* <FrameComponent3 content={discounts} /> */}
+        <FrameComponent2 />
+        <FrameComponent3 />
       </section>
       <FrameComponent4 />
 
@@ -91,7 +96,7 @@ const Home = () => {
       )} */}
 
       {/* Concerns Section */}
-      <section className={styles.hero} style={{ display: 'block', margin: '40px 0' }}>
+      <section className={styles.hero} style={{ paddingBottom: "60px" }}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>Concerns</div>
@@ -154,17 +159,28 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className={styles.slider}>
-            <Component1 perfumes="15" perfumes1="Expert Doctors" />
-            <Component1 perfumes="7k" perfumes1="Happy Patients" />
-            <Component1 perfumes="55+" perfumes1=" Modern Amenities" />
-            <Component1 perfumes="15" perfumes1="Awards Won" />
-          </div>
+          <StatsSlider
+            stats={[
+              { perfumes: "15", perfumes1: "Expert Doctors" },
+              { perfumes: "7k", perfumes1: "Happy Patients" },
+              { perfumes: "55+", perfumes1: "Modern Amenities" },
+              { perfumes: "15", perfumes1: "Awards Won" }
+            ]}
+          />
         </div>
       </section>
 
       {/* Services Section */}
-      <section className={styles.hero} style={{ display: 'block', margin: '40px 0' }}>
+      <section className={styles.hero}
+        style={{
+          // paddingTop: "60px",
+          // paddingBottom: "60px",
+          "@media (max-width: 450px)": {
+            paddingTop: "40px",
+            paddingBottom: "40px"
+          }
+        }}
+      >
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>services</div>
@@ -191,7 +207,17 @@ const Home = () => {
       />
 
       {/* Promotions Section */}
-      <section className={styles.hero} style={{ display: 'block', margin: '40px 0' }}>
+      <section
+        className={styles.hero}
+        style={{
+          paddingTop: "60px",
+          // paddingBottom: "60px",
+          "@media (max-width: 450px)": {
+            paddingTop: "40px",
+            paddingBottom: "40px"
+          }
+        }}
+      >
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <div className={styles.loremIpsumDolor}>Special Promotions</div>
@@ -207,13 +233,18 @@ const Home = () => {
         </div>
       </section>
 
+      <FrameComponent
+        placeholderImage="/placeholder-image@2x.png"
+      />
+
       <section className={styles.testimonialWrapperWrapper}>
         <div className={styles.frameParent}>
           <div className={styles.loremIpsumDolorSitAmetCoParent}>
             <h1 className={styles.mediumLengthHero}>Before After Gallery</h1>
           </div>
           <div className={styles.content5}>
-            <div className={styles.row4}>
+            {/* Desktop View - Regular flex layout */}
+            <div className={`${styles.row4} ${styles.desktopGallery}`}>
               <div className={styles.card}>
                 <div className={styles.testimonialItem}>
                   <div className={styles.content6}>
@@ -247,6 +278,83 @@ const Home = () => {
                 </div>
                 <div className={styles.cardItem} />
               </div>
+            </div>
+
+            {/* Mobile View - Swiper */}
+            <div className={styles.mobileGallery}>
+              <Swiper
+                modules={[Pagination, Autoplay]}
+                spaceBetween={20}
+                slidesPerView={1.2}
+                centeredSlides={true}
+                loop={true}
+                loopedSlides={3}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                speed={800}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 15,
+                  },
+                  480: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                  },
+                  640: {
+                    slidesPerView: 1.3,
+                    spaceBetween: 20,
+                  },
+                }}
+                className={styles.gallerySwiper}
+              >
+                <SwiperSlide>
+                  <div className={styles.card}>
+                    <div className={styles.testimonialItem}>
+                      <div className={styles.content6}>
+                        <div className={styles.text1}>Before</div>
+                      </div>
+                      <div className={styles.content7}>
+                        <div className={styles.text2}>After</div>
+                      </div>
+                    </div>
+                    <div className={styles.testimonialSeparator} />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.card1}>
+                    <div className={styles.testimonialItem}>
+                      <div className={styles.content6}>
+                        <div className={styles.text1}>Before</div>
+                      </div>
+                      <div className={styles.content7}>
+                        <div className={styles.text2}>After</div>
+                      </div>
+                    </div>
+                    <div className={styles.testimonialSeparator} />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.card2}>
+                    <div className={styles.contentGroup}>
+                      <div className={styles.content6}>
+                        <div className={styles.text1}>Before</div>
+                      </div>
+                      <div className={styles.content11}>
+                        <div className={styles.text2}>After</div>
+                      </div>
+                    </div>
+                    <div className={styles.cardItem} />
+                  </div>
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
         </div>

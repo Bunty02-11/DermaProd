@@ -43,9 +43,32 @@
     line-height: 46px;
   }
 }
+@media screen and (max-width: 750px) {
+  .div {
+    min-width: 250px;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
 @media screen and (max-width: 450px) {
   .perfumes {
     font-size: var(--font-size-10xl);
     line-height: 35px;
+  }
+  .div {
+    /* padding: 15px; */
+    min-width: 150px;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .slideItem {
+    gap: 15px;
+  }
+  .perfumes {
+    font-size: 28px;
+    min-width: 70px;
+  }
+  .perfumes1 {
+    font-size: 14px;
   }
 }

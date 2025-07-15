@@ -13,15 +13,16 @@
 
 .loremIpsumDolor,
 .mediumLengthHero {
-  width: 1281px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
   position: relative;
   line-height: 150%;
   display: inline-block;
-  max-width: 100%;
 }
 .mediumLengthHero {
-  margin: 0;
-  width: 628px;
+  /* margin: 0; */
+  /* width: 628px; */
   font-size: var(--h2-48-size);
   line-height: 120%;
   font-weight: 600;
@@ -32,16 +33,19 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-81xl) var(--padding-xl) var(--padding-81xl)
-    var(--padding-61xl);
+    var(--padding-61xl); */
+  align-items: flex-start;
+  justify-content: center;
+  height: 350px;
+  padding: 0 4rem;
   box-sizing: border-box;
   gap: var(--gap-base);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right top;
-  /* background-position: top; */
   max-width: 100%;
   text-align: start;
   font-size: var(--p3-16-size);
@@ -74,6 +78,15 @@
   text-align: center;
   display: none;
   max-width: 100%;
+}
+.services {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  /* padding-left: 20px; */
+  /* padding-right: 20px; */
+  /* padding-top: 60px; */
+  /* padding-bottom: 60px; */
 }
 .content {
   align-self: stretch;
@@ -176,9 +189,15 @@
 .faq {
   align-self: stretch;
   /* padding: var(--padding-41xl) var(--padding-61xl); */
-  padding: var(--padding-41xl) 0;
+  /* padding-left: 40px; */
+  /* padding-right: 40px; */
+  /* padding-top: 60px; */
+  padding-bottom: 60px;
   gap: var(--gap-21xl);
-  max-width: 100%;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 2;
   text-align: start;
   font-size: var(--p3-16-size);
   color: var(--color-gray-100);
@@ -218,13 +237,45 @@
   }
 }
 @media screen and (max-width: 450px) {
+  .heading {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
   .banner {
     background-position: right center;
     margin-top: 75px;
   }
-  .heading,
+  .loremIpsumDolor,
   .mediumLengthHero {
-    font-size: var(--font-size-10xl);
-    line-height: 35px;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    /* box-sizing: border-box; */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-base);
+    max-width: 100%;
+    /* padding-top: 40px; */
+    /* max-width: 100%; */
+  }
+  .services {
+    /* max-width: 1360px; */
+    width: 100%;
+    margin: 0 auto;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .faq {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .heading {
+    font-size: 40px;
+    line-height: 120%;
   }
 }

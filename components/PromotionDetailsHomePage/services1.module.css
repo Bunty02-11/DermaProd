@@ -38,7 +38,9 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-21xl);
-  max-width: 100%;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
 }
 .content,
 .services {
@@ -47,7 +49,7 @@
   text-align: start;
 }
 .services {
-  background-color: var(--color-white);
+  background-color: var(--color-black);
   /* overflow: hidden; */
   box-sizing: border-box;
   text-align: center;

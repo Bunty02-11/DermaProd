@@ -13,78 +13,81 @@ const Services2 = ({ className = "", specialDetails }) => {
 
   return (
     <div className={[styles.services, className].join(" ")}>
-      <div className={styles.heading}>
-        <div className={styles.loremIpsumDolor}>
-          {specialDetails?.category?.name}
-        </div>
-        <h1 className={styles.mediumLengthHero}>{specialDetails?.heading}</h1>
+    <div className={styles.heading}>
+      <div className={styles.loremIpsumDolor}>
+        {specialDetails?.category?.Name}
       </div>
+      <h1 className={styles.mediumLengthHero}>{specialDetails?.heading}</h1>
+    </div>
 
-      {/* Banner Image */}
-      <div className={styles.image}>
-        <Image
-          className={styles.placeholderImageIcon}
-          loading="lazy"
-          width={2000}
-          height={500}
-          alt="Banner Image"
-          src={
-            specialDetails?.Banner_image?.url
-              ? specialDetails?.Banner_image?.url
-              : "/placeholder-image3@2x.png"
-          }
-        />
+    {/* Banner Image */}
+    <div className={styles.image}>
+      <Image
+        className={styles.placeholderImageIcon}
+        loading="lazy"
+        width={2000}
+        height={500}
+        alt="Banner Image"
+        src={
+          specialDetails?.banner_image?.url
+            ? specialDetails.banner_image.url.startsWith("http")
+              ? specialDetails.banner_image.url
+              : serverurl + specialDetails.banner_image.url
+            : "/placeholder-image3@2x.png"
+        }
+      />
+    </div>
+
+    {/* Introduction Section */}
+    <div className={styles.description}>
+      <div className={styles.text}>
+        {specialDetails?.introduction}
       </div>
+    </div>
 
-      {/* Introduction Section */}
-      <div className={styles.description}>
-        <div className={styles.text}>
-          {specialDetails?.introduction}
-        </div>
-      </div>
-
-      {/* First Service Content Section */}
-      {specialDetails?.content?.map((section, i) => (
-        <div key={i} className={styles.serviceContent}>
-          <div className="row gy-3">
-            {/* Image Section */}
-            <div
-              className={`col col-12 col-md-6 ${i % 2 === 0 ? "order-1" : "order-2"
-                }`}
-            >
+    {/* First Service Content Section */}
+    {specialDetails?.content?.map((section, i) => (
+      <div key={i} className={styles.serviceContent}>
+        <div className="row">
+          {/* Image Section */}
+          <div
+            className={`col col-12 col-md-6 order-1 ${i % 2 === 0 ? "order-md-1" : "order-md-2"
+              }`}
+          >
+            <div className={styles.imageContainer}>
               <Image
                 className={styles.placeholderImageIcon}
                 loading="lazy"
-                width={800}
+                width={1000}
                 height={300}
                 alt={`Section Image ${i + 1}`}
                 src={
                   images[i]
-                    ? images[i]
+                    ? images[i].startsWith("http")
+                      ? images[i]
+                      : serverurl + images[i]
                     : "/placeholder-image3@2x.png"
                 }
               />
             </div>
+          </div>
 
-            {/* Text Section */}
-            <div
-              className={`col col-12 col-md-6 ${i % 2 === 0 ? "order-2" : "order-1"
-                }`}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+          {/* Text Section */}
+          <div
+            className={`col col-12 col-md-6 order-2 ${i % 2 === 0 ? "order-md-2" : "order-md-1"
+              }`}
+          >
+            <div className={styles.textContainer}>
               <div className={styles.loremLipsumParent}>
-                <h2 className={styles.loremLipsum}>{section?.title}</h2>
-                <div className={styles.text2}>{section?.body}</div>
+                <h2 className={styles.loremLipsum}>{section?.body}</h2>
+                <div className={styles.text2}>{section?.title}</div>
               </div>
             </div>
           </div>
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
+  </div>
   );
 };
 

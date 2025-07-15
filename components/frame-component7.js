@@ -30,7 +30,13 @@ const FrameComponent7 = ({ className = "" }) => {
             <SliderItems
               materialSymbolsLightmailOutline="/mynauilocation.svg"
               perfumes="Visit Us"
-              perfumes1="16th Floor, Royal Concord Office Tower, Riggat Al Buteen, Deira, Dubai, UAE,"
+              perfumes1={<a href="https://www.google.com/maps/dir//DermaTech+Polyclinic+Emirates+Concord+Office+Tower+Floor+No:16+Deira+-+DeiraRiggat+Al+Buteen+-+Dubai+United+Arab+Emirates/@25.259807,55.3209268,14z/data=!4m5!4m4!1m0!1m2!1m1!1s0x3e5f5dfc9507fd9f:0xa675f90b00cbeeff"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.emailLink}
+                style={{ color: "black", textDecoration: "none" }}>
+                16th Floor, Royal Concord Office Tower, Riggat Al Buteen, Deira, Dubai, UAE
+              </a>}
               perfumesAlignSelf="unset"
             />
             <div className={styles.sliderItems}>
