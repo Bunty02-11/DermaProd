@@ -20,7 +20,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import StatsSlider from "../components/StatsSlider";
+import StatsSlider from "../components/statsSlider";
 
 const Home = () => {
   const [concerns, setConcerns] = useState([]);

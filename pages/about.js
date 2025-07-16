@@ -11,7 +11,7 @@ import FooterContainer from "../components/footer-container";
 import StaticFaqsLisiting from "../components/staticfaqs2/staticfaqlist1";
 import FrameComponent from "../components/frame-component";
 import FrameComponent2 from "../components/frame-component2";
-import StatsSlider from "../components/StatsSlider";
+import StatsSlider from "../components/statsSlider";
 
 const About = () => {
   return (
