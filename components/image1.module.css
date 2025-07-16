@@ -83,7 +83,11 @@
 }
 @media screen and (max-width: 450px) {
   .image1 {
-    gap: var(--gap-xl);
+    /* gap: var(--gap-xl); */
+    height: 100%;
+    position: relative;
+    max-height: 350px;
+    max-width: 500px;
   }
   .perfumes {
     font-size: var(--font-size-lgi);
@@ -95,11 +99,11 @@
   }
   .placeholderImageIcon {
     /* width: 350px; */
-    height: 200px;
+    height: 100%;
     position: relative;
-    border-radius: var(--br-base);
-    max-height: 100%;
+    border-radius: 10px;
+    max-height: 400px;
     object-fit: cover;
-    max-width: 100%;
+    max-width: 500px;
   }
 }
