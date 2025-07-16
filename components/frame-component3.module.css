@@ -277,8 +277,8 @@
     justify-content: space-between;
   }
   .placeholderImageIcon {
-    width: 250px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     position: relative;
     border-radius: var(--br-base);
     max-height: 100%;
