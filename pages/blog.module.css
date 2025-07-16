@@ -352,8 +352,8 @@
   .blogs{
     padding-top: 40px;
     padding-bottom: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px; */
+    /* padding-right: 24px; */
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
@@ -362,8 +362,8 @@
   .blogs1 {
     padding-top: 0px;
     padding-bottom: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px; */
+    /* padding-right: 24px; */
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
@@ -372,8 +372,8 @@
   .blogs2 {
     padding-top: 0px;
     padding-bottom: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px; */
+    /* padding-right: 24px; */
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
@@ -382,8 +382,8 @@
   .blogs3 {
     padding-top: 0px;
     padding-bottom: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px; */
+    /* padding-right: 24px; */
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
