@@ -54,7 +54,7 @@ const Footer = ({ className = "", maskGroup, symbolsvg, symbolsvg1 }) => {
                 <div className={styles.concerns}>Blog</div>
               </div>
               <div className={styles.link} onClick={() => handleNavigation("/concern-details/Hollow-Cheeks")}>
-                <div className={styles.concerns}>Concern</div>
+                <div className={styles.concerns}>Concerns</div>
               </div>
               <div className={styles.link} onClick={() => handleNavigation("/services/hydrafacial")}>
                 <div className={styles.concerns}>Services</div>
