@@ -5,9 +5,9 @@ import styles from "./services2.module.css";
 const Services2 = ({ className = "", concernDetails }) => {
   // Prepare the images dynamically
   const images = [
-    concernDetails?.image1?.url,
-    concernDetails?.image2?.url,
-    concernDetails?.image3?.url,
+    concernDetails?.images1,
+    concernDetails?.images2,
+    concernDetails?.images3,
   ];
 
   return (
@@ -27,13 +27,11 @@ const Services2 = ({ className = "", concernDetails }) => {
         width={2000}
         height={500}
         alt="Banner Image"
-        src={
-          concernDetails?.banner_image?.url
-            ? concernDetails.banner_image.url.startsWith("http")
-              ? concernDetails.banner_image.url
-              : serverurl + concernDetails.banner_image.url
-            : "/placeholder-image3@2x.png"
-        }
+       src={
+            concernDetails?.belowBanner
+              ? concernDetails.belowBanner.replace(/ /g, "%20")
+              : "/placeholder-image3@2x.png"
+          }
       />
     </div>
 

@@ -15,7 +15,7 @@ const FrameComponent3 = ({ className = "" }) => {
   useEffect(() => {
     const fetchDiscountServices = async () => {
       try {
-        const response = await fetch('https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/discountservices/');
+        const response = await fetch('https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/discountservices/');
         if (!response.ok) {
           throw new Error('Failed to fetch discount services');
         }
@@ -86,7 +86,7 @@ const FrameComponent3 = ({ className = "" }) => {
               width={570}
               height={458}
               alt="Promotion Image"
-              src={"/hydrafacial.png"} // Static image as fallback
+              src= {currentContent.image} // Static image as fallback
               style={{ transition: "all 0.8s ease-in-out" }}
             />
             <div
@@ -96,6 +96,11 @@ const FrameComponent3 = ({ className = "" }) => {
               <div className={styles.main}>
                 <div className={styles.aed}>
                   {currentContent.discountedPrice || "N/A"} Aed
+                  {currentContent.originalPrice && (
+                    <span className={styles.actualPrice}>
+                      {currentContent.originalPrice} Aed
+                    </span>
+                  )}
                 </div>
                 <div
                   className={styles.yoremIpsumDolor}

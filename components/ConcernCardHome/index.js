@@ -16,7 +16,11 @@ const Card = ({ className = "", placeholderImage, details }) => {
         width={411}
         height={260}
         alt=""
-        src={details?.image1?.url ? details?.image1?.url : placeholderImage}
+        src={
+          details?.images1
+            ? details?.images1.replace(/ /g, "%20")
+            : "/placeholder-image3@2x.png"
+        }
       />
       <div className={styles.content}>
         <div className={styles.contentHeadingOne}>

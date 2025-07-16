@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 
 export async function getServerSidePaths() {
   try {
-    const response = await fetch(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/specialproducts`);
+    const response = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/specialproducts`);
     const specials = await response.json();
 
     const paths = specials?.map((special) => ({
@@ -45,9 +45,9 @@ export const getServerSideProps = async (context) => {
   const { slug } = context.params;
 
   try {
-    const res = await fetch(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/specialproducts/slug/${slug}`);
+    const res = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/specialproducts/slug/${slug}`);
     const data = await res.json();
-    
+
     return {
       props: {
         specialData: data || null,
@@ -68,15 +68,17 @@ const ServicesDetails = ({ specialData }) => {
     event.preventDefault();
   }, []);
 
+  console.log("Special Data:", specialData.mainImages);
+
   return (
     <div className={styles.servicesDetails}>
       <FooterContainer />
       <section
         className={styles.banner}
         style={{
-          backgroundImage: `url(${
-            specialData?.Main_banner?.url || "/placeholder-image3@2x.png"
-          })`,
+          backgroundImage: specialData?.mainImages
+            ? `url("${specialData.mainImages.replace(/ /g, "%20")}")`
+            : 'url("/placeholder-image3@2x.png")'
         }}
       >
         <div className={styles.loremIpsumDolor}>

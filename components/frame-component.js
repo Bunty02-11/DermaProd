@@ -13,7 +13,7 @@ const FrameComponent = ({ className = "", placeholderImage }) => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch('https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/testimonials/');
+        const response = await fetch('https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/testimonials/');
         if (!response.ok) {
           throw new Error('Failed to fetch testimonials');
         }

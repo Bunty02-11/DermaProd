@@ -16,8 +16,9 @@
   position: relative;
   border-radius: var(--br-base);
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   max-width: 100%;
+  border-radius: 25px;
 }
 .aed {
   align-self: stretch;
@@ -198,6 +199,26 @@
   color: var(--text-primary);
   font-family: var(--h2-48);
 }
+.actualPrice {
+  position: relative;
+  margin-left: 16px;
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0.8;
+}
+.actualPrice::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: red;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
 @media screen and (max-width: 1280px) {
   .specialPromotionTitle {
     font-size: 34px;
@@ -261,7 +282,7 @@
     position: relative;
     border-radius: var(--br-base);
     max-height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     max-width: 100%;
   }
 }

@@ -6,7 +6,7 @@ import axios from "axios";
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get("https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/blogs");
+    const response = await axios.get("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/blogs");
     // Adjust this line if your API structure is different
     // console.log("Fetched blogs:", response.data);
     const blogs = (response.data);

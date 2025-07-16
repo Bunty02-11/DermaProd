@@ -18,8 +18,8 @@ const Card2 = ({ className = "", placeholderImage, details }) => {
         height={260}
         alt=""
         src={
-          details?.image1?.url
-            ? details?.image1?.url
+          details?.images1
+            ? details?.images1.replace(/ /g, "%20")
             : "/placeholder-image3@2x.png"
         }
       />

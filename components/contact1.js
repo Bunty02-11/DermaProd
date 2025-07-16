@@ -73,7 +73,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/contacts",
+        "https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/contacts",
         formData, // Changed from { data: formData } to formData directly
         {
           headers: {

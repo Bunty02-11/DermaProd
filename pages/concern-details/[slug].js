@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 
 export async function getServerSidePaths() {
   try {
-    const response = await fetch(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/concerns`);
+    const response = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns`);
     const concerns = await response.json();
 
     const paths = concerns?.map((concern) => ({
@@ -43,7 +43,7 @@ export const getServerSideProps = async (context) => {
   const { slug } = context.params;
 
   try {
-    const res = await fetch(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/concerns/slug/${slug}`);
+    const res = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns/slug/${slug}`);
     const data = await res.json();
     
     return {
@@ -72,9 +72,9 @@ const ConcernsDetails = ({ concernDetails }) => {
       <section
         className={styles.banner}
         style={{
-          backgroundImage: `url(${
-            concernDetails?.Main_banner?.url || "/placeholder-image3@2x.png"
-          })`,
+          backgroundImage: concernDetails?.mainImages
+            ? `url("${concernDetails.mainImages.replace(/ /g, "%20")}")`
+            : 'url("/placeholder-image3@2x.png")'
         }}
       >
         <div className={styles.loremIpsumDolor}>

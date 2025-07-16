@@ -5,9 +5,9 @@ import styles from "./services2.module.css";
 const Services2 = ({ className = "", serviceDetails }) => {
   // Prepare the images dynamically
   const images = [
-    serviceDetails?.image1?.url,
-    serviceDetails?.image2?.url,
-    serviceDetails?.image3?.url
+    serviceDetails?.images1,
+    serviceDetails?.images2,
+    serviceDetails?.images3
   ];
 
   return (
@@ -28,10 +28,8 @@ const Services2 = ({ className = "", serviceDetails }) => {
           height={500}
           alt="Banner Image"
           src={
-            serviceDetails?.banner_image?.url
-              ? serviceDetails.banner_image.url.startsWith("http")
-                ? serviceDetails.banner_image.url
-                : serverurl + serviceDetails.banner_image.url
+            serviceDetails?.belowBanner
+              ? serviceDetails.belowBanner.replace(/ /g, "%20")
               : "/placeholder-image3@2x.png"
           }
         />
