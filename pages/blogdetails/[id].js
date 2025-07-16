@@ -11,7 +11,7 @@ import axios from "axios";
 export async function getServerSidePaths() {
   try {
     const response = await fetch(
-      `https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/blogs`
+      `https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/blogs`
     );
     
     if (!response.ok) {
@@ -48,7 +48,7 @@ export async function getServerSideProps(context) {
   const { id } = context.params;
 
   try {
-    const response = await axios.get(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/blogs/${id}`);
+    const response = await axios.get(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/blogs/${id}`);
     const blogData = response.data;
     if (!blogData) {
       return {

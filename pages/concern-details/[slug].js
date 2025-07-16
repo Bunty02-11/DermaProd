@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 
 export async function getServerSidePaths() {
   try {
-    const response = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns`);
+    const response = await fetch(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/concerns`);
     const concerns = await response.json();
 
     const paths = concerns?.map((concern) => ({
@@ -43,7 +43,7 @@ export const getServerSideProps = async (context) => {
   const { slug } = context.params;
 
   try {
-    const res = await fetch(`https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns/slug/${slug}`);
+    const res = await fetch(`https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/concerns/slug/${slug}`);
     const data = await res.json();
     
     return {

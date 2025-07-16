@@ -15,7 +15,7 @@ const FrameComponent3 = ({ className = "" }) => {
   useEffect(() => {
     const fetchDiscountServices = async () => {
       try {
-        const response = await fetch('https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/discountservices/');
+        const response = await fetch('https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/discountservices/');
         if (!response.ok) {
           throw new Error('Failed to fetch discount services');
         }

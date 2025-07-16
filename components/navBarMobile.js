@@ -25,7 +25,7 @@ function navBarMobile(props) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/categories/");
+        const response = await fetch("https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/categories/");
         const data = await response.json();
         setCategories(data);
       } catch (error) {
@@ -34,7 +34,7 @@ function navBarMobile(props) {
     };
     const fetchServices = async () => {
       try {
-        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/services/");
+        const response = await fetch("https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/services/");
         const data = await response.json();
         setServices(data);
       } catch (error) {
@@ -43,7 +43,7 @@ function navBarMobile(props) {
     };
     const fetchSpecialProducts = async () => {
       try {
-        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/specialproducts/");
+        const response = await fetch("https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/specialproducts/");
         const data = await response.json();
         setSpecialProducts(data);
       } catch (error) {
@@ -52,7 +52,7 @@ function navBarMobile(props) {
     };
     const fetchConcerns = async () => {
       try {
-        const response = await fetch("https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/concerns");
+        const response = await fetch("https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/concerns");
         const data = await response.json();
         setConcerns(data);
       } catch (error) {

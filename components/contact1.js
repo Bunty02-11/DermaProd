@@ -9,7 +9,7 @@ import axios from "axios";
 const Contact1 = ({ className = "", placeholderImage }) => {
   const [formData, setFormData] = useState({
     name: "",
-    last_name: "",
+    subject: "",
     email: "",
     phone: "",
     message: "",
@@ -24,10 +24,10 @@ const Contact1 = ({ className = "", placeholderImage }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const { name, last_name, email, phone, message } = formData;
+    const { name, subject, email, phone, message } = formData;
 
     // Field validation
-    if (!name || !last_name || !email || !phone || !message) {
+    if (!name || !subject || !email || !phone || !message) {
       toast.error("Please fill in all fields.", {
         position: "top-right",
         autoClose: 5000,
@@ -73,7 +73,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/api/contacts",
+        "https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/api/contacts",
         formData, // Changed from { data: formData } to formData directly
         {
           headers: {
@@ -94,7 +94,7 @@ const Contact1 = ({ className = "", placeholderImage }) => {
         });
         setFormData({
           name: "",
-          last_name: "",
+          subject: "",
           email: "",
           phone: "",
           message: "",
@@ -164,10 +164,10 @@ const Contact1 = ({ className = "", placeholderImage }) => {
                 <input
                   className={styles.firstName}
                   type="text"
-                  name="last_name"
+                  name="subject"
                   placeholder="Last Name"
                   required
-                  value={formData.last_name}
+                  value={formData.subject}
                   onChange={handleChange}
                 />
               </div>

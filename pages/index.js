@@ -31,7 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     // Define API base URL
-    const API_BASE_URL = "https://exw7ljbf37.execute-api.us-east-1.amazonaws.com/stagging/";
+    const API_BASE_URL = "https://kglynh11qd.execute-api.us-east-1.amazonaws.com/prod/";
 
     const fetchData = async () => {
       try {
